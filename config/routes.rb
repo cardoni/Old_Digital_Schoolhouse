@@ -5,7 +5,7 @@ DigitalSchoolhouse::Application.routes.draw do
 
   resources :schools
 
-  root :to => "posts#index"
+  root :to => "articles#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
