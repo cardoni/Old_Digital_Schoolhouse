@@ -1,12 +1,10 @@
-DigitalSchoolhouse::Application.routes.draw do
-  resources :attachments
-
-  resources :posts
+DigitalSchoolhouse::Application.routes.draw do  
+  resources :articles
 
   resources :users
 
   resources :schools
-  
+
   root :to => "posts#index"
 
   # The priority is based upon order of creation:
