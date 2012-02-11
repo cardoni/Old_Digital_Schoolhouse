@@ -11,29 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120211094741) do
+ActiveRecord::Schema.define(:version => 20120211213618) do
 
-  create_table "attachments", :force => true do |t|
-    t.integer  "type"
-    t.string   "URL"
-    t.string   "description"
-    t.integer  "post_id"
-    t.string   "Credits"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  create_table "posts", :force => true do |t|
-    t.integer  "post_date"
+  create_table "articles", :force => true do |t|
+    t.datetime "article_date"
     t.boolean  "published"
-    t.string   "title"
-    t.text     "body"
-    t.integer  "attachments_id"
-    t.text     "tags"
+    t.string   "article_title"
+    t.text     "article_body"
+    t.text     "article_tags"
     t.integer  "user_id"
-    t.text     "slug"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.string   "attachment_URL"
+    t.string   "attachment_Description"
+    t.string   "attachment_Credits"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
   end
 
   create_table "schools", :force => true do |t|
