@@ -25,7 +25,7 @@ class AttachmentsController < ApplicationController
   # GET /attachments/new.json
   def new
     @attachment = Attachment.new
-
+      
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @attachment }
