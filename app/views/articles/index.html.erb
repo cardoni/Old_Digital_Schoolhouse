@@ -1,0 +1,39 @@
+<h1>Listing articles</h1>
+
+<table>
+  <tr>
+    <th>Article date</th>
+    <th>Published</th>
+    <th>Article title</th>
+    <th>Article body</th>
+    <th>Article tags</th>
+    <th>User</th>
+    <th>Attachment url</th>
+    <th>Attachment description</th>
+    <th>Attachment credits</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @articles.each do |article| %>
+  <tr>
+    <td><%= article.article_date %></td>
+    <td><%= article.published %></td>
+    <td><%= article.article_title %></td>
+    <td><%= article.article_body %></td>
+    <td><%= article.article_tags %></td>
+    <td><%= article.user_id %></td>
+    <td><%= article.attachment_URL %></td>
+    <td><%= article.attachment_Description %></td>
+    <td><%= article.attachment_Credits %></td>
+    <td><%= link_to 'Show', article %></td>
+    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+    <td><%= link_to 'Destroy', article, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Article', new_article_path %>

@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Article date:</b>
+  <%= @article.article_date %>
+</p>
+
+<p>
+  <b>Published:</b>
+  <%= @article.published %>
+</p>
+
+<p>
+  <b>Article title:</b>
+  <%= @article.article_title %>
+</p>
+
+<p>
+  <b>Article body:</b>
+  <%= @article.article_body %>
+</p>
+
+<p>
+  <b>Article tags:</b>
+  <%= @article.article_tags %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @article.user_id %>
+</p>
+
+<p>
+  <b>Attachment url:</b>
+  <%= @article.attachment_URL %>
+</p>
+
+<p>
+  <b>Attachment description:</b>
+  <%= @article.attachment_Description %>
+</p>
+
+<p>
+  <b>Attachment credits:</b>
+  <%= @article.attachment_Credits %>
+</p>
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>
