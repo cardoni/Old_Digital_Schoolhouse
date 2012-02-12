@@ -162,3 +162,11 @@ body {
 ul li {
   list-style: none;
 }
+
+a {
+  color: #000;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: #fff;
+    background-color: none; } }
