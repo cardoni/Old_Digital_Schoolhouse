@@ -33,19 +33,18 @@
     <%= f.text_field :attachment_Credits %>
   </div>
   <div class="field">
+<<<<<<< HEAD
     <%= f.label :user_id %><br />
     <%= f.text_field :user_id %>
+=======
+    <%= f.label "Country" %><br />
+    <%= f.select :user_id, {"Thailand" => 1, "Honduras" => 2, "Vietnam" => 3, "Uganda" => 4, "Egypt" => 5, "Japan" => 6, "Croatia" => 7, } %>
+>>>>>>> pre-adam merge
   </div>
 </div>
 <div class="actions">
   <%= f.submit %>
 </div>
-<br>
-<hr />
-<p>(ignore the below for now):</p>
-  <div class="field">
-    <%= f.label :slug %><br />
-    <%= f.text_field :slug %>
 
 <% end %>
 

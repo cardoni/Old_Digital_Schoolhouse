@@ -3,6 +3,7 @@ require 'json'
 require 'uri'
 require 'flickraw'
 
+
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
@@ -102,10 +103,6 @@ class ArticlesController < ApplicationController
   def new
     @article = Article.new
     @user = User.find_by_id(session[:user_id])
-    
-    # @slug = Article.create(:slug => @article.article_title)
-    # Article.slug = @slug.friendly_id
-    # redirect_to @article
     
     respond_to do |format|
       format.html # new.html.erb

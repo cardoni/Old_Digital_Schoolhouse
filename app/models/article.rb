@@ -1,10 +1,10 @@
 class Article < ActiveRecord::Base
   
-  
   belongs_to :user
   validate :article_title, :presence => true  #originally said "validates?" --greg
   validate :article_body_or_attachment_URL
   
+<<<<<<< HEAD
   # extend FriendlyId
   #   friendly_id :article_title, use: :slugged
   
@@ -17,6 +17,8 @@ class Article < ActiveRecord::Base
   
   
   
+=======
+>>>>>>> pre-adam merge
   def article_body_or_attachment_URL
     if article_body.blank? and attachment_URL.blank?
       errors.add :base, "Please fill in either body or URL"
