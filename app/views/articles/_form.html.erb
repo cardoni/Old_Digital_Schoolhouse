@@ -13,28 +13,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :article_date %><br />
-    <%= f.datetime_select :article_date %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br />
-    <%= f.check_box :published %>
-  </div>
-  <div class="field">
     <%= f.label :article_title %><br />
     <%= f.text_field :article_title %>
   </div>
   <div class="field">
     <%= f.label :article_body %><br />
     <%= f.text_area :article_body %>
-  </div>
-  <div class="field">
-    <%= f.label :article_tags %><br />
-    <%= f.text_area :article_tags %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
   </div>
   <div class="field">
     <%= f.label :attachment_URL %><br />
@@ -48,7 +32,16 @@
     <%= f.label :attachment_Credits %><br />
     <%= f.text_field :attachment_Credits %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+<div class="actions">
+  <%= f.submit %>
+</div>
+<br>
+<hr />
+<p>(ignore the below for now):</p>
+  <div class="field">
+    <%= f.label :slug %><br />
+    <%= f.text_field :slug %>
+
 <% end %>
+
