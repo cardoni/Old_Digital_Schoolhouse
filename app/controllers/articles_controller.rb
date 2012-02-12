@@ -4,6 +4,7 @@ require 'uri'
 require 'flickraw'
 
 
+
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
@@ -12,6 +13,8 @@ class ArticlesController < ApplicationController
   FlickRaw.shared_secret="f17739267c5e29a6"
   @photo = flickr.photos.getRecent
   # list.each {|photo| puts "'#{photo.title}' id=#{photo.id} secret=#{photo.secret}" }
+  
+  # http://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
   def photo
     list = flickr.photos.getRecent
     list.
