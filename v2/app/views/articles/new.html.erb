@@ -1,8 +1,8 @@
-<h1>Add New Article</h1>
-<hr />
-<!-- <p>User ID:
-<%#= @user.id %>
-</p> -->
-<%= render 'form' %>
+<div class="create-page">
+	<h1 class="header">New Article</h1>
+	<h2 class="sub-header"><!-- Currently Editing: <i><%#= @article.article_title %></i> --></h2>
 
-<%= link_to 'Back', articles_path %>
+	<%= render 'form' %>
+
+	<%= link_to 'Back', articles_path %>
+</div>

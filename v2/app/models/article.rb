@@ -2,21 +2,22 @@ class Article < ActiveRecord::Base
   
   belongs_to :user
   validate :article_title, :presence => true  #originally said "validates?" --greg
-  validate :article_body_or_attachment_URL
+  # validate :article_body_or_attachment_URL
   
   # extend FriendlyId
   #   friendly_id :article_title, use: :slugged
   
-  def article_body_or_attachment_URL
-    if article_body.blank? and attachment_URL.blank?
-      errors.add :base, "Please fill in either body or URL"
-      return false
-      else
-      return true
-    end
-  end
+  # def article_body_or_attachment_URL
+  #   if article_body.blank? and attachment_URL.blank?
+  #     errors.add :base, "Please fill in either body or URL"
+  #     return false
+  #     else
+  #     return true
+  #   end
+  # end
 
   # validate :url_tests
+  
   
   # def url_tests
   #   if attachment_URL.present? and attachment_Credits.blank?
