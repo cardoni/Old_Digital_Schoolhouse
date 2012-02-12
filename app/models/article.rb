@@ -22,11 +22,11 @@ class Article < ActiveRecord::Base
       return false
     else
       if attachment_URL.blank? and attachment_Credits.present? 
-        errors.add :base, "Do not add credits unless you are providing an URL"
+        errors.add :base, "Do not add credits unless you are providing a URL"
         return false
       else
         if attachment_URL.blank? and attachment_Description.present? 
-          errors.add :base, "Do not add a description unless you are providing an URL"
+          errors.add :base, "Do not add a description unless you are providing a URL"
           return false
         else
       return true
