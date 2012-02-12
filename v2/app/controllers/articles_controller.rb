@@ -5,9 +5,42 @@ require 'flickraw'
 
 
 
+# OLD YOUTUBE CODE:
+#
+# <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" height="200px" width="328px" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+#
+#
+
+
+
 class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
+  
+  # attr_accessor :isYouTube
+  # 
+  # def initialize
+  #   @isYouTube = false
+  # end
+
+
+
+  # def attachmentEmbedCode(url)
+  #   if url.blank? then
+  #     return ""
+  #   else
+  #     if @isYouTube == true then
+  #       logger.info("-------------------  IS YOUTUBE!")
+  #       return "YouTube"
+  #     else
+  #       return "Ah hah! An Image!"
+  #       logger.info("-------------------  IS IMAGE!")
+  #     end
+  #   end
+  # end
+  
+  
+  
   
   FlickRaw.api_key="38f6460e9bb67f7ec0b078eff4841b6c"
   FlickRaw.shared_secret="f17739267c5e29a6"
@@ -80,16 +113,20 @@ class ArticlesController < ApplicationController
     # raise @video_id.inspect
   end  
   
+  
+  
     def updateAttachmentURL(id)
-      logger.info("-------------------  id.class: #{id.class}")
+      # logger.info("-------------------  id.class: #{id.class}")
     @article.attachment_URL = ""
     a = id[:article]
     b = a[:yt_url]
     if b.blank? then
       @article.attachment_URL = id[:article][:image_url]
-    else
-      @article.attachment_URL = id[:article][:yt_url]
-    end
+      # @isYouTube = false
+      else
+        @article.attachment_URL = id[:article][:yt_url]
+        # @isYouTube = true
+      end
     end
   
   def index
@@ -142,7 +179,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(params[:article])
-    updateAttachmentURL(params[:article])
+    updateAttachmentURL(params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to articles_public_url, notice: 'Article was successfully created.' }
