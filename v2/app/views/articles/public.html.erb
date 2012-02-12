@@ -1,21 +1,20 @@
 <div id="content">
   <div id="main">
   <header class="wrapper">
-    <%= image_tag("globalplayground2.gif") %>
-    <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <% if signed_in? %>
-        <!-- <li><%#= link_to "Users", users_path %></li> -->
-        <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-        
-        <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
-        <% else %>
-        <li><%= link_to "Sign in", signin_path %></li>
-        <% end %>
-      </ul>
-    </nav>
+    <%= link_to image_tag("globalplayground2.gif"), root_url, :border=>0, :class => 'header-image' %>
+    <!-- <nav>
+         <ul> -->
+        <!-- <%# if signed_in? %>
+              <!-- <li><%#= link_to "Users", users_path %></li> -->
+              <!-- <li><%#= link_to "Profile", current_user %></li> -->
+              <!-- <li><%#= link_to "Settings", edit_user_path(current_user) %></li> -->
+              
+              <!-- <li><%#= link_to "Sign out", signout_path, :method => :delete %></li> -->
+              <%# else %>
+              <!-- <li><%#= link_to "Sign in", signin_path %></li> -->
+              <%# end %>
+      <!-- </ul>
+         </nav> -->
   </header>
   
       <%# @video_ids.each do |vid_id| %>
