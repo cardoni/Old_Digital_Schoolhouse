@@ -9,13 +9,18 @@ class ArticlesController < ApplicationController
   
   FlickRaw.api_key="38f6460e9bb67f7ec0b078eff4841b6c"
   FlickRaw.shared_secret="f17739267c5e29a6"
-
+  @photo = flickr.photos.getRecent
+  # list.each {|photo| puts "'#{photo.title}' id=#{photo.id} secret=#{photo.secret}" }
   def photo
-    list   = flickr.photos.getRecent
+    list = flickr.photos.getRecent
+    list.
+    
+    return list
+    # id     = list[0].id
+    # secret = list[0].secret
+    
 
-    id     = list[0].id
-    secret = list[0].secret
-    @photo = "http://farm8.staticflickr.com/7159/6772693145_e2e27ae2df.jpg"
+    # @photo = "http://farm8.staticflickr.com/7159/6860895969_492e5596bb.jpg"
   end
 
   def photo_id
