@@ -25,7 +25,8 @@ class ArticlesController < ApplicationController
   # GET /articles/new.json
   def new
     @article = Article.new
-
+    @user = User.find_by_id(session[:user_id])
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
