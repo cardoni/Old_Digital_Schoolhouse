@@ -1,0 +1,60 @@
+
+
+<div id="content">
+  <div id="main">
+  <header class="wrapper">
+    <%= image_tag("globalplayground2.gif") %>
+    <nav>
+      
+    </nav>
+  </header>
+  
+      <% @video_ids.each do |vid_id| %>
+        <%= link_to "link", "http://www.youtube.com/watch?v=#{vid_id}" %>
+      <% end %>
+      
+      <div class="wrapper threeway">
+        <ul>
+
+        <%= @uri.query %>
+        <% @videos.each do |v| %>
+        <li>
+          <%= v["title"]["$t"] %>
+          <%= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+        </li>
+        <% end %>
+
+
+        </ul>
+      </div>
+      <div class="wrapper threeway">
+        <ul>
+        
+
+        <li>
+          <a href="http://www.flickr.com/photos/gplayground/6772693145/" title="Photo by Teacher Ying (Thailand) by Global Playground, on Flickr" ><img src="http://farm8.staticflickr.com/7159/6772693145_e2e27ae2df.jpg" alt="Photo by Teacher Ying (Thailand)" class="vid_img"></a>
+          <%= image_tag("http://www.flickr.com/photos/gplayground/6772693145", :class => "vid_img") %>
+        </li>
+
+        
+
+        </ul>
+      </div>
+      <div class="wrapper threeway">
+        <ul>
+        
+        <% @videos.each do |v| %>
+        <li>
+          <%= v["title"]["$t"] %>
+          <%= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+        </li>
+        <% end %>
+        
+
+        </ul>
+      </div>
+
+  </div>
+</div>
+
+
