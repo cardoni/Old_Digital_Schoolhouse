@@ -99,14 +99,13 @@ header .header-image {
   .threeway {
     width: 100%;
     float: left;
-
+	background-color: rgba(232,244,255,.85);
     
   }
   .threeway {
     //background-color: #e8f4ff;
     @include border-radius(10px);
     background-repeat:repeat;
-    background-image:url('ef.gif');
   }
   .threeway ul {
 
@@ -114,24 +113,13 @@ header .header-image {
 .frontpage {
   max-width: 100%;
   height:auto;
-
-<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
 }
 
-<<<<<<< HEAD:app/assets/stylesheets/_GGS.css.scss
 a.header-image :hover {
  	border: 0;
 	border: none;
-=======
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45:app/assets/stylesheets/application.css.scss
 }
-=======
 
-<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45:app/assets/stylesheets/application.css.scss
-=======
-
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45:app/assets/stylesheets/application.css.scss
 
 .article_body {
   //background-color: #e8f4ff;
@@ -140,6 +128,7 @@ iframe, object, embed{
   max-width: 100%;
   
 }
+
 #player {
   margin: 1em 10%;
   @include single-box-shadow;
@@ -239,7 +228,6 @@ h3 {
 	  margin: 0 12.5%;
 	}
 
-
 }
 
 
@@ -314,7 +302,7 @@ h3 {
 /*
 *
 *  Sixteen-column grid active
-*  ----------------------------------------------------------------------------------------------------------------------
+*
 *  Margin   | #  1     2     3     4     5     6     7     8     9     10    11    12    13    14    15    16  |   Margin
 *  5.55555% | %  6.25  12.5  18.75 25.0  31.25 37.5  43.75 50.0  56.25 62.5  68.75 75.0  81.25 87.5  93.75 100 | 5.55555%
 *
