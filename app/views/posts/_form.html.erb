@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :post_date %><br />
     <%= f.number_field :post_date %>
   </div>
   <div class="field">
     <%= f.label :published %><br />
     <%= f.check_box :published %>
-  </div>
+  </div> -->
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
@@ -27,10 +27,7 @@
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :attachments_id %><br />
-    <%= f.number_field :attachments_id %>
-  </div>
+
   <div class="field">
     <%= f.label :tags %><br />
     <%= f.text_area :tags %>
@@ -38,10 +35,6 @@
   <div class="field">
     <%= f.label :user_id %><br />
     <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %><br />
-    <%= f.text_area :slug %>
   </div>
   <div class="actions">
     <%= f.submit %>

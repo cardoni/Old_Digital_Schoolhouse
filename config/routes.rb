@@ -1,6 +1,6 @@
 DigitalSchoolhouse::Application.routes.draw do
   resources :attachments
-
+  get 'posts/public_test' => "posts#public" 
   resources :posts
 
   resources :users
@@ -8,6 +8,7 @@ DigitalSchoolhouse::Application.routes.draw do
   resources :schools
   
   root :to => "posts#index"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
