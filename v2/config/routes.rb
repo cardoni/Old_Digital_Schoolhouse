@@ -1,4 +1,16 @@
 DigitalSchoolhouse::Application.routes.draw do  
+  # get "session/new"
+
+  # get "session/create"
+
+  # get "session/destroy"
+
+  resources :session, :only => [:new, :create, :destroy]
+  
+  match '/signup', :to => 'users#new'
+  match '/signin', :to => 'session#new'
+  match '/signout', :to => 'session#destroy'
+  
   resources :articles
 
   resources :users
@@ -6,6 +18,8 @@ DigitalSchoolhouse::Application.routes.draw do
   resources :schools
 
   root :to => "articles#index"
+  
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
