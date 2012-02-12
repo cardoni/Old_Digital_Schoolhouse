@@ -1,22 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div style="float: left;">
+<h1><%= @article.article_title %></h1>
 <p>
-  <b>Article date:</b>
-  <%= @article.article_date %>
+	<small>Author: <i><%= @article.user.first_name + " " + @article.user.last_name %></i> | Published: <i><%= @article.article_date %></i></small>
 </p>
 
 <p>
-  <b>Published:</b>
-  <%= @article.published %>
-</p>
-
-<p>
-  <b>Article title:</b>
-  <%= @article.article_title %>
-</p>
-
-<p>
-  <b>Article body:</b>
   <%= @article.article_body %>
 </p>
 
@@ -26,25 +16,21 @@
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @article.user_id %>
-</p>
-
-<p>
-  <b>Attachment url:</b>
+  <b>Picture / Video:</b>
   <%= @article.attachment_URL %>
 </p>
 
 <p>
-  <b>Attachment description:</b>
+  <b>Description:</b>
   <%= @article.attachment_Description %>
 </p>
 
 <p>
-  <b>Attachment credits:</b>
+  <b>Credits:</b>
   <%= @article.attachment_Credits %>
 </p>
-
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+</div>
+<div style="float: right;">
+	<%= link_to 'Edit This Article', edit_article_path(@article) %>
+<div>
+<div style="clear: both;"></div>
