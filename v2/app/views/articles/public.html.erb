@@ -3,62 +3,92 @@
   <header class="wrapper">
     <%= image_tag("globalplayground2.gif") %>
     <nav>
-      
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <% if signed_in? %>
+        <!-- <li><%#= link_to "Users", users_path %></li> -->
+        <li><%= link_to "Profile", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+        
+        <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
+        <% else %>
+        <li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
+      </ul>
     </nav>
   </header>
   
-      <% @video_ids.each do |vid_id| %>
-        <%= link_to "link", "http://www.youtube.com/watch?v=#{vid_id}" %>
-      <% end %>
+      <%# @video_ids.each do |vid_id| %>
+        <%#= link_to "link", "http://www.youtube.com/watch?v=#{vid_id}" %>
+      <%# end %>
       
       <div class="wrapper threeway">
-				<h4>Thailand:</h4>
-        <ul>
-        <%#= @uri.query %>
-        <% @articles.each do |article| %>
-		<% if article.user_id == 1 %>
-		<h2><%=  article.article_title %></h2><br />
-		<p><%=  article.article_body %></p>
-		<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+				<h1>Thailand</h1>
+          <ul>
+            <%#= @uri.query %>
+            <% @articles.each do |article| %>
+		          <% if article.user_id == 1 %>
+		          <div class="article_body">
+		            <h2><%=  article.article_title %></h2>
+		            <p><%=  article.article_body %></p>
+		          </div>
+		          <hr>
+		          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
 		<hr>
           <%#= v["title"]["$t"] %>
           <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
-		<% end %>
-   		<% end %>
-</ul>
+		          <% end %>
+   		      <% end %>
+          </ul>
       </div>
+      
       <div class="wrapper threeway">
-				<h4>Honduras:</h4>
-                <ul>
-		        <%#= @uri.query %>
-		        <% @articles.each do |article| %>
-				<% if article.user_id == 2 %>
-				<h2><%=  article.article_title %></h2><br />
-				<p><%=  article.article_body %></p>
-				<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
-				<hr>
-		          <%#= v["title"]["$t"] %>
-		          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
-				<% end %>
-		   		<% end %>
-		</ul>
-      </div>
+				<h1>Honduras</h1>
+          <ul>
+            <%#= @uri.query %>
+            <% @articles.each do |article| %>
+		          <% if article.user_id == 2 %>
+		          <div class="article_body">
+		            <h2><%=  article.article_title %></h2>
+		            <p><%=  article.article_body %></p>
+		          </div>
+		          <hr>
+		          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" height="200px" width="328px" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+		<hr>
+          <%#= v["title"]["$t"] %>
+          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+		          <% end %>
+   		      <% end %>
+          </ul>
+        </div>
+      
       <div class="wrapper threeway">
-			<h4>Vietnam:</h4>
-		        <ul>
-		        <%#= @uri.query %>
-		        <% @articles.each do |article| %>
-				<% if article.user_id == 3 %>
-				<h2><%=  article.article_title %></h2><br />
-				<p><%=  article.article_body %></p>
-				<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
-				<hr>
-		          <%#= v["title"]["$t"] %>
-		          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
-				<% end %>
-		   		<% end %>
-		</ul>
-      </div>
+			<h1>Vietnam</h1>
+        <ul>
+          <%#= @uri.query %>
+          <% @articles.each do |article| %>
+	          <% if article.user_id == 3 %>
+	          <div class="article_body">
+	            <h2><%=  article.article_title %></h2>
+	            <p><%=  article.article_body %></p>
+	          </div>
+	          <hr>
+	          <object width="241" height="145">
+	            <param name="movie" value="http://www.youtube.com/e/N8G4YgQyEMk">
+	            <param name="allowFullScreen" value="true">
+	            <param name="allowscriptaccess" value="always">
+	            <embed src="http://www.youtube.com/e/N8G4YgQyEMk" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
+	          </object>
+	          
+	          
+	          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0" style="text-align: center; "></iframe></div>
+	<hr>
+        <%#= v["title"]["$t"] %>
+        <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+	          <% end %>
+ 		      <% end %>
+        </ul>
+    </div>
 
   </div>
 </div>
