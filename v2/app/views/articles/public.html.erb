@@ -22,7 +22,7 @@
       <%# end %>
       
       <div class="wrapper threeway">
-				<h1>Thailand</h1>
+				<h1 class="large">Thailand</h1>
           <ul>
             <%#= @uri.query %>
             <% @articles.each do |article| %>
@@ -32,7 +32,7 @@
 		            <p><%=  article.article_body %></p>
 		          </div>
 		          <hr>
-		          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+		          <div class="frontpage"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
 		<hr>
           <%#= v["title"]["$t"] %>
           <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
@@ -42,7 +42,7 @@
       </div>
       
       <div class="wrapper threeway">
-				<h1>Honduras</h1>
+				<h1 class="large">Honduras</h1>
           <ul>
             <%#= @uri.query %>
             <% @articles.each do |article| %>
@@ -52,7 +52,7 @@
 		            <p><%=  article.article_body %></p>
 		          </div>
 		          <hr>
-		          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" height="200px" width="328px" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+		          <div class="frontpage"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
 		<hr>
           <%#= v["title"]["$t"] %>
           <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
@@ -62,7 +62,7 @@
         </div>
       
       <div class="wrapper threeway">
-			<h1>Vietnam</h1>
+			<h1 class="large">Vietnam</h1>
         <ul>
           <%#= @uri.query %>
           <% @articles.each do |article| %>
@@ -72,15 +72,10 @@
 	            <p><%=  article.article_body %></p>
 	          </div>
 	          <hr>
-	          <object width="241" height="145">
-	            <param name="movie" value="http://www.youtube.com/e/N8G4YgQyEMk">
-	            <param name="allowFullScreen" value="true">
-	            <param name="allowscriptaccess" value="always">
-	            <embed src="http://www.youtube.com/e/N8G4YgQyEMk" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
-	          </object>
+
 	          
 	          
-	          <div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0" style="text-align: center; "></iframe></div>
+	          <div class="frontpage"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0" style="text-align: center; "></iframe></div>
 	<hr>
         <%#= v["title"]["$t"] %>
         <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
