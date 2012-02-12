@@ -16,16 +16,13 @@
 </p>
 
 <p>
-<<<<<<< HEAD
   <b>Picture / Video:</b>
-=======
-  <b>User:</b>
-  <%= @article.user.username %>
 </p>
 
+<hr />
+
 <p>
-  <b>Attachment url:</b>
->>>>>>> be1c2a833168c56439536f0a3af4d005fb541f4e
+  <b>Attachment URL:</b>
   <%= @article.attachment_URL %>
 </p>
 
@@ -39,7 +36,9 @@
   <%= @article.attachment_Credits %>
 </p>
 </div>
+
 <div style="float: right;">
 	<%= link_to 'Edit This Article', edit_article_path(@article) %>
-<div>
+</div>
+
 <div style="clear: both;"></div>
