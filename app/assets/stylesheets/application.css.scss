@@ -1,4 +1,21 @@
 /*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+@import "compass/css3";
+
+@import "partials/ggsreset";
+
+/*
 *
 *  Golden Grid System (1.0)	<http://goldengridsystem.com/>
 *  by Joni Korpi 				<http://jonikorpi.com/>
@@ -17,7 +34,32 @@
 //   $em: $font-size * 1;
 
 
-@import "ggsreset";
+.header {
+	margin: 5px 5px 10px 5px;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: left;
+}
+.sub-header {
+	background: #fdd;
+	padding: 5px 0px 5px 100px;
+	margin: 0px 0px 20px 0px;
+	font-size: 20px;
+	font-weight: regular;
+	text-align: left;
+}
+
+.pictures-video {
+	height: 100%;
+	width: 735px;
+	float: left;
+}
+
+.create-page {
+	padding: 10px 10px 10px 40px;
+	
+}
+
 
 
 
@@ -36,6 +78,11 @@ body {
   background-image: url('gpbg2.gif');
   background-repeat: no-repeat;
 }
+
+header .header-image {
+  margin: 1.5em 0;
+  
+}
   .vid_img {
     max-width: 100%;
     margin: 5px;
@@ -52,27 +99,36 @@ body {
   .threeway {
     width: 100%;
     float: left;
+
     
   }
+  .threeway {
+    //background-color: #e8f4ff;
+    @include border-radius(10px);
+    background-repeat:repeat;
+    background-image:url('ef.gif');
+  }
   .threeway ul {
-    background-color: #e8f4ff;
+
   }
 .frontpage {
-  width: 100%;
-  background-color: #ADC2DE;
+  max-width: 100%;
+  height:auto;
+
 }
 
-a.header-image hover {text-decoration: none;}
+
 
 .article_body {
-  background-color: #e8f4ff;
+  //background-color: #e8f4ff;
 }
 iframe, object, embed{
   max-width: 100%;
   
 }
 #player {
-  margin: 0 auto;
+  margin: 1em 10%;
+  @include single-box-shadow;
 }
 
 h1, h2 {
@@ -94,6 +150,7 @@ h3 {
 
 .wrapper {
 	padding: 0 #{($line/2)/$em}em;
+	margin: 1em 0;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	    -ms-box-sizing: border-box;
