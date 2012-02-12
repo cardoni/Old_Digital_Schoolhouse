@@ -62,7 +62,10 @@ body {
   background-color: #ADC2DE;
 }
 
-a.header-image hover {text-decoration: none;}
+a.header-image :hover {
+ 	border: 0;
+	border: none;
+}
 
 .article_body {
   background-color: #e8f4ff;
