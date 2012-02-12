@@ -28,11 +28,16 @@
       </div>
       <div class="wrapper threeway">
         <ul>
-        
+          <% @photo.each do |photo| %>
+            <li>
+              <%= image_tag("http://farm{photo.farm}.staticflickr.com/{photo.server}/{photo.id}_{photo.secret}.jpg", :class => "vid_img") %>
+            </li>
+          <!-- list.each {|photo| puts "'#{photo.title}' id=#{photo.id} secret=#{photo.secret}" } -->
+          <% end %>
 
         <li>
           <a href="http://www.flickr.com/photos/gplayground/6772693145/" title="Photo by Teacher Ying (Thailand) by Global Playground, on Flickr" ><img src="http://farm8.staticflickr.com/7159/6772693145_e2e27ae2df.jpg" alt="Photo by Teacher Ying (Thailand)" class="vid_img"></a>
-          <%= image_tag("http://www.flickr.com/photos/gplayground/6772693145", :class => "vid_img") %>
+          <%= image_tag("http://farm8.staticflickr.com/7159/6860895969_492e5596bb.jpg", :class => "vid_img") %>
         </li>
 
         
