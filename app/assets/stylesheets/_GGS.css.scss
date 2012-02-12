@@ -20,6 +20,10 @@
 @import "ggsreset";
 
 
+
+.threeway h1 {
+  text-align: center;
+}
 /*
 *
 *  Four-column grid active
@@ -48,8 +52,26 @@ body {
   .threeway {
     width: 100%;
     float: left;
+    
   }
+  .threeway ul {
+    background-color: #e8f4ff;
+  }
+.frontpage {
+  width: 100%;
+  background-color: #ADC2DE;
+}
 
+.article_body {
+  background-color: #e8f4ff;
+}
+iframe, object, embed{
+  max-width: 100%;
+  
+}
+#player {
+  margin: 0 auto;
+}
 
 h1, h2 {
 	margin: (24/26*1em) 0 (36/26*1em);
