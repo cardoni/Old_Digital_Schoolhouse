@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 DigitalSchoolhouse::Application.routes.draw do  
   # get "session/new"
 
@@ -12,6 +13,12 @@ DigitalSchoolhouse::Application.routes.draw do
   match '/signout', :to => 'session#destroy'
   
   resources :articles
+=======
+DigitalSchoolhouse::Application.routes.draw do
+  resources :attachments
+  get 'posts/public_test' => "posts#public" 
+  resources :posts
+>>>>>>> public_views
 
   resources :users
 
@@ -19,7 +26,12 @@ DigitalSchoolhouse::Application.routes.draw do
 
   root :to => "articles#index"
   
+<<<<<<< HEAD
 
+=======
+  root :to => "posts#index"
+  
+>>>>>>> public_views
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
