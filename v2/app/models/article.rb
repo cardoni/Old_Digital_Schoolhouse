@@ -1,9 +1,12 @@
 class Article < ActiveRecord::Base
+  
+  
   belongs_to :user
-
-  validates :article_title, :presence => true
-
+  validate :article_title, :presence => true  #originally said "validates?" --greg
   validate :article_body_or_attachment_URL
+  
+  extend FriendlyId
+    friendly_id :name, use: :slugged
   
   def article_body_or_attachment_URL
     if article_body.blank? and attachment_URL.blank?

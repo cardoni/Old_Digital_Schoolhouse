@@ -90,6 +90,10 @@ class ArticlesController < ApplicationController
     @article = Article.new
     @user = User.find_by_id(session[:user_id])
     
+    # @slug = Article.create(:slug => @article.article_title)
+    # Article.slug = @slug.friendly_id
+    # redirect_to @article
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @article }
@@ -102,7 +106,7 @@ class ArticlesController < ApplicationController
     #   false
     # end
     # 
-    # 
+    #
   end
 
   # GET /articles/1/edit
