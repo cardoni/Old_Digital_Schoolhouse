@@ -1,3 +1,30 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header {
+	margin: 5px 5px 10px 5px;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: left;
+}
+.sub-header {
+	background: #fdd;
+	padding: 5px 0px 5px 100px;
+	margin: 0px 0px 20px 0px;
+	font-size: 20px;
+	font-weight: regular;
+	text-align: left;
+}
+
+.pictures-video {
+	height: 100%;
+	width: 735px;
+	float: left;
+}
+
+.create-page {
+	padding: 10px 10px 10px 40px;
+	
+}
+
