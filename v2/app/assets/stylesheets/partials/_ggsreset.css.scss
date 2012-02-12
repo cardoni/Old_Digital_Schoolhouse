@@ -121,6 +121,7 @@ body {
 	/* 16px / 24px */
 	font-size: $font-size / 16 * 1em;
 	line-height: #{$line / $em}em;
+	color: #323232;
 }
 
 .small {
@@ -139,6 +140,7 @@ body {
 	/* 26 / 36px */
 	font-size: #{26 / $em}em;
 	line-height: ($line*1.5) / 26 * 1em;
+	color: #2E2E2E;
 }
 
 .huge {
@@ -162,3 +164,11 @@ body {
 ul li {
   list-style: none;
 }
+
+a {
+  color: #000;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: #fff;
+    background-color: none; } }
