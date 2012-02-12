@@ -7,11 +7,10 @@
 				<h1 class="large">Thailand</h1>
           <ul>
             <%#= @uri.query %>
-            <% @articles.each do |article| %>
+            <% @articles.reverse.each do |article| %>
 		          <% if article.user_id == 1 %>
 		          <div class="article_body">
 		            <h2><%=  article.article_title %></h2>
-		            <p><%=  article.article_body %></p>
 		          </div>
 		          <hr>
 
@@ -21,6 +20,9 @@
 				<param name="allowscriptaccess" value="always">
 				<embed src="http://www.youtube.com/e/<%= article.attachment_URL %>" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
 				</object>
+				<div class="article_body">
+		            <p><%=  article.article_body %></p>
+		          </div>
 		          <%#= attachmentEmbedCode(article.attachment_URL) %>
 
 		<hr>
@@ -34,11 +36,10 @@
 				<h1 class="large">Honduras</h1>
           <ul>
             <%#= @uri.query %>
-            <% @articles.each do |article| %>
+            <% @articles.reverse.each do |article| %>
 		          <% if article.user_id == 2 %>
 		          <div class="article_body">
 		            <h2><%=  article.article_title %></h2>
-		            <p><%=  article.article_body %></p>
 		          </div>
 		          <hr>
 
@@ -48,6 +49,9 @@
 				<param name="allowscriptaccess" value="always">
 				<embed src="http://www.youtube.com/e/<%= article.attachment_URL %>" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
 				</object>
+				<div class="article_body">
+		            <p><%=  article.article_body %></p>
+		          </div>
 		          <%#= attachmentEmbedCode(article.attachment_URL) %>
 <hr>
 		          <% end %>
@@ -59,11 +63,10 @@
 			<h1 class="large">Vietnam</h1>
         <ul>
           <%#= @uri.query %>
-          <% @articles.each do |article| %>
+          <% @articles.reverse.each do |article| %>
 	          <% if article.user_id == 3 %>
 	          <div class="article_body">
 	            <h2><%=  article.article_title %></h2>
-	            <p><%=  article.article_body %></p>
 	          </div>
 	          <hr>
 
@@ -73,9 +76,11 @@
 				<param name="allowscriptaccess" value="always">
 				<embed src="http://www.youtube.com/e/<%= article.attachment_URL %>" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
 				</object>
+				<div class="article_body">
+		            <p><%=  article.article_body %></p>
+		          </div>
+				<hr>
 	          <%#= attachmentEmbedCode(article.attachment_URL) %>
-
-	<hr>
       
 	          <% end %>
  		    <% end %>
