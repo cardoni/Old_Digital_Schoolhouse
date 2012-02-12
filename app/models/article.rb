@@ -5,8 +5,17 @@ class Article < ActiveRecord::Base
   validate :article_title, :presence => true  #originally said "validates?" --greg
   validate :article_body_or_attachment_URL
   
-  extend FriendlyId
-    friendly_id :name, use: :slugged
+  # extend FriendlyId
+  #   friendly_id :article_title, use: :slugged
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   def article_body_or_attachment_URL
     if article_body.blank? and attachment_URL.blank?
@@ -40,15 +49,15 @@ class Article < ActiveRecord::Base
 
     validates_format_of :attachment_URL, :with => URI::regexp(%w(http https)), :allow_blank => true
 
-  validate :tags
-  
-  def tags
-    if article_tags.split(",").count < 3
-      errors.add(:article_tags, "Please make sure you have at least 3 comma separated tags")
-      return false
-    else
-      return true
-    end
-  end
+  # validate :tags
+  #   
+  #   def tags
+  #     if article_tags.split(",").count < 3
+  #       errors.add(:article_tags, "Please make sure you have at least 3 comma separated tags")
+  #       return false
+  #     else
+  #       return true
+  #     end
+  #   end
   
 end

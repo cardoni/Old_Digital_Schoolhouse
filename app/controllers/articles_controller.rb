@@ -32,6 +32,14 @@ class ArticlesController < ApplicationController
   end
   
   def public
+    @articles = Article.all
+    
+    
+    # @article = Article.find(params[:id])
+    @youtube_id = "l7L3udkuky0"# video_id_for(article.attachment_URL) 
+    
+    
+    
     
     def regex
       /youtu(.be)?(be.com)?.*(?:\/|v=)([\w-]+)/
