@@ -4,7 +4,7 @@ DigitalSchoolhouse::Application.routes.draw do
   # get "session/create"
 
   # get "session/destroy"
-  get 'articles/public_test' => "articles#public"
+  get 'articles/public' => "articles#public"
   
   
   resources :session, :only => [:new, :create, :destroy]
