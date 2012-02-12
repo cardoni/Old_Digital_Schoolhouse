@@ -30,6 +30,15 @@ class ArticlesController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @article }
     end
+    
+    # def uri?(attachment_url)
+    #   uri = URI.parse(attachment_url)
+    #   %w( http https ).include?(uri.scheme)
+    # rescue URI::BadURIError
+    #   false
+    # end
+    # 
+    # 
   end
 
   # GET /articles/1/edit
