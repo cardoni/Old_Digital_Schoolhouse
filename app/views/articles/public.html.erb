@@ -1,4 +1,3 @@
-
 <div id="content">
   <div id="main">
   <header class="wrapper">
@@ -13,45 +12,52 @@
       <% end %>
       
       <div class="wrapper threeway">
+				<h4>Thailand:</h4>
         <ul>
-
-        <%= @uri.query %>
-        <% @videos.each do |v| %>
-        <li>
-          <%= v["title"]["$t"] %>
-          <%= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
-        </li>
-        <% end %>
-
-
-        </ul>
+        <%#= @uri.query %>
+        <% @articles.each do |article| %>
+		<% if article.user_id == 1 %>
+		<h2><%=  article.article_title %></h2><br />
+		<p><%=  article.article_body %></p>
+		<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+		<hr>
+          <%#= v["title"]["$t"] %>
+          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+		<% end %>
+   		<% end %>
+</ul>
       </div>
       <div class="wrapper threeway">
-        <ul>
-          
-
-        <li>
-          <a href="http://www.flickr.com/photos/gplayground/6772693145/" title="Photo by Teacher Ying (Thailand) by Global Playground, on Flickr" ><img src="http://farm8.staticflickr.com/7159/6772693145_e2e27ae2df.jpg" alt="Photo by Teacher Ying (Thailand)" class="vid_img"></a>
-          <%= image_tag("http://farm8.staticflickr.com/7159/6860895969_492e5596bb.jpg", :class => "vid_img") %>
-        </li>
-
-        
-
-        </ul>
+				<h4>Honduras:</h4>
+                <ul>
+		        <%#= @uri.query %>
+		        <% @articles.each do |article| %>
+				<% if article.user_id == 2 %>
+				<h2><%=  article.article_title %></h2><br />
+				<p><%=  article.article_body %></p>
+				<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+				<hr>
+		          <%#= v["title"]["$t"] %>
+		          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+				<% end %>
+		   		<% end %>
+		</ul>
       </div>
       <div class="wrapper threeway">
-        <ul>
-        
-        <% @articles.each do |a| %>
-        
-          <h1><%= a.article_title %></h1>
-          <p><%= a.article_body %><p>
-          <iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%=@youtube_id%>?enablejsapi=1&origin=http://example.com" frameborder="0">
-
-        <% end %>
-        
-
-        </ul>
+			<h4>Vietnam:</h4>
+		        <ul>
+		        <%#= @uri.query %>
+		        <% @articles.each do |article| %>
+				<% if article.user_id == 3 %>
+				<h2><%=  article.article_title %></h2><br />
+				<p><%=  article.article_body %></p>
+				<div class="frontpage" style="max-width: 100%;"><iframe id="player" type="text/html" src="http://www.youtube.com/embed/<%= article.attachment_URL %>" frameborder="0"></iframe></div>
+				<hr>
+		          <%#= v["title"]["$t"] %>
+		          <%#= image_tag(v["media$group"]["media$thumbnail"][0]["url"], :class => "vid_img") %>
+				<% end %>
+		   		<% end %>
+		</ul>
       </div>
 
   </div>

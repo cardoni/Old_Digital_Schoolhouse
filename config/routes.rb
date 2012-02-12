@@ -4,6 +4,8 @@ DigitalSchoolhouse::Application.routes.draw do
   # get "session/create"
 
   # get "session/destroy"
+  root :to => "articles#public"
+  
   get 'articles/public' => "articles#public"
   
   
@@ -17,10 +19,7 @@ DigitalSchoolhouse::Application.routes.draw do
 
   resources :users
 
-  resources :schools
-
-  root :to => "articles#index"
-  
+  resources :schools  
 
 
   # The priority is based upon order of creation:

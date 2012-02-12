@@ -21,27 +21,14 @@
     <%= f.text_area :article_body %>
   </div>
   <div class="field">
-    <%= f.label :attachment_URL %><br />
+    <%= f.label "YouTube ID" %><br />
     <%= f.text_field :attachment_URL %>
   </div>
-  <div class="field">
-    <%= f.label :attachment_Description %><br />
-    <%= f.text_field :attachment_Description %>
-  </div>
-  <div class="field">
-    <%= f.label :attachment_Credits %><br />
-    <%= f.text_field :attachment_Credits %>
-  </div>
-  <div class="field">
-<<<<<<< HEAD
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-=======
+<div>
     <%= f.label "Country" %><br />
     <%= f.select :user_id, {"Thailand" => 1, "Honduras" => 2, "Vietnam" => 3, "Uganda" => 4, "Egypt" => 5, "Japan" => 6, "Croatia" => 7, } %>
->>>>>>> pre-adam merge
   </div>
-</div>
+
 <div class="actions">
   <%= f.submit %>
 </div>
