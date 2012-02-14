@@ -56,9 +56,6 @@ module DigitalSchoolhouse
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-<<<<<<< HEAD
-=======
     config.compass.sass_dir = "app/assets/stylesheets"
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45
   end
 end

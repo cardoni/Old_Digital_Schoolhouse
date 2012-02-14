@@ -60,9 +60,6 @@
 	
 }
 
-
-
-
 .threeway h1 {
   text-align: center;
 }
@@ -99,21 +96,15 @@ header .header-image {
   .threeway {
     width: 100%;
     float: left;
-<<<<<<< HEAD
 	background-color: rgba(232,244,255,.85);
-=======
 
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45
     
   }
   .threeway {
     //background-color: #e8f4ff;
     @include border-radius(10px);
     background-repeat:repeat;
-<<<<<<< HEAD
-=======
     background-image:url('ef.gif');
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45
   }
   .threeway ul {
 
@@ -121,20 +112,12 @@ header .header-image {
 .frontpage {
   max-width: 100%;
   height:auto;
-<<<<<<< HEAD
 }
 
 a.header-image :hover {
  	border: 0;
 	border: none;
 }
-
-=======
-
-}
-
-
->>>>>>> fb5a9a204b03fd4e730c4b23c56c15b7250e4b45
 
 .article_body {
   //background-color: #e8f4ff;
