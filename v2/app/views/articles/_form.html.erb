@@ -30,7 +30,8 @@
     <%= "Image URL" %><br />
     <%= f.text_field(:image_url, :size => 60) %>
   </div>
-<%= @article.attachment_URL.blank? ? "Add one YouTube video ID or one image URL above" : "" %>
+<% type = @article.yt_url.present? ? "a YouTube video" : "an image URL" %>
+<%= @article.attachment_URL.blank? ? "Add one YouTube video ID or one image URL above" : "You're currently using " + type %>
 </div>
 <div style="clear: both;"></div>
 <div>

@@ -1,0 +1,14 @@
+<ul>
+	<div class="article_body">
+		<h2><%= article.article_title %></h2>
+		<hr>
+		<object width="241" height="145">
+			<param name="movie" value="http://www.youtube.com/e/<%= article.attachment_URL %>">
+			<param name="allowFullScreen" value="true">
+			<param name="allowscriptaccess" value="always">
+			<embed src="http://www.youtube.com/e/<%= article.attachment_URL %>" type="application/x-shockwave-flash" width="241" height="145" allowscriptaccess="always" allowfullscreen="true">
+		</object>
+		<p><%= simple_format(article.article_body) %></p>
+		<br />
+	</div>
+</ul>
