@@ -112,20 +112,14 @@ class ArticlesController < ApplicationController
     # raise channel["feed"]["entry"][0]["media$group"]["media$player"].inspect
     # raise @video_id.inspect
   end  
-  
-  
+
   
     def updateAttachmentURL(id)
-      # logger.info("-------------------  id.class: #{id.class}")
     @article.attachment_URL = ""
-    a = id[:article]
-    b = a[:yt_url]
-    if b.blank? then
-      @article.attachment_URL = id[:article][:image_url]
-      # @isYouTube = false
+    if id[:article][:yt_url].present? then
+      @article.attachment_URL = id[:article][:yt_url]
       else
-        @article.attachment_URL = id[:article][:yt_url]
-        # @isYouTube = true
+        @article.attachment_URL = id[:article][:image_url]
       end
     end
   
