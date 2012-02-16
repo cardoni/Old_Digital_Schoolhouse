@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212133017) do
+ActiveRecord::Schema.define(:version => 20120214223858) do
 
   create_table "articles", :force => true do |t|
     t.datetime "article_date"
@@ -21,16 +21,29 @@ ActiveRecord::Schema.define(:version => 20120212133017) do
     t.text     "article_tags"
     t.integer  "user_id"
     t.string   "attachment_URL"
-    t.string   "attachment_Description"
-    t.string   "attachment_Credits"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
-    t.string   "slug"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "yt_url"
     t.string   "image_url"
   end
 
-  add_index "articles", ["slug"], :name => "index_articles_on_slug", :unique => true
+  create_table "attachments", :force => true do |t|
+    t.string   "media_type"
+    t.integer  "article_id"
+    t.integer  "media_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pictures", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "copyright"
+    t.string   "location"
+    t.string   "provider"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "schools", :force => true do |t|
     t.string   "name"
@@ -52,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20120212133017) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "copyright"
+    t.string   "location"
+    t.string   "provider"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
