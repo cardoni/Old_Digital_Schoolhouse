@@ -30,8 +30,8 @@
     <%= "Image URL" %><br />
     <%= f.text_field(:image_url, :size => 60) %>
   </div>
-<% type = @article.yt_url.present? ? "a YouTube video" : "an image URL" %>
-<%= @article.attachment_URL.blank? ? "Add one YouTube video ID or one image URL above" : "You're currently using " + type %>
+<b><% type = @article.yt_url.present? ? "a YouTube video" : "an image" %>
+<%= @article.attachment_URL.blank? ? "Paste in a URL to a YouTube or image above" : raw("You have attached <span style=\"color:blue;\"><i>") + type + raw("</i></span> to this article.")%></b>
 </div>
 <div style="clear: both;"></div>
 <div>
@@ -41,7 +41,8 @@
   </div>
 <br />
 <div class="actions" align="center" style="width: 735px;">
-  <%= f.submit %>
+  <%= f.submit %><br />
+<%= notice { raw("<div id=\"edit-notice\">#{raw(notice)}</div>") } %>
 </div>
 
 <% end %>

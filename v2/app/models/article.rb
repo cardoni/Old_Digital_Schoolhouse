@@ -4,14 +4,7 @@ class Article < ActiveRecord::Base
   validate :article_title, :presence => true  #originally said "validates?" --greg
   has_many :attachments
   
-  
-  
-  
-  
-  
-  
-  
-  
+end
   
   # validate :article_body_or_attachment_URL
 
@@ -49,5 +42,3 @@ class Article < ActiveRecord::Base
   #       return true
   #     end
   #   end
-  
-end
