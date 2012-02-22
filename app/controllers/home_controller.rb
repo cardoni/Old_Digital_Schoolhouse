@@ -1,7 +1,7 @@
 class HomeController < ActionController::Base
   
-  # def index
-  #   
-  # end
+  def index
+    
+  end
   
 end
