@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+User.delete_all
+Post.delete_all
+Attachment.delete_all
 User.create(name: "Greg", email: "greg@gregsemail.com", classification: "student")
 User.create(name: "Adam", email: "adam@adamsemail.com", classification: "teacher")
 User.create(name: "Eric", email: "eric@ericsemail.com", classification: "teacher")
@@ -33,3 +37,4 @@ Attachment.create(provider: "YouTube", attachment_url: "http://www.youtube.com/w
 Attachment.create(provider: "YouTube", attachment_url: "http://www.youtube.com/watch?v=FzRH3iTQPrk", description: "Panda Sneeze video", copyright_info: "No Copyright.", user_id: 4, post_id: 5)
 Attachment.create(provider: "YouTube", attachment_url: "http://www.youtube.com/watch?v=FzRH3iTQPrk", description: "Panda Sneeze video", copyright_info: "No Copyright.", user_id: 4, post_id: 6)
 puts "Success: Database cleared and seed.db loaded!"
+
