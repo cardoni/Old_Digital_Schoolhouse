@@ -3,4 +3,25 @@
 
   <%= render 'form' %>
 
-</div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :confirm_password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+  <%= f.label "Type" %><br />
+  <%= f.select :classification, {"Student" => "Student", "Admin" => "Admin", "Teacher" => "Teacher"} %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

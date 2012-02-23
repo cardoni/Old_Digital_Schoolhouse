@@ -2,7 +2,7 @@ DigitalSchoolhouse::Application.routes.draw do
   
 
 
-  
+  resources :attachments
   resources :users
 
   get '/logout' => 'sessions#logout', :as => :logout
