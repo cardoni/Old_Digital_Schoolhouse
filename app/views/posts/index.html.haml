@@ -2,13 +2,20 @@
 = link_to "New Post", new_post_url
 %table
   - @posts.each do |p|
-
     %tr
       %td
         %h3= link_to "#{p.title}", edit_post_url(p.id)
       %td
         %p= truncate(p.body, :length => 20, :seperator => ' ')
-      %td
+      - p.each do |a|
+        %td
+          %p= a.attachments
         / = link_to "delete post", p, :method => :delete, :confirm => "You sure?", :title => "Delete" NOT WORKING NEEDS ROUTE DEF
         
-
+/ %table
+/   - @attachments.each do |a|
+/ 
+/     %tr
+/       %td
+/         %h3= a.provider
+      
