@@ -1,6 +1,6 @@
 DigitalSchoolhouse::Application.routes.draw do
   
-<<<<<<< HEAD
+
 
   
   resources :users
@@ -10,12 +10,12 @@ DigitalSchoolhouse::Application.routes.draw do
   post "/sessions" => 'sessions#create'
   
  
-=======
+
   
 
   resources :posts
   
->>>>>>> 1cec8a5046b3e11b2ded61a59b3d6b98c13837fe
+
   root :to => 'home#index'
   
   # The priority is based upon order of creation:
