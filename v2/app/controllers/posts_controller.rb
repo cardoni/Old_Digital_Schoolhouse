@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
     @post = Post.find_by_id(params[:id])
+    # @posts.attachments = Attachment.find_by_id(params[:post_id])
+    # @attachments = Attachment.find(:all, :order => "created_at DESC")
   end
 
   def new
@@ -12,6 +14,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_id(params[:id])
+    @post.attachment = Attachment.find_by_id(params[:post_id])
   end
   
   def create

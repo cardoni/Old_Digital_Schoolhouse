@@ -9,5 +9,11 @@
     = p.text_area :body
     
     = p.submit "Submit Change"
-    
-    
+
+= @post.attachment.provider  
+/ = form_for(@post.attachment) do |a|
+/   .field
+/     = a.label :attachment_url
+/     = a.text_field :attachment_url
+/ 
+/     = p.submit "Submit Change"  
