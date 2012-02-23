@@ -1,21 +1,14 @@
 %h1 All (current users) Posts
 = link_to "New Post", new_post_url
 %table
-  - @posts.each do |p|
+  - @posts.each do |post|
     %tr
       %td
-        %h3= link_to "#{p.title}", edit_post_url(p.id)
+        %h3= link_to "#{post.title}", edit_post_url(post)
       %td
-        %p= truncate(p.body, :length => 20, :seperator => ' ')
-      - p.each do |a|
+        %p= truncate(post.body, :length => 20, :seperator => ' ')
+      - post.user.attachments.each do |attachment|
         %td
-          %p= a.attachments
-        / = link_to "delete post", p, :method => :delete, :confirm => "You sure?", :title => "Delete" NOT WORKING NEEDS ROUTE DEF
-        
-/ %table
-/   - @attachments.each do |a|
-/ 
-/     %tr
-/       %td
-/         %h3= a.provider
+          %p= attachment.provider
+
       
