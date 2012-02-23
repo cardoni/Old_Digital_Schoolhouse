@@ -11,6 +11,14 @@
 	  <%= f.label :classification %><br />
 	  <%= f.select :classification, { "Administrator" => "administrator", "Teacher" => "teacher", "Student" => "student", "Donor" => "donor"} %>
 	</div>
+	<div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :confirm_password %><br />
+    <%= f.password_field :password %>
+  </div>
 	<div class="submit">
 	  <%= f.submit %><br />
 	</div>
