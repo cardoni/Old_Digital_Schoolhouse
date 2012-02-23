@@ -1,0 +1,16 @@
+%h1 Hello "#{@post.user}"
+= link_to "All Posts", posts_url
+= form_for(@post) do |p|
+  .field
+    = p.label :title
+    = p.text_field :title
+  .field
+    = p.label :body
+    = p.text_area :body
+    
+    = p.submit "Post"
+    
+
+  
+  
+  
