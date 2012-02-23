@@ -1,4 +1,4 @@
-class PostsController < ActionController::Base
+class PostsController < ApplicationController
   
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
