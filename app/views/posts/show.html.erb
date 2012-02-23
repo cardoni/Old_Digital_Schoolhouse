@@ -1,0 +1,11 @@
+<h1><%= @post.title %></h1>
+
+<p>Written by: <%= @post.user.name %></p>
+
+<p><%= @post.body %></p>
+
+<ul>
+  <% @post.attachments.each do |attachment| %>  
+  <li><%= embed_media(attachment.attachment_url) %></li>
+  <% end %>
+</ul>
