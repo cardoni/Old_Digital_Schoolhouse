@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222001552) do
+ActiveRecord::Schema.define(:version => 20120222010915) do
 
   create_table "attachments", :force => true do |t|
     t.string   "provider"
@@ -35,9 +35,10 @@ ActiveRecord::Schema.define(:version => 20120222001552) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.string   "classification"
+    t.string   "password_digest"
   end
 
 end
