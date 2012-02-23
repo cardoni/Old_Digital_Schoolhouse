@@ -1,7 +1,7 @@
 DigitalSchoolhouse::Application.routes.draw do
   
   
-
+  resources :attachments
   resources :posts
   
   root :to => 'home#index'
