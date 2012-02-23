@@ -18,5 +18,11 @@ class UsersController < ApplicationController
      end
    end
   
+   def index
+     @administrators = User.find_all_by_classification('administrator')
+     @teachers = User.find_all_by_classification('teacher')
+     @students = User.find_all_by_classification('student')
+     @donors = User.find_all_by_classification('donor')
+   end
 
 end
