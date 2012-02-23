@@ -2,6 +2,11 @@ DigitalSchoolhouse::Application.routes.draw do
   
   root :to => 'home#index'
   
+  get 'users/new' => 'users#new', :as => 'new_user'
+  get 'users' => 'users#index', :as => 'users_index'
+  post 'users' => 'users#create'
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

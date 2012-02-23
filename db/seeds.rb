@@ -5,15 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.delete_all
-Post.delete_all
-Attachment.delete_all
+
 User.create(name: "Greg", email: "greg@gregsemail.com", classification: "student")
 User.create(name: "Adam", email: "adam@adamsemail.com", classification: "teacher")
 User.create(name: "Eric", email: "eric@ericsemail.com", classification: "teacher")
 User.create(name: "Bob", email: "bob@bobsemail.com", classification: "student")
-User.create(name: "Admin", email: "admin@admin.com", classification: "admin")
-User.create(name: "Teacher", email: "teacher", classification: "teacher")
+User.create(name: "An Admin", email: "admin@admin.com", classification: "administrator")
+User.create(name: "Another Admin", email: "admin2@admin.com", classification: "administrator")
+User.create(name: "Teacher", email: "teacher@email.com", classification: "teacher")
+User.create(name: "Donor", email: "donor@email.com", classification: "donor")
+User.create(name: "Donor 2", email: "donor2@email.com", classification: "donor")
+User.create(name: "Mr Third Donor", email: "donor3@email.com", classification: "donor")
 Post.create(title: "First Post", body: "First post created by Greg!", user_id: 1)
 Post.create(title: "Second Post", body: "Another post created by Greg!", user_id: 1)
 Post.create(title: "Third Post", body: "A post created by Adam!", user_id: 2)

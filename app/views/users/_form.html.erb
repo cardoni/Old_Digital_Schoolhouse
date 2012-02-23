@@ -1,0 +1,17 @@
+<%= form_for(@user) do |f| %>
+	<div class="user-name">
+	  <%= f.label :name %><br />
+	  <%= f.text_field(:name, :size => 50) %>
+	</div>
+	<div class="user-email">
+	  <%= f.label :email %><br />
+	  <%= f.text_field(:email, :size => 50) %>
+	</div>
+	<div class="user-classification">
+	  <%= f.label :classification %><br />
+	  <%= f.select :classification, { "Administrator" => "administrator", "Teacher" => "teacher", "Student" => "student", "Donor" => "donor"} %>
+	</div>
+	<div class="submit">
+	  <%= f.submit %><br />
+	</div>
+<% end %>
