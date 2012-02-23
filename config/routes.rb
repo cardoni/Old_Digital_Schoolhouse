@@ -1,5 +1,21 @@
 DigitalSchoolhouse::Application.routes.draw do
   
+
+
+  
+  resources :users
+
+  get '/logout' => 'sessions#logout', :as => :logout
+  get '/login' => 'sessions#new', :as => :new_session
+  post "/sessions" => 'sessions#create'
+  
+ 
+
+  
+
+  resources :posts
+  
+
   root :to => 'home#index'
   
   get 'users/new' => 'users#new', :as => 'new_user'
