@@ -14,6 +14,9 @@ group :development, :test do
 	gem 'sqlite3'
 end
 
+# auto_html gives us embed html code for attachments
+  gem 'auto_html'
+
 # Thin webserver instead of default webrick
   gem 'thin'
 

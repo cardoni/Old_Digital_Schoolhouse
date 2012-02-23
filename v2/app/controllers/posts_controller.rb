@@ -33,6 +33,11 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_url
   end
+  
+  def show
+    @post = Post.find_by_id(params[:id])
+    
+  end
 
 end
 
