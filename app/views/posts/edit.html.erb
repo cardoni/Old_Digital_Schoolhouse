@@ -1,0 +1,27 @@
+<h1>Edit Post</h1>
+<%= link_to "All Posts", posts_url %>
+
+<%= form_for(@post) do |post| %>
+  <div class="field">
+    <%= post.label :title %>
+    <%= post.text_field :title %>
+  </div>
+  <div class="field">
+    <%= post.label :body %>
+    <%= post.text_area :body %>
+  </div>
+  <% @post.attachments.each do |attachment| %>
+    <%= post.fields_for :attachments, attachment do |attachment_fields| %>
+      <div class="field">
+      Url: <%= attachment_fields.text_field :attachment_url %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= post.submit "Submit Change" %>
+
+<% end %>
+
+<%#= post.fields_for :attachments do |attachment| %>
+  <!-- Attachment: <%#= attachment.text_field :attachment_url %> -->
+<%# end %>

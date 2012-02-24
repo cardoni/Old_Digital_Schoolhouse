@@ -14,7 +14,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find_by_id(params[:id])
-    @post.attachment = Attachment.find_by_id(params[:post_id])
+    
   end
   
   def create
