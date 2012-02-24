@@ -1,8 +1,8 @@
 <h1>All Posts</h1>
-<h2>Hi, <%= current_user.name %></h2>
+<h2>Hi, <%= current_user.name.camelize %>, here are your posts!</h2>
 <%= link_to "New Post", new_post_url %>
 <table>
-  <% @posts.each do |post| %>
+  <% @user_posts.each do |post| %>
     <tr>
       <td>
         <h3><%= link_to post.title, post_url(post) %></h3>
