@@ -1,12 +1,4 @@
-<h1>Hello World</h1>
-
-<% if session[:user].blank? %>
-<p><%= link_to "Sign Up!", new_user_url %></p>
-<p><%= link_to "Sign In!", new_session_url %></p>
+<% if signed_in? %>
+  <h1>Welcome back <%= current_user.name.camelize %></h1>
 <% end %>
-
 <p><%= notice %></p>
-
-<% if session[:user].present? %>
-  <p><strong>Hello, <%= User.find_by_id(session[:user]).name %></strong></p>
-<% end %>

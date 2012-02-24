@@ -1,0 +1,15 @@
+<header>
+  <nav>
+    <ul>
+      <% if signed_in? %>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "My Posts", posts_path %></li>    
+      <li>Not you, <%= current_user.name.camelize %>? <%= link_to "Sign out", logout_path, :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Sign in", login_path %></li>
+      <li><%= link_to "Sign up(temporary)", new_user_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
