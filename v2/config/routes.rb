@@ -5,8 +5,8 @@ DigitalSchoolhouse::Application.routes.draw do
   resources :attachments
   resources :users
 
-  get '/logout' => 'sessions#logout', :as => :logout
-  get '/login' => 'sessions#new', :as => :new_session
+  delete '/logout' => 'sessions#logout', :as => :logout
+  get '/login' => 'sessions#new', :as => :login
   post "/sessions" => 'sessions#create'
   
  
