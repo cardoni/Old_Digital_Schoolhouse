@@ -1,4 +1,4 @@
-<h1>Hello "#{@post.user}"</h1>
+<h1>Hello <%= current_user.name %></h1>
 <%= link_to "All Posts", posts_url %>
 <%= form_for(@post) do |post| %>
   <div class="field">
@@ -9,12 +9,18 @@
     <%= post.label :body %>
     <%= post.text_area :body %>
   </div>
-  <% @post.attachments.each do |attachment| %>
-    <%= post.fields_for :attachments, attachment do |attachment_fields| %>
-      Url: <%= attachment_fields.text_field :attachment_url %>
-    <% end %>
+  <%= post.fields_for :attachments do |attachment_field| %>
+  <div class="field">
+    <%= attachment_field.label :name, "Url" %>
+    <%#= attachment_field.file_field :attachment_url %>
+    <%= attachment_field.text_field :attachment_url %>
+    <%= attachment_field.hidden_field :user_id, :value => current_user.id %>
+    <%#= attachment_field.hidden_field :provider, :value => provider_regex(:attachment_url) %> <!-- Not quite working, close I think? -->
+  </div>
   <% end %>
+  <%= post.hidden_field :user_id, :value => current_user.id %>
+  <div class="form-submit">
   <%= post.submit "Submit Change" %>
-
+  </div>
 <% end %>
   

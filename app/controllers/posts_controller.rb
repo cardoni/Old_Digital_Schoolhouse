@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   
   def index
     @posts = Post.find(:all, :order => "created_at DESC")
+    @user_posts = Post.where(:user_id => current_user.id)
     @post = Post.find_by_id(params[:id])
     # @posts.attachments = Attachment.find_by_id(params[:post_id])
     # @attachments = Attachment.find(:all, :order => "created_at DESC")
@@ -9,7 +10,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.user = User.find_by_id(params[:user_id])
+    3.times { @post.attachments.build } #This builds 3 URL attachment fields
+
   end
 
   def edit
