@@ -1,0 +1,20 @@
+<h1>Hello "#{@post.user}"</h1>
+<%= link_to "All Posts", posts_url %>
+<%= form_for(@post) do |post| %>
+  <div class="field">
+    <%= post.label :title %>
+    <%= post.text_field :title %>
+  </div>
+  <div class="field">
+    <%= post.label :body %>
+    <%= post.text_area :body %>
+  </div>
+  <% @post.attachments.each do |attachment| %>
+    <%= post.fields_for :attachments, attachment do |attachment_fields| %>
+      Url: <%= attachment_fields.text_field :attachment_url %>
+    <% end %>
+  <% end %>
+  <%= post.submit "Submit Change" %>
+
+<% end %>
+  
