@@ -16,7 +16,7 @@
       <td>
         <p><%= truncate(post.body, :length => 20, :seperator => ' ') %></p>
       </td>
-      <% post.user.attachments.each do |attachment| %>
+      <% post.attachments.each do |attachment| %>
         <td>
           <p><%= attachment.attachment_url %></p>
         </td>
