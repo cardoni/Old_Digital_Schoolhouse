@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222010915) do
+ActiveRecord::Schema.define(:version => 20120226205400) do
 
   create_table "attachments", :force => true do |t|
     t.string   "provider"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(:version => 20120222010915) do
     t.datetime "updated_at",      :null => false
     t.string   "classification"
     t.string   "password_digest"
+    t.text     "bio"
+    t.string   "location"
+    t.string   "school"
   end
 
 end

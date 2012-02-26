@@ -25,5 +25,17 @@ class UsersController < ApplicationController
      @students = User.find_all_by_classification('student')
      @donors = User.find_all_by_classification('donor')
    end
+   
+   def edit
+     
+   end
 
+   def update
+     if current_user.update_attributes(params[:user])
+       redirect_to root_url
+     else
+       redirect_to edit_user(current_user)
+     end
+    
+   end
 end
