@@ -11,11 +11,25 @@
     <%= post.text_area :body %>
   </div>
   <% @post.attachments.each do |attachment| %>
-    <%= post.fields_for :attachments, attachment do |attachment_fields| %>
-      <div class="field">
-      Url: <%= attachment_fields.text_field :attachment_url %>
-      </div>
+  <div class="field">
+  <%= image_tag(attachment.photo_url) if attachment.photo? %>
+    <%= post.fields_for :attachments, attachment do |attachment_field| %>      
+      <ul id="photo-list">
+        <li><%= link_to("Remove", "#delete", :class => "delete-photo") %>
+
+        <%= attachment_field.label :photo, "Photo" %>
+        <%= attachment_field.file_field :photo %>
+        <%= attachment_field.hidden_field :user_id, :value => current_user.id %>
+        <label><%= attachment_field.check_box :remove_photo %>Remove Photo</label>
+        <%#= attachment_field.hidden_field :photo_cache %>
+        </li>
+      </ul>
+      <%#= attachment_fields.text_field :attachment_url %>      
     <% end %>
+    </div>
+    <div>
+    <%= link_to "Add Another", "#add", :id => "add-another" %>
+    </div>
   <% end %>
 
   <%= post.submit "Submit Change" %>

@@ -13,3 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  $('a#add-another').click(function() {
+    $('#photo-list li:first').clone().find('input').val('')
+    .end().appendTo('#photo-list');
+  });
+
+  $('.delete-photo').live('click', function() {
+    if ($('#photo-list li').length > 1)
+  $(this).parent().remove();
+    else
+  alert('You need at least one photo.')
+  });
+});
