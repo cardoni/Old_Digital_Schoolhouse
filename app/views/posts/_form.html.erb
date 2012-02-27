@@ -1,0 +1,18 @@
+<% @post.attachments.build %>
+<%= form_for(@post) do |post_form| %>
+  <div class ="field">
+    Title: <%= post_form.text_field :title %>
+  </div>
+  <div class ="field">
+    Body: <%= post_form.text_area :body %>
+  </div>
+  <h2>Attachments:</h2>
+  <%= render :partial => 'attachments/attachment', :locals => {:form => post_form} %>
+  <div class ="actions">
+    <%#= add_attachment_link "Add an attachment" %>
+  </div>
+  <%= post_form.hidden_field :user_id, :value => current_user.id %>
+  <div class ="actions">
+    <%= post_form.submit "Post it" %>
+  </div>
+<% end %>

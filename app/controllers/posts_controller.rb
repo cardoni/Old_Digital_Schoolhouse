@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    1.times { @post.attachments.build } #This builds 3 URL attachment fields
+    # @post.attachments.build #This builds 3 URL attachment fields
 
   end
 
@@ -27,6 +27,8 @@ class PostsController < ApplicationController
   end
   
   def update
+    # params[:post][:existing_attachment_attribute] ||= {}
+    
     @post = Post.find_by_id(params[:id])
     if @post.update_attributes(params[:post])
       redirect_to posts_url
