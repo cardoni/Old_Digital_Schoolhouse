@@ -11,7 +11,12 @@ group :production do
 end
 
 group :development, :test do
-	gem 'sqlite3'
+  gem 'sqlite3'
+  gem 'rspec-rails', '2.8.1'
+end
+
+group :test do
+  gem 'capybara', '1.1.2'
 end
 
 # auto_html gives us embed html code for attachments
@@ -37,7 +42,7 @@ end
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '3.0.0'
+gem 'bcrypt-ruby', '3.0.1'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
