@@ -19,3 +19,6 @@
 
 #Ignore .rvmrc file
 .rvmrc
+
+#Ignore images
+/public/uploads
