@@ -45,6 +45,7 @@ h3 {
 }
 
 p {
+	font-size: 14px;
 	padding-bottom: 0px;
 }
 
@@ -61,3 +62,33 @@ nav {
 	border: 1px solid #999;
 	clear: both;
 }
+
+nav ul {  
+    margin: 0 auto;  
+    width: 200px;  
+    list-style: none;  
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li a {
+	display: block;
+	margin-right: 20px;
+	width: 200px;
+	font-size: 14px;
+	line-height: 34px;
+	text-align: left;
+	text-decoration: none;
+	color: #777;
+}
+
+nav ul li a:hover {
+	color: #000;
+}
+
+nav ul li.selected a {
+	color: #fff;
+}
+
