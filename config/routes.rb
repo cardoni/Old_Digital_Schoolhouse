@@ -6,7 +6,7 @@ DigitalSchoolhouse::Application.routes.draw do
   resources :users
   resources :sessions
 
-  delete '/logout' => 'sessions#logout', :as => :logout
+  get '/logout' => 'sessions#logout', :as => :logout
   get '/login' => 'sessions#new', :as => :login
  
   
