@@ -45,5 +45,19 @@ h3 {
 }
 
 p {
-	padding-bottom: 22px;
+	padding-bottom: 0px;
+}
+
+header {
+	float: none;
+	clear: both;
+}
+
+nav {
+  float: right;
+  margin: 10px;
+  width: 200px;
+	background: #B2D0E9;
+	border: 1px solid #999;
+	clear: both;
 }
