@@ -11,3 +11,84 @@
  *= require_self
  *= require_tree .
 */
+
+/* Makeshift CSS Reset */
+{
+	margin: 0;
+	padding: 0;
+}
+
+/* Tell the browser to render HTML 5 elements as block */
+header, footer, aside, nav, article {
+	display: block;
+}
+
+body {
+	margin: 0 auto;
+	width: 940px;
+	font: 13px/22px Helvetica, Arial, sans-serif;
+	background: #FFF;
+	background-image:url("/images/background.gif");
+	background-repeat:no-repeat;
+}
+
+h2 {
+	font-size: 28px;
+	line-height: 44px;
+	padding: 22px 0;
+}
+
+h3 {
+	font-size: 18px;
+	line-height: 22px;
+	padding: 11px 0;
+}
+
+p {
+	font-size: 14px;
+	padding-bottom: 0px;
+}
+
+header {
+	float: none;
+	clear: both;
+}
+
+nav {
+  float: right;
+  margin: 10px;
+  width: 200px;
+	background: #B2D0E9;
+	border: 1px solid #999;
+	clear: both;
+}
+
+nav ul {  
+    margin: 0 auto;  
+    width: 200px;  
+    list-style: none;  
+}
+
+nav ul li {
+	float: left;
+}
+
+nav ul li a {
+	display: block;
+	margin-right: 20px;
+	width: 200px;
+	font-size: 14px;
+	line-height: 34px;
+	text-align: left;
+	text-decoration: none;
+	color: #777;
+}
+
+nav ul li a:hover {
+	color: #000;
+}
+
+nav ul li.selected a {
+	color: #fff;
+}
+
