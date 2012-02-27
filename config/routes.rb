@@ -23,6 +23,7 @@ DigitalSchoolhouse::Application.routes.draw do
   get 'users' => 'users#index', :as => 'users_index'
   post 'users' => 'users#create'
 
+  get 'about' => 'home#about', :as => 'about_page'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

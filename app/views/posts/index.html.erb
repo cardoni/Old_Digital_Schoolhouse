@@ -18,7 +18,7 @@
       </td>
       <% post.attachments.each do |attachment| %>
         <td>
-          <p><%= attachment.attachment_url %></p>
+          <p><%= image_tag(attachment.photo_url) if attachment.photo? %><%#= attachment.attachment_url %></p>
         </td>
       <% end %>
     </tr>

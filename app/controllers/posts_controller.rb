@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    3.times { @post.attachments.build } #This builds 3 URL attachment fields
+    1.times { @post.attachments.build } #This builds 3 URL attachment fields
 
   end
 

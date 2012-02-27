@@ -34,6 +34,8 @@ GEM
       rinku (~> 1.5.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    carrierwave (0.5.8)
+      activesupport (~> 3.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -94,6 +96,7 @@ GEM
       json (~> 1.4)
     redcarpet (2.0.1)
     rinku (1.5.1)
+    rmagick (2.13.1)
     sass (3.1.15)
     sass-rails (3.2.4)
       railties (~> 3.2.0)
@@ -124,11 +127,13 @@ PLATFORMS
 DEPENDENCIES
   auto_html
   bcrypt-ruby (~> 3.0.0)
+  carrierwave
   coffee-rails (~> 3.2.1)
   haml-rails (~> 0.3.4)
   jquery-rails
   pg
   rails (= 3.2.1)
+  rmagick
   sass-rails (~> 3.2.3)
   sqlite3
   thin
