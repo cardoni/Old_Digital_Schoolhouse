@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :attachments
   has_secure_password
 
-  validates :name, presence: true
-  validates :email, presence: true
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :email, presence: true, :email_format => {:message => 'is not looking good'}
 
 end
