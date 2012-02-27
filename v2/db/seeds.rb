@@ -7,7 +7,7 @@
 #   Mayor.create!(name: 'Emanuel', city: cities.first)
 
 
-User.create!(name: "Greg", email: "greg@gregsemail.com", classification: "student", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
+User.create!(name: "Mr. Admin", email: "admin@email.com", classification: "administrator", password_digest: "$2a$10$nM.4xm1gHkVBC25tdSf3xO9N4m7C.SMLWoaSh1.VRml862GOmbnGC")
 User.create!(name: "Adam", email: "adam@adamsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
 User.create!(name: "Eric", email: "eric@ericsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
 User.create!(name: "Bob", email: "bob@bobsemail.com", classification: "student", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
