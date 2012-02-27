@@ -1,17 +1,16 @@
 <header>
-  <h1>Digital Schoolhouse</h1>
+  <%= link_to image_tag('/images/gp-logo.gif', size: "200x114", alt: "Global Playground"), root_url %>
   <nav>
     <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "About", about_page_path %></li>
+      <li><%= link_to "About", about_page_url %></li>
       <% if signed_in? %>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "My Posts", posts_path %></li>    
-      <li><%= link_to "My Profile", edit_user_path(current_user) %></li>    
-      <li>Not you, <%= current_user.name.camelize %>? <%= link_to "Sign out", logout_path, :method => :delete %></li>
+      <li><%= link_to "Users", users_url %></li>
+      <li><%= link_to "My Posts", posts_url %></li>    
+      <li><%= link_to "My Profile", edit_user_url(current_user) %></li>    
+      <li>Not you, <%= current_user.name.camelize %>? <%= link_to "Sign out", logout_url %></li>
       <% else %>
       <li><%= link_to "Sign in", login_path %></li>
-      <li><%= link_to "Sign up(temporary)", new_user_path %></li>
+      <li><%= link_to raw("Sign up <i>(temporary)</i>"), new_user_path %></li>
       <% end %>
     </ul>
   </nav>

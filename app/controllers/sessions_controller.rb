@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
   
   def logout
    reset_session
-   redirect_to 'home#index'
+   redirect_to :root
   end
   
 end
