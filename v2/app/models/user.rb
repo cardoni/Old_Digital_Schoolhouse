@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :attachments
   has_secure_password
+
+  validates :name, presence: true
+  validates :email, presence: true
+
 end
