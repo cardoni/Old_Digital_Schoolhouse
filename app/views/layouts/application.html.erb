@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Digital Schoolhouse</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render 'layouts/header' %>
-  <div id="main">
-    <%= yield %>
-  </div>
-</body>
+  <head>
+    <title><%= @title || "Digital Schoolhouse" %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/header' %>
+      <hr />
+    </header>
+    <div id="main">
+      <%= yield %>
+    </div>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
 </html>
