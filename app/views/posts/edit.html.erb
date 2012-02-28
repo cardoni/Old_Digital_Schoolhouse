@@ -1,41 +1,4 @@
 <h1>Edit Post</h1>
 <%= link_to "All Posts", posts_url %>
-
-<%= form_for(@post) do |post| %>
-  <div class="field">
-    <%= post.label :title %>
-    <%= post.text_field :title %>
-  </div>
-  <div class="field">
-    <%= post.label :body %>
-    <%= post.text_area :body %>
-  </div>
-  <% @post.attachments.each do |attachment| %>
-  <div class="field">
-  <%= image_tag(attachment.photo_url) if attachment.photo? %>
-    <%= post.fields_for :attachments, attachment do |attachment_field| %>      
-      <ul id="photo-list">
-        <li><%= link_to("Remove", "#delete", :class => "delete-photo") %>
-
-        <%= attachment_field.label :photo, "Photo" %>
-        <%= attachment_field.file_field :photo %>
-        <%= attachment_field.hidden_field :user_id, :value => current_user.id %>
-        <label><%= attachment_field.check_box :remove_photo %>Remove Photo</label>
-        <%#= attachment_field.hidden_field :photo_cache %>
-        </li>
-      </ul>
-      <%#= attachment_fields.text_field :attachment_url %>      
-    <% end %>
-    </div>
-    <div>
-    <%= link_to "Add Another", "#add", :id => "add-another" %>
-    </div>
-  <% end %>
-
-  <%= post.submit "Submit Change" %>
-
-<% end %>
-
-<%#= post.fields_for :attachments do |attachment| %>
-  <!-- Attachment: <%#= attachment.text_field :attachment_url %> -->
-<%# end %>
+<%= button_to 'Delete', post_url, :method => :delete %>
+<%= render :partial => 'form' %>

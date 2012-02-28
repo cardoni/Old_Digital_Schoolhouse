@@ -32,7 +32,8 @@ group :assets do
   gem 'coffee-rails', '3.2.1'
   gem "haml-rails", "0.3.4"
   gem 'carrierwave'
-  gem 'rmagick'
+  gem 'mini_magick'
+  gem "nested_form"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 

@@ -1,5 +1,8 @@
 class Attachment < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
+  
+  belongs_to :post
+  belongs_to :user
   mount_uploader :photo, PhotoUploader
   
   def photo=(val)
@@ -9,8 +12,7 @@ class Attachment < ActiveRecord::Base
     end
   end
   
-  belongs_to :post
-  belongs_to :user
+
   
   
   

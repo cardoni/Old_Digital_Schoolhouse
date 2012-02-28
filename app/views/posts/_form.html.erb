@@ -1,18 +1,30 @@
-<% @post.attachments.build %>
-<%= form_for(@post) do |post_form| %>
+<%= nested_form_for @post, :html => {:multipart => true} do |f| %>
   <div class ="field">
-    Title: <%= post_form.text_field :title %>
+    Title: <%= f.text_field :title %>
   </div>
   <div class ="field">
-    Body: <%= post_form.text_area :body %>
+    Body: <%= f.text_area :body %>
   </div>
   <h2>Attachments:</h2>
-  <%= render :partial => 'attachments/attachment', :locals => {:form => post_form} %>
+  <%= f.fields_for :attachments do |attachment| %>
+    <div class="field">
+      <% if attachment.object.new_record? %>
+        <%= attachment.file_field(:photo) %>
+        <%= attachment.hidden_field :user_id, :value => current_user.id %>
+    </div>
+      <% else %>
+    <div class="field">
+      <%= image_tag(attachment.object.photo.url(:thumb)) %>
+      <%= attachment.hidden_field :_destroy %>
+      <%= attachment.link_to_remove "remove" %>
+    </div>
+      <% end %>
+  <% end %>
   <div class ="actions">
-    <%#= add_attachment_link "Add an attachment" %>
+    <%= f.link_to_add "Add Photo", :attachments %>
   </div>
-  <%= post_form.hidden_field :user_id, :value => current_user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class ="actions">
-    <%= post_form.submit "Post it" %>
+    <%= f.submit "Post it" %>
   </div>
 <% end %>

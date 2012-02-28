@@ -11,14 +11,11 @@
         <h3><%= link_to "Edit", edit_post_url(post) %></h3>
       </td>
       <td>
-        <h3><%= post.user.name %></h3>
-      </td>
-      <td>
         <p><%= truncate(post.body, :length => 20, :seperator => ' ') %></p>
       </td>
       <% post.attachments.each do |attachment| %>
         <td>
-          <p><%= image_tag(attachment.photo.thumb.url) if attachment.photo? %><%#= attachment.attachment_url %></p>
+          <p><%= image_tag(attachment.photo.thumb.url) if attachment.photo? %></p>
         </td>
       <% end %>
     </tr>
