@@ -30,7 +30,7 @@ time, mark, audio, video
 //  ************************
 
 article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section
+footer, header, hgroup, menu, nav, section, div
   display: block
 
 body
@@ -67,6 +67,26 @@ body
     image: url("/images/background.gif")
     repeat: no-repeat
     position: 75px 0
+
+// Style of main and item div containers on main index page
+#container
+  .item
+    width: 280px
+    margin: 10px 0
+    float: left
+    border: 1px solid red
+    // clear: both
+    h1
+      font-size: 20px
+      border-bottom: 1px solid #999
+      padding: 10px 0 10px 0
+      
+//DELETE THIS  -Greg
+#test-box
+  background: #2F8EC1
+  height: 200px
+  width: 280px
+  margin: 0 auto
   
 h1 
   font-size: 30px
@@ -128,6 +148,7 @@ nav
       a:hover 
         color: #000
         background: #A0BAD2
+
 #notice
   width: 300px
   margin: 0 auto
