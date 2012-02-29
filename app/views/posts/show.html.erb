@@ -2,7 +2,7 @@
 
 <p>Written by: <%= @post.user.name %></p>
 
-<p><%= @post.body %></p>
+<p><%= @post.body_html %></p>
 
 <ul>
   <% @post.attachments.each do |attachment| %>  
