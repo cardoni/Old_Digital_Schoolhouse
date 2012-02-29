@@ -1,21 +1,20 @@
 <div class="all-users">
-<h1 class="header">All Users</h1>
-
-<h2>Administrators</h2>
-<% @administrators.each do |user| %>
-  <%= raw("<li>#{user.name}</li>") %>
-  <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
-<% end %>
-<h2>Teachers</h2>
-<% @teachers.each do |user| %>
-  <%= raw("<li>#{user.name}</li>") %>
-<% end %>
-<h2>Students</h2>
-<% @students.each do |user| %>
-  <%= raw("<li>#{user.name}</li>") %>
-<% end %>
-<h2>Donors</h2>
-<% @donors.each do |user| %>
-  <%= raw("<li>#{user.name}</li>") %>
-<% end %>
+  <h1 class="header">All Current Users:</h1>
+  <h2>Administrators</h2>
+    <% @administrators.each do |user| %>
+      <%= raw("<li>#{user.name}</li>") %>
+      <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
+    <% end %>
+  <h2>Teachers</h2>
+    <% @teachers.each do |user| %>
+      <%= raw("<li>#{user.name}</li>") %>
+    <% end %>
+  <h2>Students</h2>
+    <% @students.each do |user| %>
+      <%= raw("<li>#{user.name}</li>") %>
+    <% end %>
+  <h2>Donors</h2>
+    <% @donors.each do |user| %>
+      <%= raw("<li>#{user.name}</li>") %>
+    <% end %>
 </div>
