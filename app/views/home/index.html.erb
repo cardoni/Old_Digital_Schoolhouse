@@ -1,8 +1,23 @@
 <%= raw("<h1>Welcome back, #{current_user.name.camelize}</h1>") if signed_in? %>
+<!-- The following code is temporary.  It will be removed once we get the Masonry jQuery script working and lookin' good.  **Greg -->
+
+<script>
+  $(function(){
+    $('#container').masonry({
+      // options
+      itemSelector : '.item',
+      columnWidth : 300
+     });
+  });
+</script>
+
 <h1>Everyone's Posts</h1>
-<% @posts.each do |post| %>
-  <div>
-    <h2><%= post.title %></h2>
-    <p><%= post.body %></p>
-  </div>
-<% end %>
+<div id="container">
+  <% @posts.each do |post| %>
+    <div class="item">
+      <h1><%= post.title %></h1>
+      <div id="test-box"></div>
+      <p><%= post.body %></p>
+    </div>
+  <% end %>
+</div>
