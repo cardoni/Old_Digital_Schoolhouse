@@ -11,13 +11,16 @@
   });
 </script>
 
-<h1>Everyone's Posts</h1>
-<div id="container">
+<div id="container", class="sixteen columns">
+  <% if signed_in? %>
+    <h1>Welcome back <%= current_user.name.camelize %></h1>
+  <% end %>
+  <p><%= notice %></p>
   <% @posts.each do |post| %>
     <div class="item">
-      <h1><%= post.title %></h1>
-      <div id="test-box"></div>
+      <h2><%= post.title %></h2>
       <p><%= post.body %></p>
+      <div id="test-box"></div>
     </div>
   <% end %>
 </div>

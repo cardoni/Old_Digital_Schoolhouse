@@ -33,7 +33,9 @@ group :assets do
   gem "haml-rails", "0.3.4"
   gem 'carrierwave'
   gem 'mini_magick'
-  gem "nested_form"
+  gem 'nested_form'
+  gem 'compass-rails', '~> 1.0.0.rc.2'
+  gem 'compass-colors'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
 

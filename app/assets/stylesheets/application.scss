@@ -1,0 +1,26 @@
+// ATTENTION! No styling should be coded into this file, this is for importing css partials only!
+
+// Includes compass mixins from gem. 'compass-style.org' for reference.
+@import "compass/css3";
+
+// The order below is important. These are shared globally throughout the app. 
+// Be Careful adding anything to this block of files!
+@import "basics/reset";
+@import "basics/typography";
+@import "basics/links_lists"; //Styling for specific li, links, should go into "main"
+@import "basics/resources"; //Tables, Forms, Buttons. If you want to style for a specific table, form, button, add it into "main"
+@import "basics/skeleton"; //Defines columns for the responsive grid, reference this for sizing elements.
+//
+
+
+// We should use the files below most often! Main is where specific styling should go. 
+@import "main"; // Most styling here!
+
+// This ought to be the last file imported.
+@import "media"; // Media Queries for re-defining styles on different viewport widths.
+
+
+/*
+ * Important! Do *not* use Sprockets "require" syntax.
+ * Use @import to include other stylesheets and Compass mixins.
+ */
