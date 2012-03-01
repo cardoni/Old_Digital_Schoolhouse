@@ -1,6 +1,4 @@
-<%= raw("<h1>Welcome back, #{current_user.name.camelize}</h1>") if signed_in? %>
 <!-- The following code is temporary.  It will be removed once we get the Masonry jQuery script working and lookin' good.  **Greg -->
-
 <script>
   $(function(){
     $('#container').masonry({
@@ -12,9 +10,7 @@
 </script>
 
 <div id="container", class="sixteen columns">
-  <% if signed_in? %>
-    <h1>Welcome back <%= current_user.name.camelize %></h1>
-  <% end %>
+  <%#= raw("<h1>Welcome back, #{current_user.name.camelize}</h1>") if signed_in? %>
   <p><%= notice %></p>
   <% @posts.each do |post| %>
     <div class="item">
