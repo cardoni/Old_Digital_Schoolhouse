@@ -3,20 +3,22 @@
   <head>
     <title><%= @title || "Digital Schoolhouse" %></title>
     <%= stylesheet_link_tag    "application", media: "all" %>
-    <!-- Temporary Bootstrap CSS Insert (This'll be deleted) //Greg -->
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.min.css">
+    <!-- Temporary Bootstrap Test (This'll be deleted) //Greg -->
+    <!-- <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.min.css"> -->
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/header' %>
-    </header>
-    <content id="main">
-      <%= yield %>
-    </content>
-    <footer>
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div class="container">
+      <header class="sixteen columns clearfix"> 
+        <%= render 'layouts/header' %>
+      </header>
+      <content id="main">
+        <%= yield %>
+      </content>
+      <footer class="sixteen columns">
+        <%= render 'layouts/footer' %>
+      </footer>
+    </div>
   </body>
 </html>
