@@ -1,23 +1,29 @@
-<h1>All Posts</h1>
-<h2>Hi, <%= current_user.name.camelize %>, here are your posts!</h2>
-<%= link_to "New Post", new_post_url %>
-<table>
-  <% @user_posts.each do |post| %>
-    <tr>
-      <td>
-        <h3><%= link_to post.title, post_url(post) %></h3>
-      </td>
-      <td>
-        <h3><%= link_to "Edit", edit_post_url(post) %></h3>
-      </td>
-      <td>
-        <p><%= truncate(post.body, :length => 20, :seperator => ' ') %></p>
-      </td>
-      <% post.attachments.each do |attachment| %>
-        <td>
-          <p><%= image_tag(attachment.photo.thumb.url) if attachment.photo? %></p>
-        </td>
+<div id="user-posts-menu">
+  <%= button_to "Create New Post", new_post_url, method: :get -%>
+</div>
+<h1>Your Posts</h1>
+<table id="user-posts-table" summary="All posts by <%= current_user.name %>">
+    <thead>
+    	<tr>
+        	<th scope="col" class="post-title">Post Title</th>
+            <th scope="col" class="post-preview">Preview of Post</th>
+            <th scope="col" class="post-image">Feature Image</th>
+            <th scope="col" class="post-edit">Edit Post</th>
+        </tr>
+    </thead>
+        <tfoot>
+    	<tr>
+        	<td colspan="4" class="footer"><%= link_to "Click here to create a new post.", new_post_url -%></td>
+        </tr>
+    </tfoot>
+    <tbody>
+      <% @user_posts.reverse.each do |post| %>
+        <tr>
+          	<td><p><%= link_to post.title, post_url(post) %></p></td>
+              <td><p><%= truncate(post.body, :length => 180, :seperator => ' ') %></p></td>
+              <td><p><%= post.attachments.nil? ? image_tag(post.attachments.first.photo.thumb.url) : "No Featured Image" %></p></td>
+              <td><p><%= button_to "Edit", edit_post_url(post), method: :get, id: "edit-post-button" %></p></td>
+        </tr>
       <% end %>
-    </tr>
-  <% end %>
+    </tbody>
 </table>

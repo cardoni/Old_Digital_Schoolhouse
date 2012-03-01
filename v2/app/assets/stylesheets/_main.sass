@@ -1,12 +1,5 @@
 // CAUTION: SASS ONLY!!
 
-//  ************************
-//  ** Begin SASS Reset Code
-//  ** Source: https://gist.github.com/3524
-//  ************************
-
-
-
 body 
   background:
     color: #FFF
@@ -26,7 +19,7 @@ body
       border-bottom: 1px solid #999
       padding: 10px 0 10px 0
 
-//DELETE THIS  -Greg
+//This is a temp placeholder for images/videos on the main index view  --Greg
 #test-box
   background: #2F8EC1
   height: 200px
@@ -40,7 +33,7 @@ header
     margin: 15px 0
 
 footer
-  border-top: 1px solid #D7D7D7
+  border-top: 1px solid #999
   p
     font: 10px/18px Helvetica, Arial, sans-serif
     text-align: center
@@ -57,7 +50,7 @@ nav
     li
       margin: 0 10px
       float: left
-      a 
+      a
         padding: 8px 3px
         font-size: 14px
         line-height: 34px
@@ -65,12 +58,66 @@ nav
           align: left
           decoration: none
         color: #777
-      a:hover 
+      a:hover
         color: #000
-        background: #A0BAD2
+        background: rgba(gray, .5)
         
-#notice
+#notice   //Style for :notice messages --Greg
   width: 300px
   margin: 0 auto
   color: #FF0900
+  background-color: rgba(yellow, .5)
   font-size: 16px
+  font-weight: bold
+  text-align: center
+  line-height: 2em
+  
+//  Style for div that user's see when viewing "My Posts" --Greg
+#user-posts-menu
+  float: right
+  clear: both
+  background: rgba(gray, 0.1) //#B2D0E9
+  border: 1px solid #C3C3C3
+  +box-shadow(rgba(gray, .1) 0 0 12px 4px inset)
+  padding: 10px
+  height: 35px
+  margin: 0 10px 0 0
+
+//  Style of table showing a user's posts (within in "My Posts") --Greg
+#user-posts-table
+  margin: 10px auto
+  width: 100%
+  text-align: left
+  border-collapse: collapse
+  +box-shadow(rgba(gray, .9) 0 0 12px 4px inset)
+  th
+    padding: 8px
+    font-weight: bold
+    color: #039
+    background: #b9c9fe
+    background: rgba(185, 201, 254, 0.8)
+    +box-shadow(rgba(gray, .1) 0 0 12px 4px inset)
+  .post-title
+    width: 20%
+  .post-preview
+    width: 50%
+  .post-image
+    width: 20%
+  .post-edit
+    width: 10%
+  td
+    vertical-align: middle
+    padding: 8px
+    background: #e8edff
+    background: rgba(232, 237, 255, 0.9)
+    border-top: 1px solid #fff
+    color: #669
+  tfoot td.footer
+    text-align: center
+  tbody tr:hover td
+    background: #d0dafd
+    background: rgba(208, 218, 253, 0.8)
+    
+//  Style of "Edit" button on user's "My Posts" page --Greg
+#edit-post-button
+  margin: 0 0 0 15px // This isn't the correct way to make the "edit" button align in the middle, but I can't figure out how else to do it for now... --Greg
