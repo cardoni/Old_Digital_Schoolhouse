@@ -18,9 +18,3 @@
 
 // This ought to be the last file imported.
 @import "media"; // Media Queries for re-defining styles on different viewport widths.
-
-
-/*
- * Important! Do *not* use Sprockets "require" syntax.
- * Use @import to include other stylesheets and Compass mixins.
- */
