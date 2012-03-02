@@ -12,8 +12,7 @@ body
     width: 280px
     margin: 10px 0
     float: left
-    border: 1px solid red
-    // clear: both
+    // border: 1px solid red
     h1
       font-size: 20px
       border-bottom: 1px solid #999
@@ -104,7 +103,7 @@ nav
   .post-image
     width: 20%
   .post-edit
-    width: 10%
+    width: 10%    
   td
     vertical-align: middle
     padding: 8px
@@ -121,3 +120,20 @@ nav
 //  Style of "Edit" button on user's "My Posts" page --Greg
 #edit-post-button
   margin: 0 0 0 15px // This isn't the correct way to make the "edit" button align in the middle, but I can't figure out how else to do it for now... --Greg
+
+//  Style of highlighted text; not suported in all browsers --Greg
+::selection, ::-moz-selection
+  background: #BBC7FF // * Safari & Firefox (in that order)
+  
+//  Style for "About" page
+.about-main p
+  font-style: italic
+
+//  Style for "About" page image
+#about-image
+  float: right
+  clear: both
+  
+#who-we-are
+  border-top: 1px solid #999
+  padding: 15px 0 0 0
