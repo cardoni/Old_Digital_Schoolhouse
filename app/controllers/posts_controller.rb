@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     
     @post.save
+    NewPostMailer.new_post.deliver
     redirect_to posts_url
   end
   
