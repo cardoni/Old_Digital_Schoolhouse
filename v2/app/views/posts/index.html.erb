@@ -20,9 +20,9 @@
       <% @user_posts.reverse.each do |post| %>
         <tr>
           	<td><p><%= link_to post.title, post_url(post) %></p></td>
-              <td><p><%= truncate(post.body, :length => 180, :seperator => ' ') %></p></td>
+              <td><p><%= truncate(post.body, length: 180, seperator: ' ') %></p></td>
               <td><p><%= post.attachments.nil? ? image_tag(post.attachments.first.photo.thumb.url) : "No Featured Image" %></p></td>
-              <td><p><%= button_to "Edit", edit_post_url(post), method: :get, id: "edit-post-button" %></p></td>
+              <td><p><%= button_to "Edit", edit_post_url(post), method: :get, id: "edit-post-button" -%></p></td>
         </tr>
       <% end %>
     </tbody>
