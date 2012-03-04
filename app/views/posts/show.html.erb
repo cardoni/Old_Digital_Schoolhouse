@@ -1,3 +1,6 @@
+<div id="user-posts-menu">
+  <%= button_to "Edit This Post", edit_post_url(@post), method: :get -%>
+</div>
 <h1><%= @post.title %></h1>
 
 <p>Written by: <%= @post.user.name %></p>

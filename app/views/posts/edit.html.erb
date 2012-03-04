@@ -1,4 +1,6 @@
-<h1>Edit Post</h1>
-<%= link_to "All Posts", posts_url %>
-<%= button_to 'Delete', post_url, :method => :delete %>
-<%= render :partial => 'form' %>
+<div id="user-posts-menu">
+  <%= button_to "Delete Post", post_url, method: :delete, confirm: "Are you sure you\'d like to delete this post?", disable_with: "Deleting..." -%>
+</div>
+<h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
+
+<%= render partial: 'form' %>

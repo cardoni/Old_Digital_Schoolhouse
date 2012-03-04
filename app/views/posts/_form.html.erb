@@ -1,30 +1,42 @@
 <%= nested_form_for @post, :html => {:multipart => true} do |f| %>
-  <div class ="field">
-    Title: <%= f.text_field :title %>
-  </div>
-  <div class ="field">
-    Body: <%= f.text_area :body %>
-  </div>
-  <h2>Attachments:</h2>
-  <%= f.fields_for :attachments do |attachment| %>
-    <div class="field">
-      <% if attachment.object.new_record? %>
-        <%= attachment.file_field(:photo) %>
-        <%= attachment.hidden_field :user_id, :value => current_user.id %>
+  <div id="post-screen-left">
+    <div class ="field">
+      Post Title: <%= f.text_field :title, id: "title-field"%>
     </div>
-      <% else %>
-    <div class="field">
-      <%= image_tag(attachment.object.photo.url(:thumb)) %>
-      <%= attachment.hidden_field :_destroy %>
-      <%= attachment.link_to_remove "remove" %>
+    <div class ="field">
+      Body: <%= f.text_area :body, id: "body-field" %>
     </div>
-      <% end %>
-  <% end %>
-  <div class ="actions">
-    <%= f.link_to_add "Add Photo", :attachments %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div id="post-screen-right">
+    <div id="attachments">
+      <h3>Attachments</h3>
+        <%= f.fields_for :attachments do |attachment| %>
+          <% if attachment.object.new_record? %>
+            <div class="field">
+              <%= attachment.file_field(:photo) %>
+              <%= attachment.hidden_field :user_id, value: current_user.id %>
+            </div>
+          <% else %>
+            <div class="field">
+              <%= image_tag(attachment.object.photo.url(:thumb)) %>
+              <%= attachment.hidden_field :_destroy %>
+              <%= attachment.link_to_remove "remove" %>
+            </div>
+          <% end %>
+        <% end %>
+      <div class ="actions">
+        <%= f.link_to_add "Add Another Photo", :attachments %>
+      </div>
+    </div>
+    <div id="post-tags">
+      <h3>Post Tags</h3>
+    </div>
+  </div>
+  <div id="div-clear"></div>
   <div class ="actions">
-    <%= f.submit "Post it" %>
+    <div id="save-post">
+      <%= f.submit "Save Post", id: "save-post-button" -%>      
+    </div>
   </div>
 <% end %>
