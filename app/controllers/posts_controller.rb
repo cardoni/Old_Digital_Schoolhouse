@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    1.times { @post.attachments.build }
+    
   end
 
   def edit
@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   
   def create
     @post = Post.new(params[:post])
+    1.times { @post.attachments.build }
     
     @post.save
     NewPostMailer.new_post.deliver
