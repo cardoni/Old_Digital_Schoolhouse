@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :login_user!, :only => [:new, :create]
+  skip_before_filter :login_user!, only: [:new, :create]
   
   def new
     
@@ -12,10 +12,10 @@ class SessionsController < ApplicationController
              session[:user] = user.id
              redirect_to root_url
            else
-          redirect_to new_session_url, :notice => "Incorrect login. Please try again."
+          redirect_to new_session_url, notice: "Incorrect login. Please try again."
              end
            else
-             redirect_to new_session_url, :notice => "Incorrect login. Please try again"
+             redirect_to new_session_url, notice: "Incorrect login. Please try again"
            end
   end
   

@@ -11,11 +11,10 @@
 
 <div id="container", class="sixteen columns">
   <%#= raw("<h1>Welcome back, #{current_user.name.camelize}</h1>") if signed_in? %>
-  <p><%= notice %></p>
   <% @posts.each do |post| %>
     <div class="item">
-      <h2><%= post.title %></h2>
-      <p><%= post.body %></p>
+      <h2><%= link_to post.title, post_url(post) %></h2>
+      <p><%= truncate(post.body, length: 240, seperator: ' ') %></p>
       <div id="test-box"></div>
     </div>
   <% end %>
