@@ -1,6 +1,5 @@
-<div id="user-posts-menu">
-  <%= button_to "Delete Post", post_url, method: :delete, confirm: "Are you sure you\'d like to delete this post?", disable_with: "Deleting..." -%>
-</div>
+<%= render partial: 'delete_menu' if signed_in? %>
+
 <h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
 
-<%= render partial: 'form' %>
+<%= render partial: 'form' if signed_in? %>

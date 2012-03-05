@@ -2,8 +2,8 @@ class UsersController < ApplicationController
   
   def new
    @user = User.new
+   @title = "Create New User"
   end
-
   
   def create
      @user = User.new(params[:user])
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
    end
   
    def index
+     @title = "All Users"
      @administrators = User.find_all_by_classification('administrator')
      @teachers = User.find_all_by_classification('teacher')
      @students = User.find_all_by_classification('student')
@@ -26,7 +27,8 @@ class UsersController < ApplicationController
    end
    
    def edit
-     
+     @user = User.find(params[:id])
+     @title = "#{@user.name}\'s Profile"
    end
 
    def update
