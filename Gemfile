@@ -45,3 +45,5 @@ gem 'validates_email_format_of', '1.5.3'
 # 
 # This ensures NO trailing slash ("/") is added to end of URL (for SEO purposes)
 gem 'rack-rewrite', '1.2.1'
+# Generates SEO-friendly URL slugs
+gem 'friendly_id', '4.0.1'

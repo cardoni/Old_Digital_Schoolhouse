@@ -29,4 +29,7 @@ Attachment.create!(provider: "YouTube", attachment_url: "http://www.youtube.com/
 Attachment.create!(provider: "YouTube", attachment_url: "http://www.youtube.com/watch?v=FzRH3iTQPrk", description: "Panda Sneeze video", copyright_info: "No Copyright.", user_id: adam, post_id: 4)
 Attachment.create!(provider: "YouTube", attachment_url: "http://www.youtube.com/watch?v=FzRH3iTQPrk", description: "Panda Sneeze video", copyright_info: "No Copyright.", user_id: eric, post_id: 5)
 Attachment.create!(provider: "YouTube", attachment_url: "http://www.youtube.com/watch?v=FzRH3iTQPrk", description: "Panda Sneeze video", copyright_info: "No Copyright.", user_id: greg, post_id: 6)
-puts "Success: Seeded!"
+
+Post.find_each(&:save)
+
+puts "***Success: CONSIDER YOURSELF SEEDED!!"

@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
-  # after_update :save_attachments
-  
+  # The following generates SEO-friendly URL slugs
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+    
   has_many :attachments, :dependent => :destroy
   belongs_to :user
   
@@ -15,5 +17,4 @@ class Post < ActiveRecord::Base
       link(target: "_blank", rel: "nofollow")
       simple_format
     end
-  
 end

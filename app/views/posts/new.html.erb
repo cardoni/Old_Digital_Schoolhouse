@@ -1,5 +1,5 @@
 <div id="user-posts-menu">
-  <%= button_to "Cancel / Delete", :back, method: :get, confirm: "Are you sure you\'d like to cancel and delete this post?", disable_with: "Deleting..." %>
+  <%= button_to "Cancel / Delete", :back, method: :get, confirm: "Are you sure you\'d like to cancel and delete this post?", disable_with: "Deleting..." -%>
 </div>
 <h1>Create New Post</h1>
-<%= render partial: 'form' %>
+<%= render 'form' %>
