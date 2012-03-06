@@ -44,10 +44,10 @@ nav
   background: rgba(gray, 0.1) //#B2D0E9
   border: 1px solid #C3C3C3
   +box-shadow(rgba(gray, 0.1) 0 0 12px 4px inset)
-  -moz-border-radius-bottomright: 5px
-  -webkit-border-bottom-right-radius: 5px
-  -moz-border-radius-bottomleft:  5px
-  -webkit-border-bottom-left-radius:  5px
+  -moz-border-radius-bottomright: 15px
+  -webkit-border-bottom-right-radius: 15px
+  -moz-border-radius-bottomleft:  15px
+  -webkit-border-bottom-left-radius:  15px
   ul  
     list-style: none
     li
@@ -85,9 +85,9 @@ nav
   padding: 10px
   height: 35px
   margin: 0 10px 0 0
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  border-radius: 15px
 
 //  Style for "Save Post" button on new post form --Greg
 #save-post
@@ -98,9 +98,13 @@ nav
   padding: 10px
   height: 35px
   margin: 10px auto
-  -moz-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  border-radius: 15px
+  
+#save-post-button  // Center "Save Post" button below post. Super hacky. --Greg
+  margin: 0 40%
+  width: 140px
   
 // Style for title and body text fields  --Greg
 #title-field
@@ -112,23 +116,18 @@ nav
   height: 300px
   margin: 0 auto
 
-#save-post-button  // Center "Save Post" button in green section --Greg
-  margin: 0 45%
-
 //  Style of table showing a user's posts (within in "My Posts") --Greg
 #user-posts-table
   margin: 10px 10px
   width: 940px
   text-align: left
   border-collapse: collapse
-  +box-shadow(rgba(gray, 0.9) 0 0 12px 4px inset)
   th
     padding: 8px
     font-weight: bold
     color: #039
     background: #b9c9fe
     background: rgba(185, 201, 254, 0.8)
-    +box-shadow(rgba(gray, 0.1) 0 0 12px 4px inset)
   .post-title
     width: 188px
   .post-preview
@@ -140,8 +139,8 @@ nav
   td
     vertical-align: middle
     padding: 8px
-    background: #e8edff
-    background: rgba(232, 237, 255, 0.9)
+    background-color: #e8edff
+    background-color: rgba(232, 237, 255, 0.9)
     border-top: 1px solid #fff
     color: #669
   tfoot td.footer
@@ -149,10 +148,32 @@ nav
   tbody tr:hover td
     background: #d0dafd
     background: rgba(208, 218, 253, 0.8)
+  thead tr th.post-title
+    -moz-border-radius-topleft: 15px
+    -webkit-border-top-left-radius: 15px
+  thead tr th.post-edit
+    -moz-border-radius-topright: 15px
+    -webkit-border-top-right-radius: 15px
+  tfoot tr td.footer
+    -moz-border-radius-bottomright: 15px
+    -webkit-border-bottom-right-radius: 15px
+    -moz-border-radius-bottomleft: 15px
+    -webkit-border-bottom-left-radius: 15px
+    color: #039
+    background: #b9c9fe
+    background: rgba(185, 201, 254, 0.8)
     
 //  Style of "Edit" button on user's "My Posts" page --Greg
 #edit-post-button
   margin: 0 15px  // Hacky way to center button until I figure out the correct way  --Greg
+  
+#edit-form
+  background: rgba(gray, 0.2)
+  margin: 30px 0 20px 0
+  padding: 10px
+  -moz-border-radius: 15px
+  -webkit-border-radius: 15px
+  border-radius: 15px
 
 //  Style of highlighted text; not suported in all browsers --Greg
 ::selection, ::-moz-selection
@@ -182,12 +203,12 @@ nav
 
 #post-screen-left
   float: left
-  width: 460px
+  width: 445px
   margin: 0 0 10px 0
 
 #post-screen-right
   float: right
-  width: 460px
+  width: 445px
   margin: 0 10px
 
 #div-clear
