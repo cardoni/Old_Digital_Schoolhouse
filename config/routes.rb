@@ -1,5 +1,7 @@
 DigitalSchoolhouse::Application.routes.draw do
 
+  resources :countries
+
   root :to => 'home#index'
   
   resources :attachments
