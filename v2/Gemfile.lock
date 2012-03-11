@@ -162,6 +162,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    tweet-button (0.1.0)
     tzinfo (0.3.31)
     uglifier (1.0.3)
       execjs (>= 0.3.0)
@@ -192,5 +193,6 @@ DEPENDENCIES
   rspec-rails (= 2.8.1)
   sass-rails (= 3.2.3)
   thin
+  tweet-button
   uglifier (= 1.0.3)
   validates_email_format_of (= 1.5.3)
