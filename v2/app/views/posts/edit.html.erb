@@ -1,5 +1,5 @@
-<%= render partial: 'delete_menu' if signed_in? %>
+<%= render 'delete_menu' if signed_in? %>
 <h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
 <div id="edit-form">
-  <%= render partial: 'form' if signed_in? %>
+  <%= render 'form' if signed_in? %>
 </div>
