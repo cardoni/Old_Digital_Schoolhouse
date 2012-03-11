@@ -45,3 +45,6 @@ gem 'validates_email_format_of', '1.5.3'
 gem 'rack-rewrite', '1.2.1'
 # Generates SEO-friendly URL slugs
 gem 'friendly_id', '4.0.1'
+
+gem 'tweet-button'
+
