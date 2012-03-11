@@ -20,7 +20,8 @@ body
 
 //This is a temp placeholder for images/videos on the main index view  --Greg
 #test-box
-  background: #2F8EC1
+  background: #004B7B
+  background: rgba(0, 75, 123, 0.8)
   height: 200px
   width: 280px
   margin: 0 auto
@@ -92,8 +93,8 @@ nav
 //  Style for "Save Post" button on new post form --Greg
 #save-post
   border: 1px solid #9F9F9F
-  background: #b9c9fe
-  background: rgba(185, 201, 254, 0.8)
+  background: #004B7B
+  background: rgba(0, 75, 123, 0.8)
   +box-shadow(rgba(gray, 0.3) 0 0 12px 4px inset)
   padding: 10px
   height: 35px
@@ -125,9 +126,9 @@ nav
   th
     padding: 8px
     font-weight: bold
-    color: #039
-    background: #b9c9fe
-    background: rgba(185, 201, 254, 0.8)
+    color: #fff
+    background: #004B7B
+    background: rgba(0, 75, 123, 0.8)
   .post-title
     width: 188px
   .post-preview
@@ -139,15 +140,19 @@ nav
   td
     vertical-align: middle
     padding: 8px
-    background-color: #e8edff
-    background-color: rgba(232, 237, 255, 0.9)
+    background: #0062A1
+    background: rgba(0, 98, 161, 0.2)
     border-top: 1px solid #fff
     color: #669
   tfoot td.footer
+    font-weight: bold
     text-align: center
+    a
+      color: #fff
   tbody tr:hover td
-    background: #d0dafd
-    background: rgba(208, 218, 253, 0.8)
+    background-color: #0072BB
+    background-color: rgba(0, 114,  187, 0.4)
+
   thead tr th.post-title
     -moz-border-radius-topleft: 15px
     -webkit-border-top-left-radius: 15px
@@ -159,9 +164,8 @@ nav
     -webkit-border-bottom-right-radius: 15px
     -moz-border-radius-bottomleft: 15px
     -webkit-border-bottom-left-radius: 15px
-    color: #039
-    background: #b9c9fe
-    background: rgba(185, 201, 254, 0.8)
+    background: #004B7B
+    background: rgba(0, 75, 123, 0.8)
     
 //  Style of "Edit" button on user's "My Posts" page --Greg
 #edit-post-button
@@ -175,7 +179,7 @@ nav
   -webkit-border-radius: 15px
   border-radius: 15px
 
-//  Style of highlighted text; not suported in all browsers --Greg
+//  Style of highlighted text not suported in all browsers --Greg
 ::selection, ::-moz-selection
   background: #BBC7FF // * Safari & Firefox (in that order)
   
@@ -213,3 +217,49 @@ nav
 
 #div-clear
   clear: both
+  
+// This style affects the post edit view
+#photo-thumb
+  float: left
+  border: none
+  -webkit-border-radius: 5px
+  -moz-border-radius: 5px
+  border-radius: 5px
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,.3)
+  -moz-box-shadow: 0 0 2px rgba(0,0,0,.3)
+  box-shadow: 0 0 2px rgba(0,0,0,.3)
+
+// This style affects the post edit view
+.fields .attachments
+  #photo-remove
+    color: #fff
+    text-align: center
+    line-height: 23px
+    height: 25px
+    position: absolute
+    width: 100%
+    font-weight: bold
+    bottom: 0
+    left: 0
+    background: #333
+    background: rgba(32, 32, 32, .5)
+    -webkit-border-bottom-right-radius: 3px
+    -webkit-border-bottom-left-radius: 3px
+    -moz-border-radius-bottomright: 3px
+    -moz-border-radius-bottomleft: 3px
+    border-bottom-right-radius: 3px
+    border-bottom-left-radius: 3px
+    text-decoration: none
+    
+// This style affects the post edit view
+.fields .attachments
+  .attachment-field
+    float: left
+    width: 100px
+    border: none
+    -webkit-border-radius: 5px
+    -moz-border-radius: 5px
+    border-radius: 5px
+    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.3)
+    -moz-box-shadow: 0 0 2px rgba(0,0,0,.3)
+    box-shadow: 0 0 2px rgba(0,0,0,.3)
