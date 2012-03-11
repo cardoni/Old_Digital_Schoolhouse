@@ -20,9 +20,7 @@ class PostsController < ApplicationController
   end
   
   def create
-    @post = Post.new(params[:post])
-    1.times { @post.attachments.build }
-    
+    @post = Post.new(params[:post])   
     @post.save
     NewPostMailer.new_post.deliver
     redirect_to posts_url
