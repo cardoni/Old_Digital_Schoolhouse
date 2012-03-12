@@ -12,6 +12,7 @@
 
 
   <% @array_of_post_arrays.each_pair do |name, post_array| %>
+<p> &nbsp;</p>
   <div style="overflow-x: scroll">
   <h2><%= name %></h2>
   <table>
@@ -20,7 +21,7 @@
   
   <td>
     <h2><%= link_to post.title, post_url(post) %></h2>
-      <p><%= truncate(post.body, length: 240, seperator: ' ') %> jjjjjj</p>
+      <p><%= truncate(post.body, length: 240, seperator: ' ') %> </p>
       <div id="test-box"></div>
   </td>
   
