@@ -9,43 +9,21 @@
   });
 </script>
 
-<hr />
-<hr />
-<!--
-<div >
-  <%#= raw("<h1>Welcome back, #{current_user.name.camelize}</h1>") if signed_in? %>
-  <% @array_of_post_arrays.each do |post_array| %>
-  <div style="overflow-x: scroll">
-  <p>New Country!!!!!!!</p>
-    <% post_array.each do |post| %>
-    <div class="item">
-      <h2><%= link_to post.title, post_url(post) %></h2>
-      <p><%= truncate(post.body, length: 240, seperator: ' ') %> jjjjjj</p>
-      <div id="test-box"></div>
-    </div>
-    <% end %>
-    </div>
-  <% end %>
-</div>
--->
-<hr />
-<hr />
-<p>
-John Carter Of Mars John Carter Of Mars John Carter Of Mars John Carter Of Mars John Carter Of Mars John Carter Of Mars 
-</p>
 
 
-  <% @array_of_post_arrays.each do |post_array| %>
+  <% @array_of_post_arrays.each_pair do |name, post_array| %>
   <div style="overflow-x: scroll">
-  <h2></h2>
+  <h2><%= name %></h2>
   <table>
     <tr>
   <% post_array.each do |post| %>
+  
   <td>
     <h2><%= link_to post.title, post_url(post) %></h2>
       <p><%= truncate(post.body, length: 240, seperator: ' ') %> jjjjjj</p>
       <div id="test-box"></div>
   </td>
+  
   <% end %> <!-- post_array.each do |post|  -->
   </tr>
   </table>
