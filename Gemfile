@@ -46,5 +46,6 @@ gem 'rack-rewrite', '1.2.1'
 # Generates SEO-friendly URL slugs
 gem 'friendly_id', '4.0.1'
 
+# for the tweet button
 gem 'tweet-button'
 
