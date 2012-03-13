@@ -33,7 +33,7 @@ describe CountriesController do
   def valid_session
     {}
   end
-
+=begin
   describe "GET index" do
     it "assigns all countries as @countries" do
       country = Country.create! valid_attributes
@@ -41,7 +41,8 @@ describe CountriesController do
       assigns(:countries).should eq([country])
     end
   end
-
+=end
+=begin
   describe "GET show" do
     it "assigns the requested country as @country" do
       country = Country.create! valid_attributes
@@ -49,7 +50,9 @@ describe CountriesController do
       assigns(:country).should eq(country)
     end
   end
+=end
 
+=begin
   describe "GET new" do
     it "assigns a new country as @country" do
       get :new, {}, valid_session
@@ -64,7 +67,9 @@ describe CountriesController do
       assigns(:country).should eq(country)
     end
   end
+=end
 
+=begin
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Country" do
@@ -101,7 +106,9 @@ describe CountriesController do
       end
     end
   end
+=end
 
+=begin
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested country" do
@@ -145,7 +152,9 @@ describe CountriesController do
       end
     end
   end
+=end
 
+=begin
   describe "DELETE destroy" do
     it "destroys the requested country" do
       country = Country.create! valid_attributes
@@ -160,5 +169,5 @@ describe CountriesController do
       response.should redirect_to(countries_url)
     end
   end
-
+=end
 end
