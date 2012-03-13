@@ -9,11 +9,13 @@
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div id="post-screen-right">
-    <div id="attachments">
+    <div id="attachments-section">
       <h3>Attachments</h3>
         <%= f.fields_for :attachments do |attachment| %>
-          <%= render 'attachment', attachment: attachment %>
-        <% end %>  
+          <div class="image">
+            <%= render 'attachment', attachment: attachment %>
+          </div>
+        <% end %>
       <div class ="actions">
         <% if @post.attachments.first.present? %>
           <%= f.link_to_add "Add Another Photo", :attachments, id: "add-photo" %>
@@ -26,7 +28,7 @@
       <h3>Post Tags</h3>
     </div>
   </div>
-  <div id="div-clear"></div>
+  <div id="clear"></div>
   <div class ="actions">
       <div id="save-post">
         <%= f.submit "Save Post", id: "save-post-button" -%>      

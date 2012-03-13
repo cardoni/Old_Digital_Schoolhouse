@@ -196,12 +196,9 @@ nav
   border-top: 1px solid #999
   padding: 15px 0 0 0
 
-#attachments
-  h3
-    border-bottom: 1px solid #999
-
 #post-tags
   margin: 10px 0 0 0
+  clear: both
   h3
     border-bottom: 1px solid #999
 
@@ -210,56 +207,70 @@ nav
   width: 445px
   margin: 0 0 10px 0
 
-#post-screen-right
+#clear
+  clear: both
+
+#post-screen-right  //** Entire right half of post 'form' partial
   float: right
   width: 445px
   margin: 0 10px
+  h3
+    border-bottom: 1px solid #999
+  .actions
+    clear: both
 
-#div-clear
-  clear: both
-  
-// This style affects the post edit view
-#photo-thumb
+.fields
   float: left
+  width: auto
+  margin: 0 10px 10px 0
   border: none
-  -webkit-border-radius: 5px
-  -moz-border-radius: 5px
-  border-radius: 5px
+
+.fields .image
+  position: relative
+  width: auto
+  height: auto
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
   -webkit-box-shadow: 0 0 2px rgba(0,0,0,.3)
   -moz-box-shadow: 0 0 2px rgba(0,0,0,.3)
   box-shadow: 0 0 2px rgba(0,0,0,.3)
+  border: none
+  -webkit-transition: opacity .15s linear,-webkit-box-shadow .15s linear
+  -moz-transition: opacity .15s linear,-moz-box-shadow .15s linear
+  -o-transition: opacity .15s linear,box-shadow .15s linear
+  transition: opacity .15s linear,box-shadow .15s linear
 
-// This style affects the post edit view
-.fields .attachments
-  #photo-remove
-    color: #fff
-    text-align: center
-    line-height: 23px
-    height: 25px
-    position: absolute
-    width: 100%
-    font-weight: bold
-    bottom: 0
-    left: 0
-    background: #333
-    background: rgba(32, 32, 32, .5)
-    -webkit-border-bottom-right-radius: 3px
-    -webkit-border-bottom-left-radius: 3px
-    -moz-border-radius-bottomright: 3px
-    -moz-border-radius-bottomleft: 3px
-    border-bottom-right-radius: 3px
-    border-bottom-left-radius: 3px
-    text-decoration: none
-    
-// This style affects the post edit view
-.fields .attachments
-  .attachment-field
-    float: left
-    width: 100px
-    border: none
-    -webkit-border-radius: 5px
-    -moz-border-radius: 5px
-    border-radius: 5px
-    -webkit-box-shadow: 0 0 2px rgba(0,0,0,.3)
-    -moz-box-shadow: 0 0 2px rgba(0,0,0,.3)
-    box-shadow: 0 0 2px rgba(0,0,0,.3)
+.fields .image img.thumb
+  width: 100px
+  height: 100px
+  -webkit-border-radius: 3px
+  -moz-border-radius: 3px
+  border-radius: 3px
+
+.fields .image .overlay
+  position: absolute
+  text-align: center
+  bottom: 0
+  left: 0
+  width: 100%
+  background: #333
+  height: 21px
+  line-height: 18px
+  background: rgba(32, 32, 32, .5)
+  -webkit-border-bottom-right-radius: 3px
+  -webkit-border-bottom-left-radius: 3px
+  -moz-border-radius-bottomright: 3px
+  -moz-border-radius-bottomleft: 3px
+  border-bottom-right-radius: 3px
+  border-bottom-left-radius: 3px
+
+.overlay
+  color: #fff
+  font-weight: bold
+  text-decoration: none // NOT WORKING!?
+.overlay:hover
+  color: red
+
+
+
