@@ -5,12 +5,16 @@ greg = 4
 teacher = 5
 donor = 6
 
-User.create!(name: "Admin", email: "admin@email.com", classification: "administrator", password_digest: "$2a$10$nM.4xm1gHkVBC25tdSf3xO9N4m7C.SMLWoaSh1.VRml862GOmbnGC")
-User.create!(name: "Adam", email: "adam@adamsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
-User.create!(name: "Eric", email: "eric@ericsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
-User.create!(name: "Greg", email: "bob@bobsemail.com", classification: "student", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
-User.create!(name: "Teacher", email: "teacher@email.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
-User.create!(name: "Donor", email: "donor@email.com", classification: "donor", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK")
+["United States", "Uganda", "Honduras", "Thailand"].each do |name|
+  Country.create!(name: name)
+end
+
+User.create!(name: "Admin", email: "admin@email.com", classification: "administrator", password_digest: "$2a$10$nM.4xm1gHkVBC25tdSf3xO9N4m7C.SMLWoaSh1.VRml862GOmbnGC", country_id: 1)
+User.create!(name: "Adam", email: "adam@adamsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 2)
+User.create!(name: "Eric", email: "eric@ericsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 3)
+User.create!(name: "Greg", email: "bob@bobsemail.com", classification: "student", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 4)
+User.create!(name: "Teacher", email: "teacher@email.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 2)
+User.create!(name: "Donor", email: "donor@email.com", classification: "donor", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 3)
 
 Post.create!(title: "First Post", body: "First post created by Admin!", user_id: admin)
 Post.create!(title: "Second Post", body: "Another post created by Admin!", user_id: admin)
