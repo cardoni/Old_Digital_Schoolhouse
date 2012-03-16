@@ -19,6 +19,10 @@
 
 #Ignore .rvmrc file
 .rvmrc
+.rvmrc~
 
 #Ignore images
 /public/uploads
+
+# Ignore the backup files
+*~
