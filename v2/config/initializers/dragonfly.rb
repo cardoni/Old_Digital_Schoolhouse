@@ -6,9 +6,9 @@ app.configure_with(:rails)
 app.define_macro(ActiveRecord::Base, :image_df_accessor)
 app.configure do |c|
   c.datastore = Dragonfly::DataStorage::S3DataStore.new({
-    :bucket_name          => 'media.dsch',
-    :access_key_id        => 'AKIAJ6LQSKCQCLRRGSVQ', #AppConfig[:s3_key],
-    :secret_access_key    => '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', #AppConfig[:s3_secret], 
+    :bucket_name          => 'bucket name here',
+    :access_key_id        => 'key goes here', #AppConfig[:s3_key],
+    :secret_access_key    => 'and here', #AppConfig[:s3_secret], 
     # :path                 => 'images '
   })
 
