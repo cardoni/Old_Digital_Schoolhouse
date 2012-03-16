@@ -2,6 +2,11 @@
 
 // Includes compass mixins from gem. 'compass-style.org' for reference.
 @import "compass/css3";
+@import "compass/utilities";
+
+$base_color: #614DA3;
+@import "shared/split_compliment_theme";
+@import "sassy-buttons";
 
 // The order below is important. These are shared globally throughout the app. 
 // Be Careful adding anything to this block of files!
@@ -18,3 +23,16 @@
 
 // This ought to be the last file imported.
 @import "media"; // Media Queries for re-defining styles on different viewport widths.
+
+@charset 'UTF-8';
+/*
+ * jQuery File Upload UI Plugin CSS 6.3
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+

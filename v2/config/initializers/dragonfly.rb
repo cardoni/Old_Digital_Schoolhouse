@@ -3,13 +3,29 @@ require 'dragonfly'
 app = Dragonfly[:images]
 app.configure_with(:imagemagick)
 app.configure_with(:rails)
-app.define_macro(ActiveRecord::Base, :image_accessor)
-app.datastore = Dragonfly::DataStorage::S3DataStore.new({
-  :bucket_name          => 'media.adam.1',
-  :access_key_id        => 'AKIAJ6LQSKCQCLRRGSVQ',
-  :secret_access_key    => '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',
-  # :path                 => 'images '
-})
+app.define_macro(ActiveRecord::Base, :image_df_accessor)
+app.configure do |c|
+  c.datastore = Dragonfly::DataStorage::S3DataStore.new({
+    :bucket_name          => 'media.dsch',
+    :access_key_id        => 'AKIAJ6LQSKCQCLRRGSVQ', #AppConfig[:s3_key],
+    :secret_access_key    => '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', #AppConfig[:s3_secret], 
+    # :path                 => 'images '
+  })
+
+  c.server.before_serve do |job, env|
+    uid = job.store
+    Thumb.create!( :uid => uid, :job => job.serialize )
+  end
+
+  c.define_url do |app, job, opts|
+    thumb = Thumb.find_by_job(job.serialize)
+    if thumb
+      app.datastore.url_for(thumb.uid)
+    else
+      app.server.url_for(job)
+    end
+  end
+end
 # app.configure do |c|
 # 
 #   # Override the .url method...

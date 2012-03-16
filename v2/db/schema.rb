@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311130035) do
+ActiveRecord::Schema.define(:version => 20120316065835) do
+
+  create_table "assets", :force => true do |t|
+    t.string   "type"
+    t.string   "image_uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "image_name"
+  end
 
   create_table "attachments", :force => true do |t|
     t.string   "provider"
@@ -22,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20120311130035) do
     t.integer  "post_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.string   "photo"
+    t.integer  "asset_id"
   end
 
   create_table "countries", :force => true do |t|
@@ -42,6 +51,13 @@ ActiveRecord::Schema.define(:version => 20120311130035) do
   end
 
   add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
+
+  create_table "thumbs", :force => true do |t|
+    t.string   "uid"
+    t.string   "job"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"
