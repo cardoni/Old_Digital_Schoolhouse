@@ -1,0 +1,9 @@
+default: &default
+  s3_key: AKIAJ6LQSKCQCLRRGSVQ
+  s3_secret: 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
+  
+development:
+  <<: *default
+  
+production:
+  <<: *default

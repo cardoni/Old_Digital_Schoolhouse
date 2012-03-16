@@ -1,0 +1,17 @@
+<h2>Media Upload</h2>
+
+<%= render 'upload' %>
+
+<h3>My Recent Uploads</h3>
+
+<section id="asset-thumbs">
+  <% if @user_assets.empty? %>
+  <p>Seems you haven't uploaded anything yet!'</p>
+  <% else %>
+  <ul>
+    <%= @user_assets.each do |a| %>
+      <li><%= image_tag(a.image.thumb('80x80').url) %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</section>

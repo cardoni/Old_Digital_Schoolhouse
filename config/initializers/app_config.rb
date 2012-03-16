@@ -1,0 +1,1 @@
+# AppConfig = YAML.load(Rails.root + 'config/app_config.yml')[Rails.env].symbolize_keys!

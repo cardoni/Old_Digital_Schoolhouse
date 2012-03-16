@@ -23,11 +23,12 @@ group :assets do
   gem 'sass-rails',   '3.2.3'
   gem 'coffee-rails', '3.2.1'
   gem "haml-rails", '0.3.4'
-  gem 'carrierwave'
+  # gem 'carrierwave'
   gem 'mini_magick'
   gem 'nested_form'
   gem 'compass-rails', '~> 1.0.0.rc.2'
   gem 'compass-colors'
+  gem 'sassy-buttons'
   gem 'uglifier', '1.0.3'
 end
 
@@ -35,6 +36,11 @@ gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.0.1'
+
+# The 3 below are for dragonfly with S3 sync
+gem 'fog'
+gem 'dragonfly', '~>0.9.10'
+gem 'rack-cache', :require => 'rack/cache'
 
 # To validate email address format
 gem 'validates_email_format_of', '1.5.3'

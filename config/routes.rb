@@ -8,6 +8,7 @@ DigitalSchoolhouse::Application.routes.draw do
   resources :users
   resources :sessions
   resources :posts
+  resources :assets, :only => [:index, :create, :destroy]
 
   get '/logout' => 'sessions#logout', :as => :logout
   get '/login' => 'sessions#new', :as => :login

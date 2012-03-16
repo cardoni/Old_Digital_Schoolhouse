@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
-  require 'carrierwave/orm/activerecord'
-  mount_uploader :avatar, AvatarUploader
+  # require 'carrierwave/orm/activerecord'
+  # mount_uploader :avatar, AvatarUploader
   has_many :posts
   has_many :attachments
+  has_many :assets
   has_secure_password
   belongs_to :country
 
