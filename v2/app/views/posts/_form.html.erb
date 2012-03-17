@@ -1,37 +1,36 @@
-<%= nested_form_for @post, :html => {:multipart => true} do |f| %>
-  <div id="post-screen-left">
-    <div class ="field">
-      Post Title: <%= f.text_field :title, id: "title-field"%>
-    </div>
-    <div class ="field">
-      Body: <%= f.text_area :body, id: "body-field" %>
-    </div>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+<%= form_for @post do |p| %>
+  <div class="seven columns">
+    <section class="clearfix">
+      <div class ="field">
+        Post Title: <%= p.text_field :title, id: "title-field"%>
+      </div>
+      <div class ="field">
+        Body: <%= p.text_area :body, id: "body-field" %>
+      </div>
+      <%= p.hidden_field :user_id, :value => current_user.id %>
+    </section>
   </div>
-  <div id="post-screen-right">
-    <div id="attachments-section">
+  <div class="eight columns">
+    <section class="clearfix">
       <h3>Attachments</h3>
-        <%= f.fields_for :attachments do |attachment| %>
+        <%= p.fields_for :attachments, @post.initialized_attachments do |builder| %>
+          <% asset = builder.object.asset %>
+          <%= builder.hidden_field :asset_id %>
           <div class="image">
-            <%= render 'attachment', attachment: attachment %>
+            <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
+            <%= builder.check_box :enable %>
+            <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
           </div>
         <% end %>
-      <div class ="actions">
-        <% if @post.attachments.first.present? %>
-          <%= f.link_to_add "Add Another Photo", :attachments, id: "add-photo" %>
-        <% else %>
-          <%= f.link_to_add "Add a Photo to This Post!", :attachments %>
-        <% end %>
-      </div>
-    </div>
+    </section>
     <div id="post-tags">
       <h3>Post Tags</h3>
     </div>
   </div>
   <div id="clear"></div>
   <div class ="actions">
-      <div id="save-post">
-        <%= f.submit "Save Post", id: "save-post-button" -%>      
-      </div>
+    <div id="save-post">
+      <%= p.submit "Save Post", id: "save-post-button" -%>      
+    </div>
   </div>
 <% end %>

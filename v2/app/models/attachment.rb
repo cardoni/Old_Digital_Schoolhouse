@@ -5,6 +5,8 @@ class Attachment < ActiveRecord::Base
   belongs_to :user
   belongs_to :asset
   
+  attr_accessor :enable
+  
   # mount_uploader :photo, PhotoUploader
   
   # def photo=(val)

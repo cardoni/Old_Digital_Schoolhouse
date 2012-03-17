@@ -1,5 +1,5 @@
 <%= render 'delete_menu' if signed_in? %>
 <h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
-<div id="edit-form">
+<div id="form-wrapper">
   <%= render 'form' if signed_in? %>
 </div>
