@@ -1,6 +1,6 @@
 class Asset < ActiveRecord::Base
   include Rails.application.routes.url_helpers
-  has_many :attachments
+  has_many :attachments, :dependent => :destroy
   has_many :posts , :through => :attachments
   belongs_to :user
   image_df_accessor :image  # do

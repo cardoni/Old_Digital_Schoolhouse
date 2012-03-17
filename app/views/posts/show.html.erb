@@ -13,8 +13,8 @@
 <p><%= custom_tweet_button %>
 </p>
 <ul>
-  <% @post.attachments.each do |attachment| %>  
-    <li><%= embed_media(attachment.attachment_url) %></li>
+  <% @post.assets.each do |asset| %>  
+    <li><%= image_tag(asset.image.thumb('100x100').url ) %></li>
   <% end %>
 </ul>
 
