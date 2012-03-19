@@ -19,7 +19,7 @@
     <tr>
   <% post_array.each do |post| %>
   
-  <td>
+  <td padding="5">
     <h2><%= link_to post.title, post_url(post) %></h2>
       <p><%= truncate(post.body, length: 240, seperator: ' ') %> </p>
       <div id="test-box"></div>
