@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :assets
   has_secure_password
   belongs_to :country
+  
+  attr_accessor :avatar_cache, :remove_avatar
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, email_format: {message: 'is not looking good'},
