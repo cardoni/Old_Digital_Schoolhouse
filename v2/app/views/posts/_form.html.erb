@@ -1,7 +1,7 @@
 <%= nested_form_for @post, :html => {:multipart => true} do |f| %>
   <div id="post-screen-left">
     <div class ="field">
-      Post Title: <%= f.text_field :title, id: "title-field"%>
+      Post Title: <%= @post.title ? @post.title : (f.text_field :title, id: "title-field") %>
     </div>
     <div class ="field">
       Body: <%= f.text_area :body, id: "body-field" %>
