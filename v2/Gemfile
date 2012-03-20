@@ -37,6 +37,7 @@ gem 'jquery-rails'
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '3.0.1'
 
+gem 'vimeo'
 # The 3 below are for dragonfly with S3 sync
 gem 'fog'
 gem 'dragonfly', '~>0.9.10'

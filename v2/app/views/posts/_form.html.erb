@@ -18,7 +18,7 @@
           <%= builder.hidden_field :asset_id %>
           <div class="image">
             <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
-            <%= builder.check_box :enable %>
+            <p><%= builder.check_box :enable %>add to post</p>
             <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
           </div>
         <% end %>
