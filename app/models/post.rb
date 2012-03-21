@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
   # image_df_accessor :image
+  # include PostsHelper
     
   has_many :attachments, :dependent => :destroy
   has_many :assets, :through => :attachments
@@ -12,9 +13,12 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :attachments, :allow_destroy => true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-  def initialized_attachments
+    def initialized_attachments(id)
+      logger.debug("--------------------------------------User id: ")
+      
+      logger.debug("-------------------------------------- ")
     [].tap do |o|
-        Asset.find_all_by_user_id(@current_user).each do |asset|
+        Asset.where(:user_id => id).each do |asset|
         if a = attachments.find { |a| a.asset_id == asset.id }
           o << a.tap { |a| a.enable ||= true }
         else
