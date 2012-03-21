@@ -13,7 +13,7 @@
   <div class="eight columns">
     <section class="clearfix">
       <h3>Attachments</h3>
-        <%= p.fields_for :attachments, @post.initialized_attachments do |builder| %>
+        <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
           <% asset = builder.object.asset %>
           <%= builder.hidden_field :asset_id %>
           <div class="image">
