@@ -1,5 +1,5 @@
 <div id="user-posts-menu">
-  <%= button_to "Create New Post", new_post_url, method: :get -%>
+  <%= button_to "Create New Post", new_post_url, method: :get, class: "btn" -%>
 </div>
 <h1>Your Posts</h1>
 <table id="user-posts-table" summary="All posts by <%= current_user.name %>">
@@ -17,12 +17,12 @@
         </tr>
     </tfoot>
     <tbody>
-      <% @user_posts.reverse.each do |post| %>
+      <% @posts.each do |post| %>
         <tr>
           	<td><p><%= link_to post.title, post_url(post) %></p></td>
               <td><p><%= truncate(post.body, length: 180, seperator: ' ') %></p></td>
-              <td><p><%= post.attachments.first.present? ? image_tag(post.attachments.first.photo.thumb.url, id: "photo-thumb") : "No Featured Image" %></p></td>
-              <td><p><%= button_to "Edit", edit_post_url(post), method: :get, id: "edit-post-button" -%></p></td>
+              <td><p><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('100x100').url, id: "photo-thumb") : "No Featured Image" %></p></td>
+              <td><p><%= button_to "Edit", edit_post_url(post), method: :get, id: "edit-post-button", class: "btn" -%></p></td>
         </tr>
       <% end %>
     </tbody>

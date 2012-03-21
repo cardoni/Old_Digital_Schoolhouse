@@ -23,3 +23,6 @@
 
 #Ignore images
 /public/uploads
+
+# Ignore the backup files
+*~

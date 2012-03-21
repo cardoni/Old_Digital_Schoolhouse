@@ -1,0 +1,9 @@
+default: &default
+  s3_key: ''
+  s3_secret: ''
+  
+development:
+  <<: *default
+  
+production:
+  <<: *default

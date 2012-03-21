@@ -1,4 +1,11 @@
 class PostsController < ApplicationController
+  before_filter :process_attachment_attrs, only: [:create, :update]
+  
+  def process_attachment_attrs
+    params[:post][:attachments_attributes].values.each do |attach_attr|
+      attach_attr[:_destroy] = true if attach_attr[:enable] != '1'
+    end
+  end
   
   def index
     @posts = Post.find(:all, order: "created_at DESC")
@@ -36,7 +43,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to root_url
+    redirect_to posts_url
   end
   
   def show
