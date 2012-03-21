@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
 
   def initialized_attachments
     [].tap do |o|
-      Asset.all.each do |asset|
+        Asset.find_all_by_user_id(@current_user).each do |asset|
         if a = attachments.find { |a| a.asset_id == asset.id }
           o << a.tap { |a| a.enable ||= true }
         else
