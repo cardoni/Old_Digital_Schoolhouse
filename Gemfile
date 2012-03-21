@@ -53,4 +53,3 @@ gem 'friendly_id', '4.0.1'
 
 # for the tweet button
 gem 'tweet-button'
-
