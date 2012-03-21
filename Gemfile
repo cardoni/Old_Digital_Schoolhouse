@@ -5,7 +5,6 @@ gem 'rails', '3.2.1'
 gem 'pg'
 
 group :development, :test do
-  # gem 'sqlite3'
   gem 'rspec-rails', '2.8.1'
 end
 
@@ -23,7 +22,6 @@ group :assets do
   gem 'sass-rails',   '3.2.3'
   gem 'coffee-rails', '3.2.1'
   gem "haml-rails", '0.3.4'
-  # gem 'carrierwave'
   gem 'mini_magick'
   gem 'nested_form'
   gem 'compass-rails', '~> 1.0.0.rc.2'
