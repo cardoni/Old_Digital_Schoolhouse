@@ -6,12 +6,11 @@ DigitalSchoolhouse::Application.configure do
   # Configure SASS -Adam M
   config.sass.line_comments = false
   config.sass.style = :nested
-  
-  # Silence stupid warnings that are thrown when on Heroku -Greg
-  ::ActiveSupport::Deprecation.silenced = true
+
   
   # Setting for Heroku to run properly -Greg
   config.assets.initialize_on_precompile = false
+  
   
   # —————————————————————————————————
 

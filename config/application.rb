@@ -22,6 +22,14 @@ module DigitalSchoolhouse
     
     config.middleware.insert_after 'Rack::Cache', 'Dragonfly::Middleware', :images
     
+    config.action_controller.default_url_options = { :trailing_slash => false }
+    
+    # Throws a 301 redirect for urls with trailing slashes ("/")
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      r301 %r{^/(.*)/$}, '/$1'
+    end
+    
+    
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
