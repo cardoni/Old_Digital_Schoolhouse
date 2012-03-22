@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
     if Rails.env.production?
       http_basic_authenticate_with :name => "secret", :password => "password"
     end
+        
 end

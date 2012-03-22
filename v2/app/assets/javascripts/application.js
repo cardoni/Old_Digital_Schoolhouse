@@ -15,12 +15,9 @@
 //= require jquery-ui
 //= require_tree .
 
-// function remove_fields(link) {
-//  $(link).prev("input[type=hidden]").val("1");
-//  $(link).closest(".image_field").hide('fast');
-// }
+
+// // Facebook button  (Added by Eric?)
 // 
-// // Facebook button
 // $(function() {
 //         likebutton =
 //             '<fb:like href="" send="" width="100" show_faces="" ' +
