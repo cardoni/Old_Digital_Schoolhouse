@@ -1,6 +1,21 @@
 DigitalSchoolhouse::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # —————————————————————————————————
+  
+  # Configure SASS -Adam M
+  config.sass.line_comments = false
+  config.sass.style = :nested
+  
+  # Silence stupid warnings that are thrown when on Heroku -Greg
+  ::ActiveSupport::Deprecation.silenced = true
+  
+  # Setting for Heroku to run properly -Greg
+  config.assets.initialize_on_precompile = false
+  
+  # —————————————————————————————————
+
+
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -65,7 +80,4 @@ DigitalSchoolhouse::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  #Configure SASS
-  config.sass.line_comments = false
-  config.sass.style = :nested
 end
