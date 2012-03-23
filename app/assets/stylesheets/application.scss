@@ -3,26 +3,28 @@
 // Includes compass mixins from gem. 'compass-style.org' for reference.
 @import "compass/css3";
 @import "compass/utilities";
-
-$base_color: #614DA3;
-@import "shared/split_compliment_theme";
-@import "sassy-buttons";
+@import "compass_twitter_bootstrap";
+@import "compass_twitter_bootstrap_responsive";
+@import "custom";
+//$base_color: #614DA3;
+//@import "shared/split_compliment_theme";
+//@import "sassy-buttons";
 
 // The order below is important. These are shared globally throughout the app. 
 // Be Careful adding anything to this block of files!
-@import "shared/reset";
-@import "shared/typography";
-@import "shared/links_lists"; //Styling for specific li, links, should go into "main"
-@import "shared/resources"; //Tables, Forms, Buttons. If you want to style for a specific table, form, button, add it into "main"
-@import "shared/skeleton"; //Defines columns for the responsive grid, reference this for sizing elements.
+//@import "shared/reset";
+//@import "shared/typography";
+//@import "shared/links_lists"; //Styling for specific li, links, should go into "main"
+//@import "shared/resources"; //Tables, Forms, Buttons. If you want to style for a specific table, form, button, add it into "main"
+//@import "shared/skeleton"; //Defines columns for the responsive grid, reference this for sizing elements.
 //
 
 
 // We should use the files below most often! Main is where specific styling should go. 
-@import "main"; // Most styling here!shared
+//@import "main"; // Most styling here!shared
 
 // This ought to be the last file imported.
-@import "media"; // Media Queries for re-defining styles on different viewport widths.
+//@import "media"; // Media Queries for re-defining styles on different viewport widths.
 
 @charset 'UTF-8';
 /*
