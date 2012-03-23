@@ -1,4 +1,4 @@
-<%= render 'posts/edit_menu' if signed_in? %>
+<%= render 'posts/edit_menu' if signed_in? && @post.user_id == current_user.id %>
 
 <h1><%= @post.title %></h1>
 

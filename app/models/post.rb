@@ -36,4 +36,21 @@ class Post < ActiveRecord::Base
       link(target: "_blank", rel: "nofollow")
       simple_format
     end
+    
+    def vimeo_response
+      vim = Vimeo::Simple::User.videos("global").parsed_response
+      b = vim.each do |vid_attr|
+        build(:attachment_url => vid_attr['id'], :provider => vid_attr['thumbnail_small'])
+      end
+      [].tap do |o|
+        b.each do |asset|
+          if a = attachments.find { |a| a.provider == asset.provider }
+            o << a.tap { |a| a.enable ||= true }
+          else
+            o << Attachment.new(b: asset)
+          end
+        end
+      end
+    end
+
 end

@@ -19,11 +19,15 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    
+    @vimeo = Vimeo::Simple::User.videos("global").parsed_response
+    @vimeo.each do |vid_attr|
+      @post.attachments.build(:attachment_url => vid_attr['thumbnail_small'], :provider => vid_attr['id'])
+    end
   end
 
   def edit
     @post = Post.find(params[:id])
+    # @post.attachments.where('attachment_url IS NOT NULL').build(:attachment_url => attachment_url)
   end
   
   def create
