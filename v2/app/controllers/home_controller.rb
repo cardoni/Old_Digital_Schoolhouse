@@ -1,6 +1,13 @@
 class HomeController < ApplicationController
   skip_before_filter :login_user!
+  
+  
   def index
+    
+    logger.debug "**********  #{current_user.inspect}"
+    logger.debug "**********"
+    
+    
     @posts = Post.find(:all, :order => "created_at desc")
     @title = "Digital Schoolhouse"
     countries = Country.all.sample(3)
