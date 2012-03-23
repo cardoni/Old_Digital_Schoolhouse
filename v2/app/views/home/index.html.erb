@@ -1,17 +1,4 @@
-<!-- The following code is temporary.  It will be removed once we get the Masonry jQuery script working and lookin' good.  **Greg -->
-<script>
-  $(function(){
-    $('#container').masonry({
-      // options
-      itemSelector : '.item',
-      columnWidth : 300
-     });
-  });
-</script>
-
-
-
-  <% @array_of_post_arrays.each_pair do |name, post_array| %>
+<% @array_of_post_arrays.each_pair do |name, post_array| %>
 <p>&nbsp;</p>
   <div style="overflow-x: scroll">
   <h2><%= name %></h2>
