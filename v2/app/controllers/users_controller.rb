@@ -39,4 +39,27 @@ class UsersController < ApplicationController
      end
     
    end
+   
+   def manage
+     @user = User.find(params[:id])
+   end
+   
+   def change
+     # I am entering these fields individually because I am not clear right now how to handle the avatar fields  
+     user  = User.find(params[:id])
+     user.name       = params[:user][:name]
+     user.location   = params[:user][:location]
+     user.school     = params[:user][:school]
+     user.bio        = params[:user][:bio]
+     user.email      = params[:user][:email]
+     user.country_id = params[:user][:country_id]
+     if user.save
+       redirect_to users_path
+     else
+       redirect_to manage_user(user), notice: "user not updated"
+     end
+     
+
+   end
+   
 end
