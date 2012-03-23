@@ -1,7 +1,11 @@
 class AssetsController < ApplicationController
   
   def index
-    @assets = Asset.find(:all, order: "created_at DESC")
+    if current_user.classification == 'administrator'
+      @assets = Asset.find(:all, order: "created_at DESC")
+    else
+      @assets = Asset.where(:user_id => current_user.id).order("created_at DESC")
+    end
     @user_assets = Asset.where(:user_id => current_user.id)
     @asset = Asset.new
     respond_to do |format|
