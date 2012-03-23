@@ -20,7 +20,7 @@
     <div class="well">
       <h4><%= link_to p.title, post_url(p) %></h4>
       <p><%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %></p>
-      <div class="post-feature-image"><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
+      <div class="post-feature-image"><%= p.assets.first.present? ? image_tag(p.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
     </div>
   </div>
   <% end %>
