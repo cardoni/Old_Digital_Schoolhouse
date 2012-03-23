@@ -1,22 +1,18 @@
 <div class="navbar-inner">
   <div class="container">
     <a class="brand" href="<%= root_url %>">
-      <!-- TODO: INSERT NEW LOGO IN PLACE OF THIS ONE  (-GREG) -->
-      <%= image_tag('/images/gp-logo.gif', width: 80, alt: "Global Playground Logo", id: "logo") %>
+      <!-- TODO: INSERT NEW LOGO IN PLACE OF THIS TEXT LINK  (-GREG) -->
+      <%= image_tag('/images/gp-logo.gif', width: 40, alt: "Global Playground Logo", id: "logo") %>
     </a>
-    <nav>
-      <ul class="nav pull-right">
-        <ul class="nav">
-          <li><%= link_to "About", about_page_url %></li>
-          <%= render 'shared/user_menu' if signed_in? %>
-          <%= render 'shared/create_menu' if signed_in? %>
-        <% if !signed_in? %>
-          <li><%= link_to "Sign in", login_path %></li>
-          <li><%= link_to raw("Sign up <i>(temporary)</i>"), new_user_path %></li>
-        <% end %>
-        </ul>
+      <ul class="nav pull-left">
+        <li><%= link_to "Home", root_url %></li>
+        <li><%= link_to "About", about_page_url %></li>
       </ul>
-    </nav>
+      <ul class="nav pull-right">
+        <%= render 'shared/user_menu' if signed_in? %>
+        <%= render 'shared/create_menu' if admin? %>
+        <%= render 'shared/sign_inout_menu' %>
+      </ul>
     <%= raw("<div id=\"notice\">#{notice}</div>") if notice -%>
   </div>
 </div>
