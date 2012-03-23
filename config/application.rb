@@ -12,7 +12,6 @@ end
 module DigitalSchoolhouse
   class Application < Rails::Application
     
-    
     config.middleware.insert 0, 'Rack::Cache', {
       :verbose     => true,
       :metastore   => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"),

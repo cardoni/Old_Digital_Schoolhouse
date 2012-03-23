@@ -1,0 +1,14 @@
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Create New...
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "New Post", new_post_url %></li>
+    <li><%= link_to "Upload Image/Video", assets_url %></li>
+    <% if admin? %>
+      <li class="divider"></li>
+      <li><%= link_to "Create New User", new_user_url %></li>
+    <% end %>
+  </ul>
+</div>

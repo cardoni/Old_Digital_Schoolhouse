@@ -1,0 +1,15 @@
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Profile & Posts
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><%= link_to "Your Profile", edit_user_url(current_user) %></li>
+    <li><%= link_to "Your Posts", posts_url %></li>
+    <li><%= link_to "See All Users", users_url %></li>
+    <li class="divider"></li>
+    <li><%= link_to "Sign out, #{current_user.name}?", logout_url %></li>
+  </ul>
+</div>
+
+<script>$('.dropdown-toggle').dropdown()</script>
