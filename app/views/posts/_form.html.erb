@@ -22,7 +22,25 @@
           </div>
         
       </div>
-      <div class="span6">
+
+<!-- Video attaching, the mess begins here -->
+      <%= p.hidden_field :user_id, :value => current_user.id %> <!-- Not sure if we need this it should save auto on post create, check? -->
+    </section>
+  </div>
+  <div class="eight columns">
+    <section class="clearfix">
+      <%= p.fields_for :attachments do |builder| %> 
+      <% asset = builder.object %>
+      <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
+      <%= builder.hidden_field :provider, value: asset.provider %>
+        <div class="image">
+          <%= builder.label :enable, image_tag(asset.attachment_url) %>
+          <p><%= builder.check_box :enable %>add to post</p>
+          <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
+        </div>
+      <% end %> 
+
+
         <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
         <% asset = builder.object.asset %>
         <%= builder.hidden_field :asset_id %>
