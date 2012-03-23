@@ -1,19 +1,17 @@
 <% @array_of_post_arrays.each_pair do |name, post_array| %>
-<p>&nbsp;</p>
-  <div style="overflow-x: scroll">
+  <div style="overflow-x: scroll; display: inline">
   <h2><%= name %></h2>
   <table>
     <tr>
   <% post_array.each do |post| %>
-  
   <td padding="5">
     <h2><%= link_to post.title, post_url(post) %></h2>
-      <p><%= truncate(post.body, length: 240, seperator: ' ') %> </p>
-      <div id="test-box"></div>
+      <p><%= body_truncate = truncate(post.body, length: 240, seperator: ' ') %> </p>
+      <div id="post-feature-image"><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
   </td>
   
-  <% end %> <!-- post_array.each do |post|  -->
+  <% end %>
   </tr>
   </table>
   </div>
-  <% end %> <!-- @array_of_post_arrays.each do |post_array|  -->
+  <% end %>
