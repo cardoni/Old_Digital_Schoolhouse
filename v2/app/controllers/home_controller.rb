@@ -4,9 +4,11 @@ class HomeController < ApplicationController
   
   def index
     
-    logger.debug "**********  #{current_user.inspect}"
-    logger.debug "**********"
-    
+    logger.debug "*************************************"
+    logger.debug ENV['S3_BUCKET']
+    logger.debug ENV['S3_KEY']
+    logger.debug ENV['S3_SECRET']
+    logger.debug "*************************************"
     
     @posts = Post.find(:all, :order => "created_at desc")
     @title = "Digital Schoolhouse"

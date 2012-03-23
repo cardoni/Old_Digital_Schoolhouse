@@ -1,3 +1,3 @@
-      <% if User.find_by_id(session[:user]).classification == "administrator" %>
+      <% if admin? %>
         <%= link_to 'Edit this user', manage_user_path(user.id) %>
       <% end %>

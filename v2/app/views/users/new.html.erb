@@ -1,7 +1,7 @@
 <div class="new-user">
   <h1 class="header">Create New User</h1>
 	
-  <% if User.find(session[:user]).classification == "administrator" %>
+  <% if admin? %>
 		<%= render 'form' %>
 		<% else %>
 		<%= render 'formnotice' %>
