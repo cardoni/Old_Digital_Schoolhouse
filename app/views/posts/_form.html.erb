@@ -29,7 +29,7 @@
   </div>
   <div class="eight columns">
     <section class="clearfix">
-      <%= p.fields_for :attachments do |builder| %>
+      <%= p.fields_for :attachments do |builder| %> 
       <% asset = builder.object %>
       <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
       <%= builder.hidden_field :provider, value: asset.provider %>
@@ -38,7 +38,7 @@
           <p><%= builder.check_box :enable %>add to post</p>
           <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
         </div>
-      <% end %>
+      <% end %> 
 
 
         <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
