@@ -1,26 +1,26 @@
-<div class="head-bg one-third column alpha"> <!-- The logo takes one-third of the header and keeps left "alpha" -->
-  <%= link_to image_tag('/images/gp-logo.gif', size: "200x114", alt: "Global Playground"), root_url %>
+<div class="navbar-inner">
+  <div class="container">
+    
+    <nav>
+      <ul class="nav pull-right">
+        <li><%= link_to "About", about_page_url %></li>
+        <% if signed_in? %>
+          <li><%= link_to "My Posts", posts_url %></li>
+          <li><%= link_to "My Profile", edit_user_url(current_user) %></li>
+          <li><%= link_to "All Users", users_url %></li>
+          <li><%= link_to "Upload", assets_url %></li>
+          <% if User.find(session[:user]).classification == 'administrator' %>
+  		<li><%= link_to "Create User", new_user_url %></li>
+  		<% end %>
+          <li><%= link_to "Sign out, #{current_user.name}?", logout_url %></li>
+        <% else %>
+          <li><%= link_to "Sign in", login_path %></li>
+          <li><%= link_to raw("Sign up <i>(temporary)</i>"), new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+    <%= raw("<div id=\"notice\">#{notice}</div>") if notice -%>
+  </div>
 </div>
 
-<div class="two-thirds column omega"> <!-- The navigation takes two-thirds of the header and keeps right "omega" -->
-  <nav class="clearfix">
-    <ul>
-      <li><%= link_to "About", about_page_url %></li>
-      <% if signed_in? %>
-        <li><%= link_to "My Posts", posts_url %></li>
-        <li><%= link_to "My Profile", edit_user_url(current_user) %></li>
-        <li><%= link_to "All Users", users_url %></li>
-        <li><%= link_to "Upload", assets_url %></li>
-        <% if User.find(session[:user]).classification == 'administrator' %>
-		<li><%= link_to "Create User", new_user_url %></li>
-		<% end %>
-        <li class="sign-in-out"><%= link_to "Sign out, #{current_user.name}?", logout_url %></li>
-      <% else %>
-        <li class="sign-in-out"><%= link_to "Sign in", login_path %></li>
-        <li class="sign-in-out"><%= link_to raw("Sign up <i>(temporary)</i>"), new_user_path %></li>
-      <% end %>
-    </ul>
-  </nav>
-  <%= raw("<div id=\"notice\">#{notice}</div>") if notice -%>
-</div>
 
