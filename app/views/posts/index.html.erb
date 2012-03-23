@@ -10,12 +10,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @posts.each do |post| %>
+    <% @user_posts.each do |post| %>
       <tr>
         <td><p><%= link_to post.title, post_url(post) %></p></td>
         <td><p><%= truncate(post.body, length: 180, seperator: ' ') %></p></td>
         <td><p><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('100x100').url, id: "photo-thumb") : "No Featured Image" %></p></td>
+        <% if post.user_id == current_user.id %>
         <td><p><%= link_to "Edit", edit_post_url(post), id: "edit-post-button", class: "btn" -%></p></td>
+        <% else %>
+        <td><p> ---- </p></td>
+        <% end  %>
       </tr>
       <% end %>
   </tbody>
