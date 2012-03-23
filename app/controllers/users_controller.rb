@@ -58,7 +58,6 @@ class UsersController < ApplicationController
      else
        redirect_to manage_user(user), notice: "user not updated"
      end
-     
 
    end
    
