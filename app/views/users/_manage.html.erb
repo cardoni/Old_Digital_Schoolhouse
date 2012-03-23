@@ -1,0 +1,40 @@
+<h2>Edit User Profile</h2>
+<%= form_for @user, :url => { :action => "change" }, :html => {:multipart => true} do |f| %>
+  <%#= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :school %><br />
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+	<div class="field">
+    <%= f.label :avatar %>
+    <%= image_tag(current_user.avatar_url) if current_user.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+    <label><%= f.check_box :remove_avatar %>Remove Avatar</label>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br />
+    <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Change', :method => "put" %>
+  </div>
+<% end %>
+
+

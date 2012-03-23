@@ -6,6 +6,9 @@ DigitalSchoolhouse::Application.routes.draw do
   
   resources :attachments
   resources :users
+  get '/users/:id/manage' => 'users#manage', :as => 'manage_user'
+  put '/users/:id/change' => 'users#change', :as => 'change_user'
+  
   resources :sessions
   resources :posts
   resources :assets, :only => [:index, :create, :destroy]
