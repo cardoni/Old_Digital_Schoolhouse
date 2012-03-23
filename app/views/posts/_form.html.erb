@@ -1,36 +1,59 @@
-<%= form_for @post do |p| %>
-  <div class="seven columns">
-    <section class="clearfix">
-      <div class ="field">
-        Post Title: <%= @post.title ? @post.title : (p.text_field :title, id: "title-field") %>
+<div class="row-fluid">
+  <div class="span12">
+    <h1>Posts</h1>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= form_for @post, :html => { class: "form-horizontal"} do |p| %>
+        <fieldset>
+          <legend>Post</legend>
+          <div class="control-group">
+            <%= p.label :title, class: "control-label" %>
+            <div class="controls">
+              <%= @post.title ? @post.title : (p.text_field :title, class: "input-xlarge") %>
+              <p class="help-block">Add a title</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= p.label :body, class: "control-label" %>
+            <div class="controls">
+              <%= p.text_area :body, class: "input-xlarge" %>
+              <p class="help-block">Add some text</p>
+            </div>
+          </div>
+        
       </div>
-      <div class ="field">
-        Body: <%= p.text_area :body, id: "body-field" %>
-      </div>
-      <%= p.hidden_field :user_id, :value => current_user.id %>
-    </section>
-  </div>
-  <div class="eight columns">
-    <section class="clearfix">
-      <h3>Attachments</h3>
+      <div class="span6">
         <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
-          <% asset = builder.object.asset %>
-          <%= builder.hidden_field :asset_id %>
-          <div class="image">
+        <% asset = builder.object.asset %>
+        <%= builder.hidden_field :asset_id %>
+        
+          <legend>Attachments</legend>
+          <div class="control-group">
             <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
-            <p><%= builder.check_box :enable %>add to post</p>
-            <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
+            <div class="controls">
+              <%= builder.check_box :enable %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= builder.label :description, class: "control-label" %>
+            <div class="controls">
+              <%= builder.text_field :description, placeholder: "add a caption", size: 15, class: "input-xlarge" %>
+            </div>
           </div>
         <% end %>
-    </section>
-    <div id="post-tags">
-      <h3>Post Tags</h3>
+          <div class="control-group">
+            <div class="controls"></div>
+          </div>
+          <div class="control-group">
+            <div class="controls"></div>
+          </div>
+          <div class="form-actions">
+            <%= p.submit "Save Post", class: "btn btn-primary" -%>
+          </div>
+        </fieldset>
+      </div>
+
+      <% end %>
     </div>
   </div>
-  <div id="clear"></div>
-  <div class ="actions">
-    <div id="save-post">
-      <%= p.submit "Save Post", id: "save-post-button" -%>      
-    </div>
-  </div>
-<% end %>
+</div>
