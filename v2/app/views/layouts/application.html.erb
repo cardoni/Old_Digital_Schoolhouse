@@ -8,16 +8,16 @@
     <%= render 'layouts/ga_analytics' %>
   </head>
   <body>
-    <div class="container">
-      <header class="sixteen columns clearfix"> 
-        <%= render 'layouts/header' %>
-      </header>
-      <content id="main">
-        <%= yield %>
-      </content>
-      <footer class="sixteen columns">
-        <%= render 'layouts/footer' %>
-      </footer>
+    <div id="container", class="container">    
+    <header class="navbar navbar-fixed-top">
+      <%= render 'layouts/header' %>
+      <%= link_to image_tag('/images/gp-logo.gif', alt: "Global Playground", id: "logo"), root_url %>
+    </header>
+    <div id="main" role="main">
+      <%= yield %>
     </div>
+    <footer class="footer">
+      <%= render 'layouts/footer' %>
+    </footer>
   </body>
 </html>

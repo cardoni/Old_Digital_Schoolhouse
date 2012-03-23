@@ -1,17 +1,27 @@
-<% @array_of_post_arrays.each_pair do |name, post_array| %>
-  <div style="overflow-x: scroll; display: inline">
-  <h2><%= name %></h2>
-  <table>
-    <tr>
-  <% post_array.each do |post| %>
-  <td padding="5">
-    <h2><%= link_to post.title, post_url(post) %></h2>
-      <p><%= body_truncate = truncate(post.body, length: 240, seperator: ' ') %> </p>
-      <div id="post-feature-image"><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
-  </td>
-  
-  <% end %>
-  </tr>
-  </table>
+<div class="row jumbotron">
+  <div class="span8">
+    <%= image_tag("/images/string.png") %>
+  </div>
+  <div class="span4">
+    <div class="well">
+      <%= link_to "http://github.com/jwo/compass-bootstrap2.0-rails", :class=>"btn btn-primary btn-large" do %>
+      <i class="icon-folder-open icon-white"></i>
+      Github me
+      <% end %>
+    </div>
+    <div class="compassme">
+      <p>What up this is a test</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <% @posts.each do |p| %>
+  <div class="span4">
+    <div class="well">
+      <h4><%= link_to p.title, post_url(p) %></h4>
+      <p><%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %></p>
+      <div class="post-feature-image"><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
+    </div>
   </div>
   <% end %>
+</div>
