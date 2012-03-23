@@ -13,6 +13,7 @@
         <%= render 'shared/create_menu' if admin? %>
         <%= render 'shared/sign_inout_menu' %>
       </ul>
-    <%= raw("<div id=\"notice\">#{notice}</div>") if notice -%>
+    <%= notice if notice -%>
   </div>
 </div>
+
