@@ -1,7 +1,6 @@
 class Post < ActiveRecord::Base
-  # The following generates SEO-friendly URL slugs
   extend FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :title, :use => :slugged
   # image_df_accessor :image
   # include PostsHelper
     
@@ -14,9 +13,6 @@ class Post < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
     def initialized_attachments(id)
-      logger.debug("--------------------------------------User id: ")
-      
-      logger.debug("-------------------------------------- ")
     [].tap do |o|
         Asset.where(:user_id => id).each do |asset|
         if a = attachments.find { |a| a.asset_id == asset.id }

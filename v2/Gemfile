@@ -25,7 +25,7 @@ end
   gem 'mini_magick'
   gem 'nested_form'
   gem 'compass-rails'
-  gem 'compass_twitter_bootstrap'
+  gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
   gem 'compass-colors'
   gem 'sassy-buttons'
   gem 'uglifier', '1.0.3'

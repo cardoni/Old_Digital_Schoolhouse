@@ -1,5 +1,5 @@
-<%= render 'delete_menu' if signed_in? %>
-<h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
+  <%= (button_to "Delete Post", post_url, method: :delete, confirm: "Are you sure you\'d like to delete this post?", disable_with: "Deleting...", class: "btn") if signed_in? %>
+  <h2>Editing: <em><%= @post.title.blank? ? "[Set Title Below!]" : @post.title %></em></h2>
 <div id="form-wrapper">
   <%= render 'form' if signed_in? %>
 </div>
