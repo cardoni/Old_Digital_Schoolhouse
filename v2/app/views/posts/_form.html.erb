@@ -1,15 +1,16 @@
 <div class="row-fluid well">
   <div class="span6">
-    <legend>Post Title and Body</legend>
+    <legend>Post Title and Body</leg<%= f.submit %>>
       <%= form_for @post, :html => {class: "form"} do |p| %>
       <fieldset>
       <!-- begin fields -->
+      <!-- begin title and body text sections of post form -->
       <div class="control-group">
         <%= p.label :title, class: "control-label" %>
         <div class="controls">
           <%= p.hidden_field :user_id, :value => current_user.id %>
           <!-- We shouldn't need that line above... -->
-          <%= @post.title ? @post.title : (p.text_field :title, class: "input-xlarge span6", placeholder: "Title of your post") %>
+          <%= p.text_field :title, class: "input-xlarge span6", placeholder: "Title of your post" %>
         </div>
       </div>
       <div class="control-group">
@@ -18,6 +19,20 @@
           <%= p.text_area :body, rows: 20, class: "input-xlarge span6", placeholder: "Body text of your post" %>
         </div>
       </div>
+      <!-- end title and body text sections of post form -->
+      <!-- start form save/delete/upload buttons -->
+      <div class="form-actions span5 center">
+        <%= p.submit "Save Post", class: "btn btn-success" %>
+        <%= link_to icon("camera", "Upload Images/Video"), assets_url, class: "btn btn-info" %>
+        <% if signed_in? %>
+          <% if current_page?(new_post_url) %>
+            <%= link_to icon("trash", "Cancel / Delete"), :back, confirm: "Are you sure you\'d like to cancel and delete this post?", disable_with: "Deleting...", class: "btn btn-danger" %>
+          <% else %>
+            <%= (link_to icon("trash", "Delete Post"), post_url, method: :delete, confirm: "Are you sure you\'d like to delete this post?", disable_with: "Deleting...", class: "btn btn-danger") %>
+          <% end %>
+        <% end %>
+      </div>
+      <!-- end form save/delete/upload buttons -->
   </div>
   <!-- end of left side of form -->
   <!-- begin right-side of form -->
@@ -81,14 +96,8 @@
     </div>
     <!-- end videos tab section -->
 </div>
-<div class="clearfix"></div>
-      <!-- start form save/delete actions -->
-      <div class="form-actions center">
-        <%= p.submit "Save Post", class: "btn btn-primary" %>
-        <%= link_to icon("trash", "Cancel / Delete"), :back, confirm: "Are you sure you\'d like to cancel and delete this post?", disable_with: "Deleting...", class: "btn btn-danger" %>
-        <%= link_to icon("camera", "Upload Images/Video"), assets_url, class: "btn btn-info" %>
-      </div>
-      <!-- end form save/delete actions -->
+      
+      
     </fieldset>
     <% end %>
     <!-- end fields -->

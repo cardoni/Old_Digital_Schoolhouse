@@ -1,16 +1,18 @@
-<h1>Your Posts</h1>
 <div class="row-fluid">
   <div class="span12">
-    <div class="center">
+    <div class="page-header">
+      <h1>Your Posts<small> (<%= current_user.posts.count %> Total)</small></h1>
+    </div>
+    <div class="span12 center">
       <%= link_to icon("file","Create A New Post"), new_post_url, class: "btn btn-large btn-success" %>
-      <%= link_to icon("upload","Upload Images/Video"), assets_url, class: "btn btn-large btn-info" %>
+      <%= link_to icon("film","Upload Images/Video"), assets_url, class: "btn btn-large btn-info" %>
     </div>
     <table id="user-posts-table" summary="All posts by <%= current_user.name %>" class="table table-striped">
       <thead>
       	<tr>
           <th scope="col" class="post-title">Post Title</th>
           <th scope="col" class="post-preview">Preview of Post</th>
-          <th scope="col" class="post-image">Feature Image</th>
+          <th scope="col" class="post-thumbnail">Post Image/Video</th>
           <th scope="col" class="post-edit">Edit Post</th>
         </tr>
       </thead>
@@ -19,7 +21,7 @@
           <tr>
             <td><p><%= link_to post.title, post_url(post) %></p></td>
             <td><p><%= truncate(post.body, length: 180, seperator: ' ') %></p></td>
-            <td><p><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('100x100').url, id: "photo-thumb") : "No Featured Image" %></p></td>
+            <td><p><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('100x100').url, class: "thumbnail") : "No Media Selected" %></p></td>
             <% if post.user_id == current_user.id %>
             <td><p><%= link_to icon("edit", "Edit"), edit_post_url(post), id: "edit-post-button", class: "btn btn-warning" %></p></td>
             <% else %>
