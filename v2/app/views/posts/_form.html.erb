@@ -4,7 +4,7 @@
       <%= form_for @post, :html => {class: "form"} do |p| %>
       <fieldset>
       <!-- begin fields -->
-<div class="control-group">
+      <div class="control-group">
         <%= p.label :title, class: "control-label" %>
         <div class="controls">
           <%= p.hidden_field :user_id, :value => current_user.id %>
@@ -33,14 +33,14 @@
           <!-- begin picture tab section -->
           <!-- begin pictures section -->
           <div class="control-group">
-            <p>Pictures</p>
+            <p>Add Some Pictures To Your Post</p>
             <ul class="thumbnails">
               <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
               <% asset = builder.object.asset %>
               <div class="controls">
                 <%= builder.hidden_field :asset_id %>
                 <li class="span2">
-                  <div class="thumbnail">
+                  <div class="thumbnail center">
                     <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
                     <h5><%= builder.check_box :enable %>add to post</h5>
                     <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
@@ -57,7 +57,7 @@
           <!-- begin video tab section -->
           <!-- begin video section -->
             <div class="control-group">
-              <p>Videos</p>
+              <p>Add Some Videos To Your Post</p>
               <ul class="thumbnails">
                 <%= p.fields_for :attachments do |builder| %>
                 <% asset = builder.object %>
@@ -65,7 +65,7 @@
                   <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
                   <%= builder.hidden_field :provider, value: asset.provider %>
                   <li class="span2">
-                    <div class="thumbnail">
+                    <div class="thumbnail center">
                       <%= builder.label :enable, image_tag(asset.attachment_url, width: "auto") %>
                       <h5><%= builder.check_box :enable %>add to post</h5>
                       <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
@@ -80,18 +80,16 @@
       </div>
     </div>
     <!-- end videos tab section -->
-    
-
-      
+</div>
+<div class="clearfix"></div>
       <!-- start form save/delete actions -->
-      <div class="form-actions">
+      <div class="form-actions center">
         <%= p.submit "Save Post", class: "btn btn-primary" %>
         <%= link_to icon("trash", "Cancel / Delete"), :back, confirm: "Are you sure you\'d like to cancel and delete this post?", disable_with: "Deleting...", class: "btn btn-danger" %>
-        <%= link_to icon("camera", "Add Images"), assets_url, class: "btn" %>
+        <%= link_to icon("camera", "Upload Images/Video"), assets_url, class: "btn btn-info" %>
       </div>
       <!-- end form save/delete actions -->
     </fieldset>
     <% end %>
     <!-- end fields -->
-  </div>
 </div>
