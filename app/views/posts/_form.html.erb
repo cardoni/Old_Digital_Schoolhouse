@@ -1,77 +1,74 @@
-<div class="row-fluid">
-  <div class="span12">
-    <h1>Posts</h1>
-    <div class="row-fluid">
-      <div class="span6">
-        <%= form_for @post, :html => { class: "form-horizontal"} do |p| %>
-        <fieldset>
-          <legend>Post</legend>
-          <div class="control-group">
-            <%= p.label :title, class: "control-label" %>
-            <div class="controls">
-              <%= @post.title ? @post.title : (p.text_field :title, class: "input-xlarge") %>
-              <p class="help-block">Add a title</p>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= p.label :body, class: "control-label" %>
-            <div class="controls">
-              <%= p.text_area :body, class: "input-xlarge" %>
-              <p class="help-block">Add some text</p>
-            </div>
-          </div>
-        
-      </div>
-
-<!-- Video attaching, the mess begins here -->
-      <%= p.hidden_field :user_id, :value => current_user.id %> <!-- Not sure if we need this it should save auto on post create, check? -->
-    </section>
-  </div>
-  <div class="eight columns">
-    <section class="clearfix">
-      <%= p.fields_for :attachments do |builder| %> 
-      <% asset = builder.object %>
-      <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
-      <%= builder.hidden_field :provider, value: asset.provider %>
-        <div class="image">
-          <%= builder.label :enable, image_tag(asset.attachment_url) %>
-          <p><%= builder.check_box :enable %>add to post</p>
-          <%= builder.text_field :description, placeholder: "add a caption", size: 15 %>
+<div class="row-fluid well">
+  <div class="span6">
+    <fieldset>
+      <!-- begin fields -->
+    <legend>Post Title and Body</legend>
+    <%= form_for @post, :html => {class: "form"} do |p| %>
+      <div class="control-group">
+        <%= p.label :title, class: "control-label" %>
+        <div class="controls">
+          <%= p.hidden_field :user_id, :value => current_user.id %>
+          <!-- We shouldn't need that line above... -->
+          <%= @post.title ? @post.title : (p.text_field :title, class: "input-xlarge span6", placeholder: "Title of your post") %>
         </div>
-      <% end %> 
-
-
-        <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
-        <% asset = builder.object.asset %>
-        <%= builder.hidden_field :asset_id %>
-        
-          <legend>Attachments</legend>
-          <div class="control-group">
-            <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
-            <div class="controls">
-              <%= builder.check_box :enable %>
-            </div>
-          </div>
-          <div class="control-group">
-            <%= builder.label :description, class: "control-label" %>
-            <div class="controls">
-              <%= builder.text_field :description, placeholder: "add a caption", size: 15, class: "input-xlarge" %>
-            </div>
-          </div>
-        <% end %>
-          <div class="control-group">
-            <div class="controls"></div>
-          </div>
-          <div class="control-group">
-            <div class="controls"></div>
-          </div>
-          <div class="form-actions">
-            <%= p.submit "Save Post", class: "btn btn-primary" -%>
-          </div>
-        </fieldset>
       </div>
-
-      <% end %>
-    </div>
+      <div class="control-group">
+        <%= p.label :body, class: "control-label" %>
+        <div class="controls">
+          <%= p.text_area :body, rows: 20, class: "input-xlarge span6", placeholder: "Body text of your post" %>
+        </div>
+      </div>
+  </div>
+  <!-- begin right-side of form -->
+  <div class="span6">
+    <legend>Add Some Pictures / Video</legend>
+    <!-- begin video section -->
+      <div class="control-group">
+        <p>Videos</p>
+        <ul class="thumbnails">
+          <%= p.fields_for :attachments do |builder| %>
+          <% asset = builder.object %>
+          <div class="controls">
+            <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
+            <%= builder.hidden_field :provider, value: asset.provider %>
+            <li class="span2">
+              <div class="thumbnail">
+                <%= builder.label :enable, image_tag(asset.attachment_url, width: "auto") %>
+                <h5><%= builder.check_box :enable %>add to post</h5>
+                <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
+              </div>
+            </li>
+          </div>
+          <% end %>
+        </ul>
+      </div>
+      <!-- end video section -->
+      <!-- begin pictures section -->
+      <div class="control-group">
+        <p>Pictures</p>
+        <ul class="thumbnails">
+          <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
+          <% asset = builder.object.asset %>
+          <div class="controls">
+            <%= builder.hidden_field :asset_id %>
+            <li class="span2">
+              <div class="thumbnail">
+                <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
+                <h5><%= builder.check_box :enable %>add to post</h5>
+                <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
+              </div>  
+            </li>  
+          </div>
+          <% end %>
+        </ul>
+      </div>
+      <!-- end pictures section -->
+      <!-- form save/dele actions -->
+      <div class="form-actions">
+        <%= p.submit "Save Post", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <!-- end fields -->
+    </fieldset>
   </div>
 </div>

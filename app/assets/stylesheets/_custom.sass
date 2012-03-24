@@ -1,6 +1,7 @@
 html
   overflow-y: scroll
 
+// This is technically goofed up:  We need to have this style come in after bootstrap's css, but before the bootstrap_responsive's css kicks in...  Anyway, works for now :) (--Greg)
 body
   padding-top: 60px
 
@@ -15,9 +16,10 @@ textarea
 
 .center h1
   margin-bottom: 10px
-  
-#main
-  margin-top: 60px
+
+// Do we need this, since we already have padding-top set for <body>??  (--Greg)
+// #main
+//   margin-top: 40px
   
 .navbar-fixed-top .navbar-inner
   background-color: rgba(76, 250, 72, 0.9)
