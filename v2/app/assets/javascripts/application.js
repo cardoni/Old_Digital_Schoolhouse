@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-dropdown
+//= require bootstrap-tab
 //= require jquery.flexslider
 //= require_tree .
 
@@ -35,4 +36,4 @@
 //     });
 // });
 
-
+$('#myTab').tab('show')
