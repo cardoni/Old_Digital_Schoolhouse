@@ -1,4 +1,6 @@
-<%= render 'posts/edit_menu' if signed_in? && @post.user_id == current_user.id %>
+<% if signed_in? && @post.user_id == current_user.id %>
+  <%= button_to "Edit This Post", edit_post_url(@post), method: :get, class: "btn" %>
+<% end %>
 
 <h1><%= @post.title %></h1>
 
