@@ -23,9 +23,20 @@ module DigitalSchoolhouse
     
     config.action_controller.default_url_options = { :trailing_slash => false }
     
-    # Throws a 301 redirect for urls with trailing slashes ("/")
     config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      # Tells rails that we'd like to have some stuff running in middleware to modify some URLs as they come in
+      if Rails.env.production?
+        # Insures that app is always running on canonical domain when in production
+        r301 %r{.*}, 'http://www.schoolhouse.io$&',
+          :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'schoolhouse.io' }
+      end
+      
       r301 %r{^/(.*)/$}, '/$1'
+      # Throws a 301 redirect for urls with trailing slashes ("/")
+      
+      # if Post.find_by_id(Rack::Request.new(env).params[:id])
+      #   r301 post_url(@post)
+      # end        
     end
     
     
