@@ -28,7 +28,7 @@ module DigitalSchoolhouse
       if Rails.env.production?
         # Insures that app is always running on canonical domain when in production
         r301 %r{.*}, 'http://www.schoolhouse.io$&',
-          :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'schoolhouse.io' }
+          :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'www.schoolhouse.io' }
       end
       
       r301 %r{^/(.*)/$}, '/$1'

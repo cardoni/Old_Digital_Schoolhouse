@@ -37,7 +37,7 @@
   <!-- end of left side of form -->
   <!-- begin right-side of form -->
   <div class="span6">
-    <legend>Add Some Pictures / Video</legend>
+    <legend>Add Some Pictures or Videos</legend>
     <div class="tabbable">
       <ul class="nav nav-tabs">
         <li class="active"><a href="#1" data-toggle="tab"><i class="icon-picture"></i> Add Pictures</a></li>
@@ -45,50 +45,31 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="1">
-          <!-- begin picture tab section -->
-          <!-- begin pictures section -->
-          <div class="control-group">
-            <p>Add Some Pictures To Your Post</p>
-            <ul class="thumbnails">
-              <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
-              <% asset = builder.object.asset %>
-              <div class="controls">
-                <%= builder.hidden_field :asset_id %>
-                <li class="span2">
-                  <div class="thumbnail center">
-                    <%= builder.label :enable, image_tag(asset.image.thumb('130x130').url ) %>
-                    <h5><%= builder.check_box :enable %>add to post</h5>
-                    <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
-                  </div>  
-                </li>  
-              </div>
-              <% end %>
-            </ul>
-          </div>
-          <!-- end pictures section -->
-          <!-- end picture tab section -->
+          <ul class="thumbnails">
+            <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
+            <li class="span2"><a href="#" class="thumbnail">
+            <% asset = builder.object.asset %>
+            <%= builder.hidden_field :asset_id %>
+            <%= builder.label :enable, image_tag(asset.image.thumb('168x168#').url ) %>
+            <%= builder.check_box :enable %>
+            <%= builder.text_field :description, placeholder: "add a caption", class: "thumbnail-text-input" %></a></li>
+            <% end %>
+          </ul>
         </div>
         <div class="tab-pane" id="2">
           <!-- begin video tab section -->
           <!-- begin video section -->
-            <div class="control-group">
-              <p>Add Some Videos To Your Post</p>
-              <ul class="thumbnails">
-                <%= p.fields_for :attachments do |builder| %>
-                <% asset = builder.object %>
-                <div class="controls">
-                  <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
-                  <%= builder.hidden_field :provider, value: asset.provider %>
-                  <li class="span2">
-                    <div class="thumbnail center">
-                      <%= builder.label :enable, image_tag(asset.attachment_url, width: "auto") %>
-                      <h5><%= builder.check_box :enable %>add to post</h5>
-                      <%= builder.text_field :description, placeholder: "add a caption", class: "input span2" %>
-                    </div>
-                  </li>
-                </div>
-                <% end %>
-              </ul>
+          <ul class="thumbnails">
+            <%= p.fields_for :attachments do |builder| %>
+            <li class="span2"><a href="#" class="thumbnail">
+            <% asset = builder.object %>
+            <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
+            <%= builder.hidden_field :provider, value: asset.provider %>
+            <%= builder.label :enable, image_tag(asset.attachment_url, width: "170px") %>
+            <%= builder.check_box :enable %>
+            <%= builder.text_field :description, placeholder: "add a caption", class: "thumbnail-text-input" %></a></li>
+            <% end %>
+          </ul>
             </div>
             <!-- end video section -->
         </div>
@@ -96,8 +77,6 @@
     </div>
     <!-- end videos tab section -->
 </div>
-      
-      
     </fieldset>
     <% end %>
     <!-- end fields -->
