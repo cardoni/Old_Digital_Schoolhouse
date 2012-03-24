@@ -1,25 +1,66 @@
-<%= form_for(@user) do |f| %>
-	<div class="user-name">
-	  <%= f.label :name %><br />
-	  <%= f.text_field(:name, :size => 50) %>
-	</div>
-	<div class="user-email">
-	  <%= f.label :email %><br />
-	  <%= f.text_field(:email, :size => 50) %>
-	</div>
-	<div class="user-classification">
-	  <%= f.label :classification %><br />
-	  <%= f.select :classification, { "Administrator" => "administrator", "Teacher" => "teacher", "Student" => "student", "Donor" => "donor"} %>
-	</div>
-	<div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+<div class="row-fluid well">
+  <div class="span6">
+    <legend>Name, Email, Location, School, & Bio</legend>
+      <%= form_for @user, :html => {class: "form-horizontal"} do |f| %>
+      <fieldset>
+        <div class="control-group">
+      	  <%= f.label :name, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :name, class: "input-xlarge", placeholder: "John Q. Smith" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :email, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :email, class: "input-xlarge", placeholder: "john@qsmith.com" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%#= f.label :location, class: "control-label" %>
+      	  <div class="controls">
+        	  <%#= f.collection_select :location, class: "input-xlarge", placeholder: "john@qsmith.com" %>
+        	  Location Drop-down Here...
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :school, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :school, class: "input-xlarge", placeholder: "What School?" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :bio, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_area :bio, rows: 10, class: "input-xlarge", placeholder: "Tell us a little more about yourself. This information will be displayed in the directory of all users." %>
+      	  </div>
+        </div>
   </div>
-  <div class="field">
-    <%= f.label :confirm_password %><br />
-    <%= f.password_field :password %>
+  <div class="span6">
+    <legend>Classification, Password ...</legend>
+    <div class="control-group">
+  	  <%= f.label :classification, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.select :classification, { "Administrator" => "administrator", "Teacher" => "teacher", "Student" => "student", "Donor" => "donor"}, class: "input-xlarge" %>
+  	  </div>
+    </div>
+    <div class="control-group">
+  	  <%= f.label :password, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.password_field :password, class: "input-xlarge", placeholder: "Enter A Password" %>
+  	  </div>
+    </div>
+    <div class="control-group">
+  	  <%= f.label :confirm_password, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.password_field :password, class: "input-xlarge", placeholder: "Re-enter Password" %>
+  	  </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Sign Up New User", class: "btn btn-success" %>
+    </div>
+    
+    </fieldset>
+    <% end %>
   </div>
-	<div class="submit">
-	  <%= f.submit %><br />
-	</div>
-<% end %>
+</div>

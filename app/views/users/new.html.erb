@@ -1,10 +1,12 @@
-<div class="new-user">
-  <h1 class="header">Create New User</h1>
-	
-  <% if admin? %>
-		<%= render 'form' %>
-		<% else %>
-		<%= render 'formnotice' %>
-	<% end %>
-	
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Create New User</h1>
+    </div>
+    <% if admin? %>
+  		<%= render 'form' %>
+  		<% else %>
+  		<%= redirect_to @root_url, notice: "You don't have permission to do that." %>
+  	<% end %>
+  </div>
 </div>
