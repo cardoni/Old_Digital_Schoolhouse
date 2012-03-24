@@ -1,7 +1,3 @@
-<% if signed_in? %>
-  <li class="divider-vertical"></li>
-  <li><%= link_to "Sign Out, #{current_user.name}?", logout_url %></li>
-<% else %>
+<%= content_tag_if signed_in?, :li, link_to(icon("off", "Sign Out"), logout_url), class: is_active?(logout_url) %>
   <!-- TODO: ADD A GET MORE INFO OPTION/FORM?  (-GREG) -->
-  <li><%= link_to "Sign In", login_url %></li>
-<% end %>
+<%= content_tag_if !signed_in?, :li, link_to(icon("lock", "Sign In"), login_url), class: is_active?(login_url) %>
