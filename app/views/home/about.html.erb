@@ -1,33 +1,29 @@
-<h1>About Digital Playground</h1>
 <div class="row-fluid">
+  <h1>About Digital Playground</h1>
   <div class="span12">
-    <div class="pull-right">
-      <%= image_tag('http://theglobalplayground.org/images/about2.jpg', width: "500", alt: "About Digital Schoolhouse", id: "About Digital Playground") %>
-    </div>
-      <div class="about-main">
+    <div class="row">
+      
+    <div class="span6">
         <p>Global Playground's mission is to raise awareness and share resources with people of the developing world to create educational opportunities where they do not exist.</p>
-      </div>
-      <div class="about">
         <h2>Who We Are</h2>
         <p>Global Playground is a 501(c)(3) public charity, incorporated in New York in May 2006. We are committed both to funding the education of children in underdeveloped and developing countries, and promoting the importance of education and cross-cultural understanding in the developing world.</p>
         <p>We believe strongly that education is the most promising means to eliminating poverty, violence, intolerance, and misunderstanding in our world. We also believe that young minds are most open to cross-cultural understanding and appreciation of difference.</p>
-      <div>
-      <div class="about">
         <h2>Our Commitment to Education</h2>
         <p>Currently there are over 2 billion school-age children in our world. Over 1.75 billion, or 86%, live in less-developed regions. By the year 2050, that number will increase to over 90%. Sadly, underdeveloped countries do not have the educational resources necessary to support their large school-age populations.</p>
         <p>Educational attainment and enrollment in primary grades is consistently lower in these regions of the world. At the beginning of this century, nearly 115 million children old enough to attend primary school did not; nearly 94% of these children live in developing countries, predominantly in sub-Saharan Africa and South and West Asia. Low levels of educational enrollment produces high levels of illiteracy. In 2000, roughly 1% of the adult population of the first world was illiterate; for the third world, however, this figure soared to 26%. A culture of illiteracy yields generation after generation of children who cannot read or write.</p>
-        </div>
-      <div id="who-we-are">
         <h2>Who we are</h2>
         <% @users.each do |user| %>
-          <div>
             <h3><%= user.name %></h3>
             <h4><%= user.location %></h4>
             <h4><%= user.school %></h4>
             <p><%= user.bio %></p>
-          </div>
         <% end %>
       </div>
+      
+      <div class="span6 pull-right">
+        <%= image_tag('http://theglobalplayground.org/images/about2.jpg', width: "auto", alt: "About Digital Schoolhouse", id: "About Digital Playground") %>
+      </div>
+      
     </div>
   </div>
 </div>
