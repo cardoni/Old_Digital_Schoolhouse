@@ -1,24 +1,41 @@
-<div class="row jumbotron">
-  <div class="span8">
-    <%= image_tag("/images/string.png") %>
-  </div>
-  <div class="span4">
-    <div class="well">
-      <%= link_to raw("<i class=\"icon-folder-open icon-white\"></i> Github Me"), "http://github.com/jwo/compass-bootstrap2.0-rails", :class=>"btn btn-primary btn-large" %>
+<div class="row-fluid">
+  <div class="span12">
+    <!-- ************************************************************* -->
+    <div class="row-fluid">
+      <div class="span8">
+        <%= image_tag("/images/string.png") %>
+      </div>
+      <div class="span4">
+        <div class="well">
+          This is my pretty well well
+        </div>
+      </div>
+      <!-- ************************************************************* -->
+      <div class="row-fluid">
+        <div class="span8">
+          <%= image_tag("/images/string.png") %>
+        </div>
+        <div class="span4">
+          <div class="well">
+            This is my pretty well well
+          </div>
+        </div>
+        </div>
+        <!-- ************************************************************* -->
+        <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
+      <ul class="thumbnails">
+      <% @posts.each do |p| %>  
+        <li class="span3">
+        <div class="thumbnail">
+          <%= link_to p.title, truncate(post_url(p), length: 50, seperator: ' ') %>
+          <%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %>
+          <%= image_tag(p.assets.first.image.thumb('300x300#').url,
+              alt: body_truncate) if p.assets.present? %>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    <!-- END OF REPEATING BLOCKS AT BOTTOM -->
     </div>
-    <div class="compassme">
-      <p>What up this is a test</p>
-    </div>
   </div>
-</div>
-<div class="row">
-  <% @posts.each do |p| %>
-  <div class="span4">
-    <div class="well">
-      <h4><%= link_to p.title, post_url(p) %></h4>
-      <p><%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %></p>
-      <div class="post-feature-image"><%= p.assets.first.present? ? image_tag(p.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
-    </div>
-  </div>
-  <% end %>
 </div>

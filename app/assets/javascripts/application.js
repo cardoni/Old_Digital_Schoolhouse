@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap-dropdown
 //= require bootstrap-tab
+//= require bootstrap-carousel
 //= require jquery.flexslider
 //= require_tree .
 
