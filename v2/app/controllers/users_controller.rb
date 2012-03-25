@@ -12,7 +12,7 @@ class UsersController < ApplicationController
            format.html { redirect_to root_url, notice: 'Thanks for signing up!' }
            format.json { render json: @user, status: :created, location: @user }
          else
-           format.html { render action: "new" }
+           format.html { render action: "new", notice: 'User was not created' }
            format.json { render json: @user.errors, status: :unprocessable_entity }
        end
      end
