@@ -36,5 +36,3 @@
 //         $('#facebook').replaceWith(likebutton);
 //     });
 // });
-
-$('#myTab').tab('show')
