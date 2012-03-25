@@ -8,7 +8,7 @@
 
 <p><%= @post.body_html %></p>
 <p><%# = post_url(@post.id)%></p>
-<p><% this_url =  "http://www.shoolhouse.io/posts/" + @post.id.to_s %>
+<p><% this_url =  "http://www.schoolhouse.io/posts/" + @post.id.to_s %>
 <%= tweet_button(:url => this_url,  :text => @post.title, :count => "none", :via => "GlobalPlay") %>
 </p>
 <p><%# = custom_tweet_button %>
