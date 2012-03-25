@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   belongs_to :country
   
   attr_accessor :avatar_cache, :remove_avatar
-
+  attr_accessible :name, :email, :password, :password_confirmation
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, email_format: {message: 'is not looking good'},
     uniqueness: true    
