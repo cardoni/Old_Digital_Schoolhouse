@@ -1,3 +1,3 @@
-      <% if admin? %>
-        <%= link_to 'Edit this user', manage_user_path(user.id) %>
-      <% end %>
+<% if admin? %>
+  <%= link_to 'Edit this user', manage_user_url(user.id) %>
+<% end %>

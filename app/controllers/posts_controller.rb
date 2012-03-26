@@ -47,12 +47,12 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_url
+    redirect_to root_url, notice: 'Post was successfully deleted.'
   end
   
   def show
     if Post.find_by_slug(params[:id]).nil?
-      redirect_to posts_url, notice: 'A post with that ID was not found'
+      redirect_to posts_url, notice: 'A post with that ID was not found.'
     else
       @post = Post.find(params[:id])
       @title = @post.title
