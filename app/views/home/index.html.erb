@@ -7,7 +7,7 @@
         <div id="myCarousel" class="carousel slide">
           <div class="carousel-inner">
             <% i = 1 %>
-            <% @posts.last(4).each do |p| %>
+            <% @posts.first(4).each do |p| %>
             <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
               <%= image_tag(p.assets.first.image.thumb('750x400#').url,
                   alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
@@ -22,7 +22,7 @@
       <div class="span5">
         <!-- beginning of right span -->
         <% i = 1 %>
-        <% @posts.last(4).each do |p| %>
+        <% @posts.first(4).each do |p| %>
         <!-- BEGINNING OF ONE WELL -->
         <div class="well" id="<%= i %>">
           <h4><%= link_to truncate(p.title, length: 55, seperator: ' '), post_url(p) %></h4>
