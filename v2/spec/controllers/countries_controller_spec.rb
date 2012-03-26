@@ -20,6 +20,7 @@ require 'spec_helper'
 
 describe CountriesController do
     subject { page }
+    
   # This should return the minimal set of attributes required to create a valid
   # Country. As you add validations to Country, be sure to
   # update the return value of this method accordingly.
@@ -38,10 +39,26 @@ begin
     it "assigns all countries as @countries" do
       country = Country.create! valid_attributes
       visit countries_path
-      page { should have_text 'Only admins can see this page' }
-      
+      # page { should have_text 'Only admins can see this page' }
+      page.html {should have_text 'Listing countries'}
     end
   end
+end
+begin 
+    describe 'index as admin' do
+        
+        it 'dislays if logged in as admin' do
+        @user = User.new(name: "Example User", email: "lsllsl@example.com",
+                            
+        password: "hello", password_confirmation: "hello", classification: 'administrator' )
+        # let(:user) { FactoryGirl.create(:adminuser) }
+        visit(login_url @user)
+        # page {should have_text 'Listing countries'}
+        puts page.html
+        page { should have_text 'Only admins can see this page' }
+    
+        end
+    end
 end
 =begin
   describe "GET show" do

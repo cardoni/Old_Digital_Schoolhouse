@@ -1,8 +1,9 @@
 FactoryGirl.define do
-  factory :adminuser do
+  # this must match the name of the table
+  factory :user do
     name 'Person'
     email 'person@example.com'
-    classification 'administrator'
+    classification 'student'
     password "foobar"
     password_confirmation "foobar"
     bio "ffff"
@@ -10,9 +11,10 @@ FactoryGirl.define do
     school "Hard Knocks"
     avatar "Great movie"
     country_id '2'
-    # factory :admin do
-    #   admin true
-    # end
+    
+    factory :adminuser do
+        classification 'administrator'
+    end
   end
 
   
