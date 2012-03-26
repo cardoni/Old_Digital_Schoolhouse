@@ -1,38 +1,40 @@
 <div class="row-fluid">
   <div class="span12">
     <div class="row-fluid">
-      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
-      <div class="span7">
-        <!-- begin of left span -->
-        <div id="myCarousel" class="carousel slide">
-          <div class="carousel-inner">
-            <% i = 1 %>
-            <% @posts.first(4).each do |p| %>
-            <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
-              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
-                  alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
-              <div class="carousel-caption"><h4><%= link_to link_to truncate(p.title, length: 80, seperator: ' '), post_url(p) %></h4><p><%= body_truncate %></p></div></div>
-              <% i = i + 1 %>
-            <% end %>
-          </div><a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-        </div>
-        <!-- end of left span -->
-      </div>
-      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
-      <div class="span5">
+      <!-- BEGINNING OF MENU SPAN -->
+      <div class="span4">
         <!-- beginning of right span -->
         <% i = 1 %>
-        <% @posts.first(4).each do |p| %>
+        <% @posts.first(5).each do |p| %>
         <!-- BEGINNING OF ONE WELL -->
-        <div class="well" id="<%= i %>">
-          <h4><%= link_to truncate(p.title, length: 55, seperator: ' '), post_url(p) %></h4>
-          <%= truncate(p.body, length: 55, seperator: ' ') %>
+        <div class="thumbnail" id="<%= i %>">
+          <h3><%= link_to p.location, post_url(p) %></h3>
+          <%#= truncate(p.body, length: 55, seperator: ' ') %>
         </div>
         <!-- END OF ONE WELL -->
           <% i = i + 1 %>
         <% end %>
         <!-- end of right span -->
       </div>
+      <!-- END OF MENU SPAN -->
+      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
+      <div class="span8">
+        <!-- begin of span -->
+        <div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <% i = 1 %>
+            <% @posts.first(5).each do |p| %>
+            <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
+              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
+                  alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
+              <div class="carousel-caption"><h4><%= link_to link_to truncate(p.title, length: 80, seperator: ' '), post_url(p) %></h4><p><%= truncate(p.body, length: 115, seperator: ' ') %></p></div></div>
+              <% i = i + 1 %>
+            <% end %>
+          </div><a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+        </div>
+        <!-- end of span -->
+      </div>
+      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
     </div>
       <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
       <ul class="thumbnails">
