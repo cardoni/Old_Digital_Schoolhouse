@@ -1,55 +1,73 @@
-<div class="row jumbotron">
-  <div class="span8">
-    <div class="flexslider-container">
-    	<div class="flexslider">
-        <ul class="slides">
-        	<li>
-        		<%= image_tag("/images/string.png") %>
-        		<p class="flex-caption">Captions and cupcakes. Winning combination.</p>
-        	</li>
-        	<li>
-        		<a href="#"><%= image_tag("/images/string.png") %></a>
-        		<p class="flex-caption">This image is wrapped in a link!</p>
-        	</li>
-        	<li>
-        		<%= image_tag("/images/string.png") %>
-        	</li>
-        	<li>
-        		<%= image_tag("/images/string.png") %>
-        	</li>
-        </ul>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="row-fluid">
+      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
+      <div class="span7">
+        <!-- begin of left span -->
+        <div id="myCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <% i = 1 %>
+            <% @posts.first(4).each do |p| %>
+            <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
+              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
+                  alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
+              <div class="carousel-caption"><h4><%= link_to link_to truncate(p.title, length: 80, seperator: ' '), post_url(p) %></h4><p><%= body_truncate %></p></div></div>
+              <% i = i + 1 %>
+            <% end %>
+          </div><a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+        </div>
+        <!-- end of left span -->
+      </div>
+      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
+      <div class="span5">
+        <!-- beginning of right span -->
+        <% i = 1 %>
+        <% @posts.first(4).each do |p| %>
+        <!-- BEGINNING OF ONE WELL -->
+        <div class="well" id="<%= i %>">
+          <h4><%= link_to truncate(p.title, length: 55, seperator: ' '), post_url(p) %></h4>
+          <%= truncate(p.body, length: 55, seperator: ' ') %>
+        </div>
+        <!-- END OF ONE WELL -->
+          <% i = i + 1 %>
+        <% end %>
+        <!-- end of right span -->
       </div>
     </div>
+      <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
+      <ul class="thumbnails">
+      <% @posts.each do |p| %>  
+        <li class="span3">
+        <!-- <div class="thumbnail"> -->
+          <div id="TESTmyCarousel" class="carousel slide">
+          <div class="carousel-inner">
+          <div class="item active" style="position: relative; width: 100%;">
+          <div class="" style="position: absolute; top: 5px; left: 5px;">
+          <%= link_to icon("edit", "Edit"), edit_post_url(p), id: "edit-post-button", class: "btn btn-warning" if signed_in? %>
+          </div>
+          <%= image_tag(p.assets.first.image.thumb('300x300#').url,
+              alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
+          <div class="carousel-caption">
+            <h4><%= link_to truncate(p.title, length: 30, seperator: ' '), post_url(p) %></h4>
+            <p><%= truncate(p.body, length: 60, seperator: ' ') %></p>
+            </div>
+            </div>
+            </div>
+          <!-- </div> -->
+        </li>
+      <% end %>
+      </ul>
+      <!-- END OF REPEATING BLOCKS AT BOTTOM -->
   </div>
-  <div class="span4">
-    <div class="well">
-      <%= link_to raw("<i class=\"icon-folder-open icon-white\"></i> Github Me"), "http://github.com/jwo/compass-bootstrap2.0-rails", :class=>"btn btn-primary btn-large" %>
-    </div>
-    <div class="compassme">
-      <p>What up this is a test</p>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <% @posts.each do |p| %>
-  <div class="span4">
-    <div class="well">
-      <h4><%= link_to p.title, post_url(p) %></h4>
-      <p><%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %></p>
-      <div class="post-feature-image"><%= p.assets.first.present? ? image_tag(p.assets.first.image.thumb('280x200').url, id: "photo-thumb", alt: "#{body_truncate}") : "No Featured Image" %></div>
-    </div>
-  </div>
-  <% end %>
 </div>
 
-<script type="text/javascript">
-	$(window).load(function() {
-		$('.flexslider').flexslider({
-		  animation: "slide",
-		  controlsContainer: ".flexslider-container",
-		  manualControls: "#flex-nav li",
-	  });
-	});
+<script>
+$('#myCarousel').carousel({
+  
+})
+
+// $('#myCarousel').bind('slide', function () {
+//   $("div#1.well.current").removeClass("current");
+//   $(this).addClass("current");
+// })
 </script>
-
-
