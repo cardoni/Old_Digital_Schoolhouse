@@ -2,56 +2,63 @@
   <div class="span12">
     <div class="row-fluid">
       <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
-      <div class="span8">
-
+      <div class="span7">
+        <!-- begin of left span -->
         <div id="myCarousel" class="carousel slide">
           <div class="carousel-inner">
-            <% @posts.each do |p| %>
-            <div class="item">
-              <%= image_tag(p.assets.first.image.thumb('750x400').url,
-                  alt: body_truncate = truncate(p.body, length: 300, seperator: ' ')) if p.assets.present? %>
-              <div class="carousel-caption"><h4><%= link_to p.title, truncate(post_url(p), length: 50, seperator: ' ') %></h4><p><%= body_truncate %></p></div></div>
+            <% i = 1 %>
+            <% @posts.last(4).each do |p| %>
+            <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
+              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
+                  alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
+              <div class="carousel-caption"><h4><%= link_to link_to truncate(p.title, length: 80, seperator: ' '), post_url(p) %></h4><p><%= body_truncate %></p></div></div>
+              <% i = i + 1 %>
             <% end %>
           </div><a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
         </div>
-
+        <!-- end of left span -->
       </div>
       <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
-      <div class="span4">
+      <div class="span5">
+        <!-- beginning of right span -->
+        <% i = 1 %>
+        <% @posts.last(4).each do |p| %>
         <!-- BEGINNING OF ONE WELL -->
-        <div class="well">This is my pretty well well</div>
+        <div class="well" id="<%= i %>">
+          <h4><%= link_to truncate(p.title, length: 55, seperator: ' '), post_url(p) %></h4>
+          <%= truncate(p.body, length: 55, seperator: ' ') %>
+        </div>
         <!-- END OF ONE WELL -->
-        <!-- BEGINNING OF ONE WELL -->
-        <div class="well">This is my pretty well well</div>
-        <!-- END OF ONE WELL -->
-        <!-- BEGINNING OF ONE WELL -->
-        <div class="well">This is my pretty well well</div>
-        <!-- END OF ONE WELL -->
-        <!-- BEGINNING OF ONE WELL -->
-        <div class="well">This is my pretty well well</div>
-        <!-- END OF ONE WELL -->
-        <!-- BEGINNING OF ONE WELL -->
-        <div class="well">This is my pretty well well</div>
-        <!-- END OF ONE WELL -->
+          <% i = i + 1 %>
+        <% end %>
+        <!-- end of right span -->
       </div>
     </div>
       <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
       <ul class="thumbnails">
       <% @posts.each do |p| %>  
         <li class="span3">
-        <div class="thumbnail">
-          <%= link_to p.title, truncate(post_url(p), length: 50, seperator: ' ') %>
-          <%= body_truncate = truncate(p.body, length: 240, seperator: ' ') %>
+        <!-- <div class="thumbnail"> -->
+          <div id="TESTmyCarousel" class="carousel slide">
+          <div class="carousel-inner">
+          <div class="item active">
           <%= image_tag(p.assets.first.image.thumb('300x300#').url,
-              alt: body_truncate) if p.assets.present? %>
-          </div>
+              alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
+          <div class="carousel-caption">
+            <h4><%= link_to truncate(p.title, length: 30, seperator: ' '), post_url(p) %></h4>
+            <p><%= truncate(p.body, length: 60, seperator: ' ') %></p>
+            </div>
+            </div>
+            </div>
+          <!-- </div> -->
         </li>
       <% end %>
       </ul>
       <!-- END OF REPEATING BLOCKS AT BOTTOM -->
   </div>
 </div>
-<script>$('.carousel').carousel({
-  interval: 5000
-  pause: "hover"
-})</script>
+<script>
+$('#myCarousel').carousel({
+  
+})
+</script>
