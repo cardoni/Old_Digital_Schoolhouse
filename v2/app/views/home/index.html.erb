@@ -41,7 +41,10 @@
         <!-- <div class="thumbnail"> -->
           <div id="TESTmyCarousel" class="carousel slide">
           <div class="carousel-inner">
-          <div class="item active">
+          <div class="item active" style="position: relative; width: 100%;">
+          <div class="" style="position: absolute; top: 5px; left: 5px;">
+          <%= link_to icon("edit", "Edit"), edit_post_url(p), id: "edit-post-button", class: "btn btn-warning" if signed_in? %>
+          </div>
           <%= image_tag(p.assets.first.image.thumb('300x300#').url,
               alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
           <div class="carousel-caption">

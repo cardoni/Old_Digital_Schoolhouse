@@ -4,20 +4,21 @@
     <% @administrators.each do |user| %>
       <%= raw("<li>#{user.name}</li>") %>
       <%= image_tag(user.avatar.thumb.url) if user.avatar? %>
-      <%= render :partial => 'adminedit', :locals => {:user => user} %>
+      <%= render :partial => 'adminedit', :locals => {:user => user} if admin? %>
     <% end %>
   <h2>Teachers</h2>
     <% @teachers.each do |user| %>
       <%= raw("<li>#{user.name}</li>") %>
-      <%= render :partial => 'adminedit', :locals => {:user => user} %>
+      <%= render :partial => 'adminedit', :locals => {:user => user} if admin? %>
     <% end %>
   <h2>Students</h2>
     <% @students.each do |user| %>
       <%= raw("<li>#{user.name}</li>") %>
-      <%= render :partial => 'adminedit', :locals => {:user => user} %>
+      <%= render :partial => 'adminedit', :locals => {:user => user} if admin? %>
     <% end %>
   <h2>Donors</h2>
     <% @donors.each do |user| %>
-      <%= raw("<li>#{user.name}</li>") %>       <%= render :partial => 'adminedit', :locals => {:user => user} %>
+      <%= raw("<li>#{user.name}</li>") %>
+      <%= render :partial => 'adminedit', :locals => {:user => user} if admin? %>
     <% end %>
 </div>
