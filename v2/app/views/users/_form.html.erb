@@ -16,10 +16,9 @@
       	  </div>
         </div>
         <div class="control-group">
-      	  <%#= f.label :location, class: "control-label" %>
+	  <%= f.label :country_id, class: "control-label" %>
       	  <div class="controls">
-        	  <%#= f.collection_select :location, class: "input-xlarge", placeholder: "john@qsmith.com" %>
-        	  Location Drop-down Here...
+		  <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
       	  </div>
         </div>
         <div class="control-group">
@@ -36,7 +35,7 @@
         </div>
   </div>
   <div class="span6">
-    <legend>Classification, Password ...</legend>
+    <legend>Classification, Password, Etc...</legend>
     <div class="control-group">
   	  <%= f.label :classification, class: "control-label" %>
   	  <div class="controls">
@@ -55,9 +54,19 @@
     	  <%= f.password_field :password, class: "input-xlarge", placeholder: "Re-enter Password" %>
   	  </div>
     </div>
+    
+    <div class="control-group">
+      <%#= f.label :avatar, class: "control-label" %>
+      <%#= image_tag(current_user.avatar_url) if current_user.avatar? %>
+      <div class="controls">
+        <%#= f.file_field :avatar %>
+        <%#= f.hidden_field :avatar_cache %>
+        <label><%#= f.check_box :remove_avatar %><!-- Remove Avatar --></label>
+      </div>
+    </div>
 
     <div class="form-actions">
-      <%= f.submit "Sign Up New User", class: "btn btn-success" %>
+      <%= f.submit "Save & Submit", class: "btn btn-success btn-large" %>
     </div>
     
     </fieldset>

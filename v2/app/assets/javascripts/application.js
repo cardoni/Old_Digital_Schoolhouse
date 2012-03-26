@@ -15,6 +15,9 @@
 //= require jquery-ui
 //= require bootstrap-dropdown
 //= require bootstrap-tab
+//= require bootstrap-alert
+//= require bootstrap-transition
+//= require bootstrap-carousel
 //= require jquery.flexslider
 //= require_tree .
 
@@ -35,5 +38,3 @@
 //         $('#facebook').replaceWith(likebutton);
 //     });
 // });
-
-$('#myTab').tab('show')

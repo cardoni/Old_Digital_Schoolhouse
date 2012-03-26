@@ -8,9 +8,9 @@
         <%= f.file_field :image %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
       </span>
-      <button type="submit" class="btn btn-primary start"><i class="icon-upload icon-white"></i><%= t('assets.start_upload') %></button>
-      <button type="reset" class="btn btn-warning cancel"><i class="icon-ban-circle icon-white"></i><%= t('assets.cancel_upload') %></button>
-      <button type="button" class="btn btn-danger delete"><i class="icon-trash icon-white"></i><%= t('assets.delete_selected') %></button>
+      <button type="submit" class="btn btn-primary start"><i class="icon-upload"></i> <%= t('assets.start_upload') %></button>
+      <button type="reset" class="btn btn-warning cancel"><i class="icon-ban-circle"></i> <%= t('assets.cancel_upload') %></button>
+      <button type="button" class="btn btn-danger delete"><i class="icon-trash"></i> <%= t('assets.delete_selected') %></button>
       <input type="checkbox" class="toggle">
     </div>
 
@@ -87,7 +87,7 @@
 
 
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<%= javascript_include_tag 'js/vendor/jquery.ui.widget.js' %>
+<%#= javascript_include_tag 'js/vendor/jquery.ui.widget.js' %>
 <!-- The Templates and Load Image plugins are included for the FileUpload user interface -->
 <script src="http://blueimp.github.com/JavaScript-Templates/tmpl.min.js"></script>
 <script src="http://blueimp.github.com/JavaScript-Load-Image/load-image.min.js"></script>
