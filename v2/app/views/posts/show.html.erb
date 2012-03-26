@@ -7,12 +7,11 @@
 <p>Post by: <%= @post.user.name %>  |  Date: <%= @post.created_at.to_date.to_formatted_s(:long_ordinal) %></p>
 
 <p><%= @post.body_html %></p>
-<p><%= post_url(@post.id)%></p>
-<p>Here is tweet button: 
-<% this_url =  "http://0.0.0.0:3000/posts/" + @post.id.to_s %>
+<p><%# = post_url(@post.id)%></p>
+<p><% this_url =  "http://www.schoolhouse.io/posts/" + @post.id.to_s %>
 <%= tweet_button(:url => this_url,  :text => @post.title, :count => "none", :via => "GlobalPlay") %>
 </p>
-<p><%= custom_tweet_button %>
+<p><%# = custom_tweet_button %>
 </p>
 <ul>
   <% @post.assets.each do |asset| %>  
@@ -20,5 +19,6 @@
   <% end %>
 </ul>
 
-
+<!--
 <div id="fb-root"></div><div id="facebook">[Facebook]</div>
+-->
