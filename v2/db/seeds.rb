@@ -5,7 +5,7 @@ greg = 4
 teacher = 5
 donor = 6
 
-["United States", "Uganda", "Honduras", "Thailand"].each do |name|
+["United States", "Uganda", "Honduras", "Thailand", "Cambodia", "Vietnam"].each do |name|
   Country.create!(name: name)
 end
 
