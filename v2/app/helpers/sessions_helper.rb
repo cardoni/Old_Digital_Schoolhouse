@@ -18,5 +18,11 @@ module SessionsHelper
     end
   end
   
+  def admin_user?
+    if  current_user.classification != 'administrator'
+      redirect_to root_path,  notice: "Only admins can see this page"
+    end   
+  end
+  
 
 end

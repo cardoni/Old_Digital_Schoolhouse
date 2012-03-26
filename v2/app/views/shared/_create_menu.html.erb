@@ -13,5 +13,7 @@
     <%= content_tag_if admin?, :li, "Admin Options", class: "nav-header" %>
     <%= content_tag_if(admin?, :li, link_to(icon("plus-sign", "Create New User"), new_user_url),
                                 class: is_active?(new_user_url)) %>
+    <%= content_tag_if(admin?, :li, link_to(icon("plus-sign", "Manage Countries"), countries_url),
+                                class: is_active?(new_user_url)) %>
   </ul>
 </li>
