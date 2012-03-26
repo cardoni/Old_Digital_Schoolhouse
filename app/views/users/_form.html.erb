@@ -16,10 +16,9 @@
       	  </div>
         </div>
         <div class="control-group">
-      	  <%#= f.label :location, class: "control-label" %>
+	  <%= f.label :country_id, class: "control-label" %>
       	  <div class="controls">
-        	  <%#= f.collection_select :location, class: "input-xlarge", placeholder: "john@qsmith.com" %>
-        	  Location Drop-down Here...
+		  <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
       	  </div>
         </div>
         <div class="control-group">
