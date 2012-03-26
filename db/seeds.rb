@@ -5,9 +5,7 @@ greg = 4
 teacher = 5
 donor = 6
 
-["United States", "Uganda", "Honduras", "Thailand", "Cambodia", "Vietnam"].each do |name|
-  Country.create!(name: name)
-end
+["United States", "Uganda", "Honduras", "Thailand", "Cambodia", "Vietnam"].each do |name|; Country.create!(name: name); end
 
 User.create!(name: "Admin", email: "admin@email.com", classification: "administrator", password_digest: "$2a$10$nM.4xm1gHkVBC25tdSf3xO9N4m7C.SMLWoaSh1.VRml862GOmbnGC", country_id: 1)
 User.create!(name: "Adam", email: "adam@adamsemail.com", classification: "teacher", password_digest: "$2a$10$l2ZvnTqVQRCjAFqSjyyJhekqXJrAY8HpfMLaJ6h5YBCnLtWPgurIK", country_id: 2)
