@@ -19,12 +19,13 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe CountriesController do
-
+    subject { page }
+    
   # This should return the minimal set of attributes required to create a valid
   # Country. As you add validations to Country, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+      {name: "Moldova"}
   end
   
   # This should return the minimal set of values that should be in the session
@@ -33,15 +34,32 @@ describe CountriesController do
   def valid_session
     {}
   end
-=begin
+begin
   describe "GET index" do
     it "assigns all countries as @countries" do
       country = Country.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:countries).should eq([country])
+      visit countries_path
+      # page { should have_text 'Only admins can see this page' }
+      page.html {should have_text 'Listing countries'}
     end
   end
-=end
+end
+begin 
+    describe 'index as admin' do
+        
+        it 'dislays if logged in as admin' do
+        @user = User.new(name: "Example User", email: "lsllsl@example.com",
+                            
+        password: "hello", password_confirmation: "hello", classification: 'administrator' )
+        # let(:user) { FactoryGirl.create(:adminuser) }
+        visit(login_url @user)
+        # page {should have_text 'Listing countries'}
+        puts page.html
+        page { should have_text 'Only admins can see this page' }
+    
+        end
+    end
+end
 =begin
   describe "GET show" do
     it "assigns the requested country as @country" do
