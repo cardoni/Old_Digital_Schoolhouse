@@ -46,29 +46,27 @@
       <div class="tab-content">
         <div class="tab-pane active" id="1">
           <ul class="thumbnails">
-            <%= p.fields_for :attachments, @post.initialized_attachments(@current_user) do |builder| %>
-            <li class="span2"><a href="#" class="thumbnail">
-            <% asset = builder.object.asset %>
-            <%= builder.hidden_field :asset_id %>
-            <%= builder.label :enable, image_tag(asset.image.thumb('168x168#').url ) %>
-            <%= builder.check_box :enable %>
-            <%= builder.text_field :description, placeholder: "add a caption", class: "thumbnail-text-input" %></a></li>
-            <% end %>
+            <%- Image.all.each do |image| -%>
+            <li class="span2">
+              <%= label_tag "post_image_ids_#{image.id}",
+                    image_tag(image.image.thumb('168x168#').url) + 
+                    check_box_tag("post[image_ids][]", image.id, @post.image_ids.include?(image.id), :id => "post_image_ids_#{image.id}")  %>
+            </li>
+            <%- end -%>
           </ul>
         </div>
         <div class="tab-pane" id="2">
           <!-- begin video tab section -->
           <!-- begin video section -->
           <ul class="thumbnails">
-            <%= p.fields_for :attachments do |builder| %>
-            <li class="span2"><a href="#" class="thumbnail">
-            <% asset = builder.object %>
-            <%= builder.hidden_field :attachment_url, value: asset.attachment_url %>
-            <%= builder.hidden_field :provider, value: asset.provider %>
-            <%= builder.label :enable, image_tag(asset.attachment_url, width: "170px") %>
-            <%= builder.check_box :enable %>
-            <%= builder.text_field :description, placeholder: "add a caption", class: "thumbnail-text-input" %></a></li>
-            <% end %>
+            <%- Video.all.each do |video| -%>
+            <li class="span2">
+              <%= label_tag "post_video_ids_#{video.id}",
+                    image_tag(video.image.thumb('168x168#').url) + 
+                    check_box_tag("post[video_ids][]", video.id, @post.video_ids.include?(video.resource_id), :id => "post_video_ids_#{video.id}") %>
+            </li>
+            <%- end -%>
+            
           </ul>
             </div>
             <!-- end video section -->

@@ -5,6 +5,9 @@ class Attachment < ActiveRecord::Base
   belongs_to :user
   belongs_to :asset
   
+  belongs_to :image, :class_name => Image, :foreign_key => :asset_id
+  belongs_to :video, :class_name => Video, :foreign_key => :asset_id
+  
   attr_accessor :enable
   
   # mount_uploader :photo, PhotoUploader

@@ -3,6 +3,7 @@ class Asset < ActiveRecord::Base
   has_many :attachments, :dependent => :destroy
   has_many :posts , :through => :attachments
   belongs_to :user
+  
   image_df_accessor :image  # do
   #   storage_path :path_for_attachment
   # end
@@ -10,6 +11,7 @@ class Asset < ActiveRecord::Base
   # def path_for_attachment
   #   "#{Time.now.strftime '%Y/%m'}/#{rand(100)}"
   # end
+  
   def to_jq_upload
       {
         "name" => read_attribute(:image_name),
