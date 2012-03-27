@@ -6,7 +6,7 @@ describe "User pages" do
 
   describe "signup page" do
     before { visit login_path }
-
+    puts it
     it { should have_selector('h1', text: 'Sign In') }
     it { should have_selector('title', text: ('Digital Schoolhouse')) }
   end
@@ -22,11 +22,11 @@ describe "User pages" do
 =end  
   describe "signup" do
 
-    before { visit signup_path }
+      before { visit login_path }
 
     describe "with invalid information" do
       it "should not create a user" do
-        expect { click_button "Sign up" }.not_to change(User, :count)
+          expect { click_button "Sign In" }.not_to change(User, :count)
       end
     end
 
