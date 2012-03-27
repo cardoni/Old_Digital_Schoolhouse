@@ -6,23 +6,21 @@ class Post < ActiveRecord::Base
     
   has_many :attachments, :dependent => :destroy
   has_many :assets, :through => :attachments
+  has_many :images, :through => :attachments, :source => :image
+  has_many :videos, :through => :attachments, :source => :video
   
   belongs_to :user
-  
-  accepts_nested_attributes_for :attachments, :allow_destroy => true,
-    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-    def initialized_attachments(id)
-    [].tap do |o|
-        Asset.where(:user_id => id).each do |asset|
-        if a = attachments.find { |a| a.asset_id == asset.id }
-          o << a.tap { |a| a.enable ||= true }
-        else
-          o << Attachment.new(asset: asset)
-        end
-      end
-    end
-  end
+  # def initialized_attachments(id)
+  # [].tap do |o|
+  #     Asset.where(:user_id => id).each do |asset|
+  #     if a = attachments.find { |a| a.asset_id == asset.id }
+  #       o << a.tap { |a| a.enable ||= true }
+  #     else
+  #       o << Attachment.new(asset: asset)
+  #     end
+  #   end
+  # end
 
   include AutoHtml
     auto_html_for :body do
@@ -33,20 +31,5 @@ class Post < ActiveRecord::Base
       simple_format
     end
     
-    def vimeo_response
-      vim = Vimeo::Simple::User.videos("global").parsed_response
-      b = vim.each do |vid_attr|
-        build(:attachment_url => vid_attr['id'], :provider => vid_attr['thumbnail_small'])
-      end
-      [].tap do |o|
-        b.each do |asset|
-          if a = attachments.find { |a| a.provider == asset.provider }
-            o << a.tap { |a| a.enable ||= true }
-          else
-            o << Attachment.new(b: asset)
-          end
-        end
-      end
-    end
 
 end

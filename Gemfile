@@ -6,6 +6,7 @@ gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '2.8.1'
+  # gem 'ruby-debug19', :require => 'ruby_debug'
 end
 
 group :test do

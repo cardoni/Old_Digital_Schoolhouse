@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316065835) do
+ActiveRecord::Schema.define(:version => 20120326225311) do
 
   create_table "assets", :force => true do |t|
     t.string   "type"
     t.string   "image_uid"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "image_name"
+    t.integer  "resource_id"
+    t.string   "resource_url"
   end
 
   create_table "attachments", :force => true do |t|
