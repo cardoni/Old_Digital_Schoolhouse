@@ -1,15 +1,15 @@
 <div class="navbar-inner">
   <div class="container">
     <ul class="nav pull-left">
-      <%= content_tag :li, link_to("Home", root_url), class: is_active?(root_url) %>
+      <%= content_tag :li, link_to("Home", root_url), class: is_active?(root_url) -%>
       <%= content_tag :li, link_to("About", about_page_url),
-                      class: is_active?(about_page_url) %>
+                      class: is_active?(about_page_url) -%>
     </ul>
     <ul class="nav pull-right">
-      <%= render 'shared/user_menu' if signed_in? %>
-      <%= render 'shared/create_menu' if signed_in? %>
-      <%= content_tag_if signed_in?, :li, "", class: "divider-vertical" %>
-      <%= render 'shared/sign_inout_menu' %>
+      <%= render 'shared/user_menu' if signed_in? -%>
+      <%= render 'shared/create_menu' if signed_in? -%>
+      <%= content_tag_if signed_in?, :li, "", class: "divider-vertical" -%>
+      <%= render 'shared/sign_inout_menu' -%>
     </ul>
   </div>
 </div>
