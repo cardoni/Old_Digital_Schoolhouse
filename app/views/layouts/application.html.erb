@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title || "Digital Schoolhouse" %></title>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
+    <title><%= @title || "Digital Schoolhouse" -%></title>
+    <%= stylesheet_link_tag "application", media: "all" -%>
+    <%= javascript_include_tag "application" -%>
     <%= csrf_meta_tags %>
-    <%= render 'layouts/ga_analytics' %>
+    <%= render 'layouts/ga_analytics' -%>
   </head>
   <body>
     <div id="container" class="container">    
     <header>
       <nav class="navbar navbar-fixed-top">
-        <%= render 'layouts/header' %>
+        <%= render 'layouts/header' -%>
       </nav>
+      <% if notice.present? -%>
+        <div class="alert alert-error span5 offset3 center">
+          <a class="close" data-dismiss="alert">×</a>
+          <strong>Warning!</strong> <%= notice -%>
+        </div>
+      <% end -%>
     </header>
     <div id="main" role="main">
-      <%= yield %>
+      <%= yield -%>
     </div>
     <footer class="footer">
-      <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer' -%>
     </footer>
+    <script>
+    $(".alert").alert()
+    </script>
   </body>
 </html>
