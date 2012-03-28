@@ -1,0 +1,17 @@
+<div class="span4">
+  <!-- beginning of left span -->
+  <div class="slidetabs">
+  <%- @posts.first(5).each_with_index do |p, i| -%>
+  <!-- BEGINNING OF ONE WELL -->
+  <a href="#">
+  <div class="well">
+    <%= p.location -%>
+    <%#= link_to p.location, post_url(p) -%>
+    <%#= truncate(p.body, length: 55, seperator: ' ') %>
+  </div>
+  </a>
+  <!-- END OF ONE WELL -->
+  <%- end -%>
+  </div>
+  <!-- end of left span -->
+</div>

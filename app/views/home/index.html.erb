@@ -2,85 +2,22 @@
   <div class="span12">
     <%= render 'shared/top_about' -%>
     <div class="row-fluid">
-      <!-- BEGINNING OF MENU SPAN -->
-      <div class="span4">
-        <!-- beginning of left span -->
-        <div class="slidetabs">
-        <%- @posts.first(5).each_with_index do |p, i| -%>
-        <!-- BEGINNING OF ONE WELL -->
-        <a href="#">
-        <div class="well">
-          <%= p.location -%>
-          <%#= link_to p.location, post_url(p) -%>
-          <%#= truncate(p.body, length: 55, seperator: ' ') %>
-        </div>
-        </a>
-        <!-- END OF ONE WELL -->
-        <%- end -%>
-        </div>
-        <!-- end of left span -->
-      </div>
-      <!-- END OF MENU SPAN -->
-      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
-      <div class="offset4">
-        <!-- begin of right span -->
-        <div class="images">
-            <%- @posts.first(5).each_with_index do |p, i| -%>
-            <div>
-              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
-                  alt: body_truncate = truncate(p.body, length: 170,
-                  seperator: ' ')) if p.assets.present? -%>
-              <!-- <div class="image-caption"> -->
-                <h4><%= link_to link_to truncate(p.title, length: 80,
-                          seperator: ' '), post_url(p) -%></h4>
-                <p><%= truncate(p.body, length: 115, seperator: ' ') %></p>
-              </div>
-            <%- end -%>
-          </div>
-          <!-- <a class="backward">prev</a>‹</a> <a class="forward">next</a>›</a> -->
-        <!-- end of right span -->
-      </div>
-      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
+      <%= render 'home/top_left_slider_menu' -%>
+      <%= render 'home/top_featured_image_slider' -%>
     </div>
-      <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
-      <div class="row-fluid">
-      <ul class="row">
-      <% @posts.each do |p| %>  
-        <li class="span3">
-          <div class="image-thumbnail">
-            <div class="floating-button" style="position: absolute; top: 5px; left: 5px;">
-              <%= link_to icon("edit", ""), edit_post_url(p), id: "edit-post-button", class: "btn btn-danger" if admin? %>
-            </div>
-            <%= image_tag(p.assets.first.image.thumb('300x300#').url,
-                alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
-            <div class="image-thumbnail-caption">
-              <h4><%= link_to (p.location), post_url(p) %></h4>
-            </div>
-          </div>
-        </li>
-      <% end %>
-      </ul>
-      </div>
-      <!-- END OF REPEATING BLOCKS AT BOTTOM -->
+      <%= render 'home/bottom_blocks' -%>
   </div>
 </div>
 
 <script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
 <script language="JavaScript">
 $(function() {
-    $(".slidetabs").tabs(".images > div", {
-
-  // enable "cross-fading" effect
-  effect: 'fade',
-  fadeOutSpeed: "slow",
-
-  // start from the beginning after the last tab
-  rotate: true,
-  clickable: false,
-  interval: 2000
-
-  
-  // use the slideshow plugin. It accepts its own configuration
+  $(".slidetabs").tabs(".images > div", {
+    effect: 'fade',
+    fadeOutSpeed: "slow",
+    rotate: true,
+    clickable: false,
+    interval: 2000
   }).slideshow({
     autoplay: true
   });
