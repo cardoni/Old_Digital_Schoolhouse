@@ -1,3 +1,2 @@
 <%= content_tag_if signed_in?, :li, link_to(icon("signout", "Sign Out"), logout_url), class: is_active?(logout_url) %>
-  <!-- TODO: ADD A GET MORE INFO OPTION/FORM?  (-GREG) -->
 <%= content_tag_if !signed_in?, :li, link_to(icon("signin", "Sign In"), login_url), class: is_active?(login_url) %>
