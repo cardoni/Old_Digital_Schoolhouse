@@ -24,7 +24,7 @@
       </fieldset>
       <% end %>
       <div>
-        <p>Interested in learning more or getting involved with <%= link_to "Digital Schoolhouse", root_url -%> yourself?<br /><%= link_to "Send us an email!", "mailto:info@digitalschoolhouse.com" -%></p>
+        <p>Interested in learning more or getting involved with <%= link_to "Digital Schoolhouse", root_url -%> yourself?<br /><%= mail_to "info@digitalschoolhouse.com", "Send us an email!", encode: "hex" -%></p>
       </div>
     </div>
   </div>
