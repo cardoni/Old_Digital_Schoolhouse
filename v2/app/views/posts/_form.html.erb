@@ -59,13 +59,13 @@
           <!-- begin video tab section -->
           <!-- begin video section -->
           <ul class="thumbnails">
-            <%- Video.all.each do |video| -%>
+            <%#- Video.all.each do |video| -%>
             <li class="span2">
-              <%= label_tag "post_video_ids_#{video.id}",
+              <%#= label_tag "post_video_ids_#{video.id}",
                     image_tag(video.image.thumb('168x168#').url) + 
                     check_box_tag("post[video_ids][]", video.id, @post.video_ids.include?(video.resource_id), :id => "post_video_ids_#{video.id}") %>
             </li>
-            <%- end -%>
+            <%#- end -%>
             
           </ul>
             </div>
