@@ -15,7 +15,6 @@ DigitalSchoolhouse::Application.routes.draw do
 
   get '/logout' => 'sessions#logout', :as => :logout
   get '/login' => 'sessions#new', :as => :login
-  get 'about' => 'home#about', :as => 'about_page'
-  
+  get 'about' => 'home#about', :as => 'about_page'  
   
 end

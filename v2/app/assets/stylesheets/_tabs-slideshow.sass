@@ -13,19 +13,33 @@
   font-size: 12px
 
 /* tabs (those little circles below slides)
-.slidetabs
-  //  clear: both;
+// .slidetabs
+// clear: both
 
 /* single tab
 .slidetabs a
   display: block
+  height: 55px
+  line-height: 55px
+  padding-left: 40px
+  font-weight: bold
+  border: 1px solid black
+  margin: 0 0 12px 0
+  color: #000
+  background-color: rgba(green, 0.4)
+  text-decoration: none
 
 /* mouseover state
 .slidetabs a:hover
-
+  text-decoration: none
+  background-color: rgba(green, 0.8)
+  color: #FFF
+    
 /* active state (current page state)
 .slidetabs a.current
-  background-color: rgba(green, 0.3)
+  background-color: rgba(green, 0.8)
+  text-decoration: none
+  color: #FFF
 
 /* prev and next buttons
 .forward, .backward
