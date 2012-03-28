@@ -4,6 +4,10 @@ module SessionsHelper
     @current_user ||= User.find_by_id(session[:user])
   end
   
+  def sign_in(user)
+    session[:user] = user.id
+  end
+  
   def current_user?
     current_user.present?
   end
