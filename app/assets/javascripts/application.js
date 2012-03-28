@@ -18,6 +18,16 @@
 //= require bootstrap-alert
 //= require bootstrap-transition
 //= require jquery.flexslider
+//= require jquery.postmessage-transport
+//= require jquery.xdr-transport
+//= require jquery.fileupload-ip
+//= require jquery.fileupload-ui
+//= require jquery.fileupload
+//= require jquery.iframe-transport
+//= require locale
+//= require main
+//= require jquery.ui.widget
+//= require nested_form
 //= require_tree .
 
 
