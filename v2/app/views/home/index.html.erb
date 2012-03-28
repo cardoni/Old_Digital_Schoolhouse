@@ -1,73 +1,92 @@
 <div class="row-fluid">
   <div class="span12">
+    <%= render 'shared/top_about' -%>
     <div class="row-fluid">
-      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
-      <div class="span7">
-        <!-- begin of left span -->
-        <div id="myCarousel" class="carousel slide">
-          <div class="carousel-inner">
-            <% i = 1 %>
-            <% @posts.first(4).each do |p| %>
-            <div class="item <%= "active" if i == 1 %>" id="<%= i %>">
-              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
-                  alt: body_truncate = truncate(p.body, length: 170, seperator: ' ')) if p.assets.present? %>
-              <div class="carousel-caption"><h4><%= link_to link_to truncate(p.title, length: 80, seperator: ' '), post_url(p) %></h4><p><%= body_truncate %></p></div></div>
-              <% i = i + 1 %>
-            <% end %>
-          </div><a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a> <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+      <!-- BEGINNING OF MENU SPAN -->
+      <div class="span4">
+        <!-- beginning of left span -->
+        <div class="slidetabs">
+        <%- @posts.first(5).each_with_index do |p, i| -%>
+        <!-- BEGINNING OF ONE WELL -->
+        <a href="#">
+        <div class="well">
+          <%= p.location -%>
+          <%#= link_to p.location, post_url(p) -%>
+          <%#= truncate(p.body, length: 55, seperator: ' ') %>
+        </div>
+        </a>
+        <!-- END OF ONE WELL -->
+        <%- end -%>
         </div>
         <!-- end of left span -->
       </div>
-      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
-      <div class="span5">
-        <!-- beginning of right span -->
-        <% i = 1 %>
-        <% @posts.first(4).each do |p| %>
-        <!-- BEGINNING OF ONE WELL -->
-        <div class="well" id="<%= i %>">
-          <h4><%= link_to truncate(p.title, length: 55, seperator: ' '), post_url(p) %></h4>
-          <%= truncate(p.body, length: 55, seperator: ' ') %>
-        </div>
-        <!-- END OF ONE WELL -->
-          <% i = i + 1 %>
-        <% end %>
+      <!-- END OF MENU SPAN -->
+      <!-- ****** BEGINNING OF BIG FEATURED IMAGE SLIDER -->
+      <div class="offset4">
+        <!-- begin of right span -->
+        <div class="images">
+            <%- @posts.first(5).each_with_index do |p, i| -%>
+            <div>
+              <%= image_tag(p.assets.first.image.thumb('750x400#').url,
+                  alt: body_truncate = truncate(p.body, length: 170,
+                  seperator: ' ')) if p.assets.present? -%>
+              <!-- <div class="image-caption"> -->
+                <h4><%= link_to link_to truncate(p.title, length: 80,
+                          seperator: ' '), post_url(p) -%></h4>
+                <p><%= truncate(p.body, length: 115, seperator: ' ') %></p>
+              </div>
+            <%- end -%>
+          </div>
+          <!-- <a class="backward">prev</a>‹</a> <a class="forward">next</a>›</a> -->
         <!-- end of right span -->
       </div>
+      <!-- ***** END OF BIG FEATURED IMAGE SLIDER-->
     </div>
       <!-- BEGINNING OF REPEATING BLOCKS AT BOTTOM -->
-      <ul class="thumbnails">
+      <div class="row-fluid">
+      <ul class="row">
       <% @posts.each do |p| %>  
         <li class="span3">
-        <!-- <div class="thumbnail"> -->
-          <div id="TESTmyCarousel" class="carousel slide">
-          <div class="carousel-inner">
-          <div class="item active" style="position: relative; width: 100%;">
-          <div class="" style="position: absolute; top: 5px; left: 5px;">
-          <%= link_to icon("edit", "Edit"), edit_post_url(p), id: "edit-post-button", class: "btn btn-warning" if signed_in? %>
+          <div class="image-thumbnail">
+            <div class="floating-button" style="position: absolute; top: 5px; left: 5px;">
+              <%= link_to icon("edit", "Edit"), edit_post_url(p), id: "edit-post-button", class: "btn btn-warning" if signed_in? %>
+            </div>
+            <%= image_tag(p.assets.first.image.thumb('300x300#').url,
+                alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
+            <div class="image-thumbnail-caption">
+              <h4><%= link_to (p.location), post_url(p) %></h4>
+            </div>
           </div>
-          <%= image_tag(p.assets.first.image.thumb('300x300#').url,
-              alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? %>
-          <div class="carousel-caption">
-            <h4><%= link_to truncate(p.title, length: 30, seperator: ' '), post_url(p) %></h4>
-            <p><%= truncate(p.body, length: 60, seperator: ' ') %></p>
-            </div>
-            </div>
-            </div>
-          <!-- </div> -->
         </li>
       <% end %>
       </ul>
+      </div>
       <!-- END OF REPEATING BLOCKS AT BOTTOM -->
   </div>
 </div>
 
-<script>
-$('#myCarousel').carousel({
-  
-})
 
-// $('#myCarousel').bind('slide', function () {
-//   $("div#1.well.current").removeClass("current");
-//   $(this).addClass("current");
-// })
+<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>
+
+<script language="JavaScript">
+$(function() {
+    $(".slidetabs").tabs(".images > div", {
+
+  // enable "cross-fading" effect
+  effect: 'fade',
+  fadeOutSpeed: "slow",
+
+  // start from the beginning after the last tab
+  rotate: true,
+  clickable: false,
+  interval: 2000
+
+  
+  // use the slideshow plugin. It accepts its own configuration
+  }).slideshow({
+    autoplay: true
+  });
+});
+
+
 </script>

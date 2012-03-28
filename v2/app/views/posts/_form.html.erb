@@ -19,6 +19,12 @@
           <%= p.text_area :body, rows: 20, class: "input-xlarge span6", placeholder: "Body text of your post" %>
         </div>
       </div>
+      <div class="control-group">
+  	  <%= p.label :location, class: "control-label" %>
+        	  <div class="controls">
+      		  <%= p.collection_select(:location, Country.all, :name, :name ) %>
+        	  </div>
+          </div>
       <!-- end title and body text sections of post form -->
       <!-- start form save/delete/upload buttons -->
       <div class="form-actions span5 center">
@@ -36,6 +42,9 @@
   </div>
   <!-- end of left side of form -->
   <!-- begin right-side of form -->
+  
+  
+  
   <div class="span6">
     <legend>Add Some Pictures or Videos</legend>
     <div class="tabbable">
