@@ -9,7 +9,7 @@ DigitalSchoolhouse::Application.configure do
 
   
   # Setting for Heroku to run properly -Greg
-  # config.assets.initialize_on_precompile = true
+  config.assets.initialize_on_precompile = false
   
   
   # —————————————————————————————————
