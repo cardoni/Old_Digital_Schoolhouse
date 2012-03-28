@@ -3,6 +3,7 @@ class Asset < ActiveRecord::Base
   has_many :attachments, :dependent => :destroy
   has_many :posts , :through => :attachments
   belongs_to :user
+  attr_accessible :type, :user_id, :image ###### FOOBARRRRREDDD
   
   image_df_accessor :image  # do
   #   storage_path :path_for_attachment

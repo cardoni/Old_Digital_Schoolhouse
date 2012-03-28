@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-  
+  # before_save :image_type, :only => :create
   def index
     if current_user.classification == 'administrator'
       @assets = Asset.find(:all, order: "created_at DESC")
@@ -36,5 +36,10 @@ class AssetsController < ApplicationController
     @asset = Asset.find(params[:id])
     @asset.destroy
     render :json => true
+  end
+  
+  
+  def image_type
+    asset.type = "Image"
   end
 end
