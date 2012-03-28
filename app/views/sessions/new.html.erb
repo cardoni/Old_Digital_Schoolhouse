@@ -4,18 +4,18 @@
       <h1>Sign In</h1>
     </div>
     <div class="well span5 offset3 center">
-      <%= form_tag "/sessions", class: "form" do %>
+      <%= form_tag "/sessions", class: "form-vertical" do %>
       <fieldset>
         <div class="control-group">
           <%= label_tag :email, nil, class: "control-label" %>
             <div class="controls">
-          <%= text_field_tag :email, nil, class: "input-xlarge", placeholder: "email@address.com" %>
+          <%= email_field_tag :email, nil, class: "span3", placeholder: "email@address.com" %>
           </div>
         </div>
         <div class="control-group">
           <%= label_tag :password, nil, class: "control-label" %>
           <div class="controls">
-            <%= password_field_tag :password, nil, class: "input-xlarge", placeholder: "password" %>
+            <%= password_field_tag :password, nil, class: "span3", placeholder: "password" %>
           </div>
         </div>
         <div class="form-actions">
