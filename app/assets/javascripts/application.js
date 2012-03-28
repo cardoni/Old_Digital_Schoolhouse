@@ -17,7 +17,6 @@
 //= require bootstrap-tab
 //= require bootstrap-alert
 //= require bootstrap-transition
-//= require bootstrap-carousel
 //= require jquery.flexslider
 //= require_tree .
 
