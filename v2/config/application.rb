@@ -25,11 +25,11 @@ module DigitalSchoolhouse
     
     config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
       # Tells rails that we'd like to have some stuff running in middleware to modify some URLs as they come in
-      # if Rails.env.production?
-      #   # Insures that app is always running on canonical domain when in production
-      #   r301 %r{.*}, 'http://www.schoolhouse.io$&',
-      #     :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'www.schoolhouse.io' }
-      # end
+      if Rails.env.production?
+        # Insures that app is always running on canonical domain when in production
+        r301 %r{.*}, 'http://www.schoolhouse.io$&',
+          :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'www.schoolhouse.io' }
+      end
       
       r301 %r{^/(.*)/$}, '/$1'
       # Throws a 301 redirect for urls with trailing slashes ("/")
