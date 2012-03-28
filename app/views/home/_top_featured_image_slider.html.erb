@@ -1,0 +1,14 @@
+<div class="offset4">
+  <div class="images">
+    <%- @posts.first(5).each_with_index do |p, i| -%>
+    <div>
+      <%= image_tag(p.assets.first.image.thumb('750x400#').url,
+          alt: body_truncate = truncate(p.body, length: 170,
+          seperator: ' ')) if p.assets.present? -%>
+      <h4><%= link_to link_to truncate(p.title, length: 80,
+                seperator: ' '), post_url(p) -%></h4>
+      <p><%= truncate(p.body, length: 115, seperator: ' ') -%></p>
+    </div>
+  <%- end -%>
+  </div>
+</div>
