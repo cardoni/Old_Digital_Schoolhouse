@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe UsersController do
+    subject { page }
 
   before (:each) do
     @user = FactoryGirl.create(:user)
@@ -10,8 +11,10 @@ describe UsersController do
   describe "GET 'show'" do
     
     it "should be successful" do
-      get :show, :id => @user.id
+        puts @user.to_s
+      get :manage, :id => @user.id
       response.should be_success
+      # puts page.html
     end
     
     it "should find the right user" do
