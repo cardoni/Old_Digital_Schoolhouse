@@ -2,11 +2,11 @@
   <div class="slidetabs">
     <%- @posts.first(5).each_with_index do |p, i| -%>
     <a href="#">
-      <div class="well">
+      <!-- <div class="well"> -->
         <%= p.location -%>
         <%#= link_to p.location, post_url(p) -%>
         <%#= truncate(p.body, length: 55, seperator: ' ') %>
-      </div>
+      <!-- </div> -->
     </a>
     <%- end -%>
   </div>

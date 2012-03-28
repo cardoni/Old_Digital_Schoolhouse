@@ -10,6 +10,7 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
@@ -17,23 +18,14 @@
 //= require bootstrap-tab
 //= require bootstrap-alert
 //= require bootstrap-transition
-//= require jquery.flexslider
+//= require js/cors/jquery.postmessage-transport
+//= require js/cors/jquery.xdr-transport
+//= require js/jquery.fileupload-ip
+//= require js/jquery.fileupload-ui
+//= require js/jquery.fileupload
+//= require js/jquery.iframe-transport
+//= require js/locale
+//= require js/main
+//= require nested_form
+//= require js/vendor/jquery.ui.widget
 //= require_tree .
-
-
-// // Facebook button  (Added by Eric?)
-// 
-// $(function() {
-//         likebutton =
-//             '<fb:like href="" send="" width="100" show_faces="" ' +
-//             'font="" layout="button_count" action="recommend">' +
-//         '</fb:like>';
-//     $.getScript('http://connect.facebook.net/en_US/all.js', function() {
-//         FB.init({appId: 141936272547391,
-//                  status: true,
-//                  cookie: true,
-//                  xfbml: true
-//                 });
-//         $('#facebook').replaceWith(likebutton);
-//     });
-// });
