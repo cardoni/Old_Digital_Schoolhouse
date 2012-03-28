@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <ul class="row">
-  <% @posts.each do |p| -%>  
+  <%- @posts.each do |p| -%>  
     <li class="span3">
       <div class="image-thumbnail">
         <div class="floating-button" style="position: absolute; top: 5px; left: 5px;">
@@ -13,6 +13,6 @@
         </div>
       </div>
     </li>
-  <% end -%>
+  <%- end -%>
   </ul>
 </div>
