@@ -10,7 +10,6 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
@@ -18,14 +17,3 @@
 //= require bootstrap-tab
 //= require bootstrap-alert
 //= require bootstrap-transition
-//= require js/cors/jquery.postmessage-transport
-//= require js/cors/jquery.xdr-transport
-//= require js/jquery.fileupload-ip
-//= require js/jquery.fileupload-ui
-//= require js/jquery.fileupload
-//= require js/jquery.iframe-transport
-//= require js/locale
-//= require js/main
-//= require nested_form
-//= require js/vendor/jquery.ui.widget
-//= require_tree .
