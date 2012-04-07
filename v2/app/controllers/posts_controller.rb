@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     old_title = @post.title
     @post.destroy
-    redirect_to root_url, notice: 'You\'ve just deleted the post: ' + raw("<br />") + old_title
+    redirect_to root_url, notice: "You\'ve just deleted the post: #{old_title}"
   end
   
   def show
