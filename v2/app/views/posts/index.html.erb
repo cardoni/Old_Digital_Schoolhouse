@@ -1,0 +1,35 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Your Posts<small> (<%= current_user.posts.count %> Total)</small></h1>
+    </div>
+    <div class="row span5 offset3 center">
+      <%= link_to icon("file","Create A New Post"), new_post_url, class: "btn btn-success" %>
+      <%= link_to icon("film","Upload Images/Video"), assets_url, class: "btn btn-info" %>
+    </div>
+    <table id="user-posts-table" summary="All posts by <%= current_user.name %>" class="table table-striped table-bordered offset">
+      <thead>
+      	<tr>
+          <th scope="col" class="post-title span3">Post Title</th>
+          <th scope="col" class="post-preview span5">Preview of Post</th>
+          <th scope="col" class="post-thumbnail span2">Post Image/Video</th>
+          <th scope="col" class="post-edit span1">Edit Post</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_posts.reverse.each do |post| %>
+          <tr>
+            <td><p><%= link_to post.title, post_url(post) %></p></td>
+            <td><p><%= truncate(post.body, length: 180, seperator: ' ') %></p></td>
+            <td><p><%= post.assets.first.present? ? image_tag(post.assets.first.image.thumb('140x100#').url, class: "thumbnail") : "No Media Selected" %></p></td>
+              <td>
+                <%- if admin? or (current_user.id == post.user_id) %>
+                  <p><%= link_to icon("edit", "Edit"), edit_post_url(post), id: "edit-post-button", class: "btn btn-warning" %></p>
+                <%- end -%>
+              </td>
+          </tr>
+        <%- end -%>
+      </tbody>
+    </table>
+  </div>
+</div>

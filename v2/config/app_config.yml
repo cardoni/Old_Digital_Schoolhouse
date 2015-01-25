@@ -1,0 +1,11 @@
+# We're not currently using this file right now.  If/when we do, it's being called from dragonfly.rb to get the S3 credentials
+
+default: &default
+  s3_key: ''
+  s3_secret: ''
+  
+development:
+  <<: *default
+  
+production:
+  <<: *default

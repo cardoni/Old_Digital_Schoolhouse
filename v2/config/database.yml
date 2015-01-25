@@ -1,0 +1,21 @@
+common: &common
+  adapter: postgresql
+  encoding: utf8
+  pool: 5
+  host: localhost
+  # username: digital_schoolhouse
+  # password: 
+  # template: template0
+  # port: 5432
+
+development:
+  <<: *common
+  database: digital_schoolhouse_development
+
+test:
+  <<: *common
+  database: digital_schoolhouse_test
+
+production:
+  <<: *common
+  database: digital_schoolhouse_production

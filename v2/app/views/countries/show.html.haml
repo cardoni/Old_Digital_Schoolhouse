@@ -1,0 +1,13 @@
+%p#notice= notice
+%br
+%br
+%br
+%br
+
+%p
+  %b Name:
+  = @country.name
+
+= link_to 'Edit this country', edit_country_path(@country)
+\|
+= link_to 'Back to list of countries', countries_path

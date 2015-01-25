@@ -1,0 +1,75 @@
+<div class="row-fluid well">
+  <div class="span6">
+    <legend>Name, Email, Location, School, & Bio</legend>
+      <%= form_for @user, :html => {class: "form-horizontal"} do |f| %>
+      <fieldset>
+        <div class="control-group">
+      	  <%= f.label :name, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :name, class: "input-xlarge", placeholder: "John Q. Smith" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :email, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :email, class: "input-xlarge", placeholder: "john@qsmith.com" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+	  <%= f.label :country_id, class: "control-label" %>
+      	  <div class="controls">
+		  <%= f.collection_select(:country_id, Country.all, :id, :name ) %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :school, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_field :school, class: "input-xlarge", placeholder: "What School?" %>
+      	  </div>
+        </div>
+        <div class="control-group">
+      	  <%= f.label :bio, class: "control-label" %>
+      	  <div class="controls">
+        	  <%= f.text_area :bio, rows: 10, class: "input-xlarge", placeholder: "Tell us a little more about yourself. This information will be displayed in the directory of all users." %>
+      	  </div>
+        </div>
+  </div>
+  <div class="span6">
+    <legend>Classification, Password, Etc...</legend>
+    <div class="control-group">
+  	  <%= f.label :classification, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.select :classification, { "Administrator" => "administrator", "Teacher" => "teacher", "Student" => "student", "Donor" => "donor"}, class: "input-xlarge" %>
+  	  </div>
+    </div>
+    <div class="control-group">
+  	  <%= f.label :password, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.password_field :password, class: "input-xlarge", placeholder: "Enter A Password" %>
+  	  </div>
+    </div>
+    <div class="control-group">
+  	  <%= f.label :confirm_password, class: "control-label" %>
+  	  <div class="controls">
+    	  <%= f.password_field :password, class: "input-xlarge", placeholder: "Re-enter Password" %>
+  	  </div>
+    </div>
+    
+    <div class="control-group">
+      <%#= f.label :avatar, class: "control-label" %>
+      <%#= image_tag(current_user.avatar_url) if current_user.avatar? %>
+      <div class="controls">
+        <%#= f.file_field :avatar %>
+        <%#= f.hidden_field :avatar_cache %>
+        <label><%#= f.check_box :remove_avatar %><!-- Remove Avatar --></label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Save & Submit", class: "btn btn-success btn-large" %>
+    </div>
+    
+    </fieldset>
+    <% end %>
+  </div>
+</div>
