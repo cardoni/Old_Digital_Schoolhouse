@@ -1,0 +1,12 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Edit Profile<small> (Editing User <em><%= current_user.name %></em>)</small></h1>
+    </div>
+    <% if admin? %>
+  		<%= render 'form' %>
+  		<% else %>
+  		<%= redirect_to @root_url, notice: "You don't have permission to do that." %>
+  	<% end %>
+  </div>
+</div>

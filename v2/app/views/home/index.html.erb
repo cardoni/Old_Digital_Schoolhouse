@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= render 'shared/top_about' -%>
+    <div class="row-fluid">
+      <%= render 'home/top_left_slider_menu' -%>
+      <%= render 'home/top_featured_image_slider' -%>
+    </div>
+      <%= render 'home/bottom_blocks' -%>
+  </div>
+</div>
+
+<script src="http://cdn.jquerytools.org/1.2.6/jquery.tools.js"></script>
+<script language="JavaScript">
+$(function() {
+  $(".slidetabs").tabs(".images > div", {
+    fadeOutSpeed: "slow",
+    effect: 'fade',
+    rotate: true,
+    interval: 2000,
+    clickable: false
+  }).slideshow({
+    autoplay: false,
+  });
+});
+</script>

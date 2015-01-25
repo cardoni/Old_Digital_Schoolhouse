@@ -1,0 +1,18 @@
+<div class="row-fluid">
+  <ul class="row">
+  <%- @posts.each do |p| -%>  
+    <li class="span3">
+      <div class="image-thumbnail">
+        <div class="floating-button" style="position: absolute; top: 5px; left: 5px;">
+          <%= link_to icon("edit", ""), edit_post_url(p), id: "edit-post-button", class: "btn btn-danger" if admin? -%>
+        </div>
+        <%= image_tag(p.assets.first.image.thumb('300x300#').url,
+            alt: truncate(p.body, length: 100, seperator: ' ')) if p.assets.present? -%>
+        <div class="image-thumbnail-caption">
+          <h4><%= link_to (p.location), post_url(p) -%></h4>
+        </div>
+      </div>
+    </li>
+  <%- end -%>
+  </ul>
+</div>
