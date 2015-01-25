@@ -11,70 +11,69 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120214223858) do
+ActiveRecord::Schema.define(:version => 20120326225311) do
 
-  create_table "articles", :force => true do |t|
-    t.datetime "article_date"
-    t.boolean  "published"
-    t.string   "article_title"
-    t.text     "article_body"
-    t.text     "article_tags"
+  create_table "assets", :force => true do |t|
+    t.string   "type"
+    t.string   "image_uid"
     t.integer  "user_id"
-    t.string   "attachment_URL"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "yt_url"
-    t.string   "image_url"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "image_name"
+    t.integer  "resource_id"
+    t.string   "resource_url"
   end
 
   create_table "attachments", :force => true do |t|
-    t.string   "media_type"
-    t.integer  "article_id"
-    t.integer  "media_id"
+    t.string   "provider"
+    t.string   "attachment_url"
+    t.text     "description"
+    t.string   "copyright_info"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "asset_id"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pictures", :force => true do |t|
+  create_table "posts", :force => true do |t|
     t.string   "title"
-    t.string   "description"
-    t.string   "copyright"
+    t.text     "body"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "body_html"
+    t.string   "slug"
     t.string   "location"
-    t.string   "provider"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
-  create_table "schools", :force => true do |t|
-    t.string   "name"
-    t.string   "country"
-    t.string   "state"
+  add_index "posts", ["slug"], :name => "index_posts_on_slug", :unique => true
+
+  create_table "thumbs", :force => true do |t|
+    t.string   "uid"
+    t.string   "job"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "username"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
-    t.string   "password"
-    t.boolean  "active_author"
-    t.integer  "school_id"
-    t.text     "bio"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "classification"
     t.string   "password_digest"
-  end
-
-  create_table "videos", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "copyright"
+    t.text     "bio"
     t.string   "location"
-    t.string   "provider"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "school"
+    t.string   "avatar"
+    t.integer  "country_id"
   end
 
 end

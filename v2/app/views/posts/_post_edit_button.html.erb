@@ -1,0 +1,5 @@
+<%- if signed_in? -%>
+  <%- if admin? or current_user.id == @post.user_id -%>
+    <%= link_to icon("edit", "Edit This Post"), edit_post_url(@post), method: :get, class: "btn btn-large btn-warning pull-right" %>
+    <%- end -%>
+<%- end -%>

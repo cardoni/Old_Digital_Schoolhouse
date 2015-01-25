@@ -7,6 +7,9 @@
 # Ignore bundler config
 /.bundle
 
+#Ignore rspec.output files
+rspec.output
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 
@@ -14,5 +17,15 @@
 /log/*.log
 /tmp
 
-# Ignore Mac ".DS_Store" files
+# Ignore all OS X .DS_Store files
 .DS_Store
+
+#Ignore .rvmrc file
+.rvmrc
+.rvmrc~
+
+#Ignore images
+/public/uploads
+
+# Ignore the backup files
+*~

@@ -1,0 +1,249 @@
+html
+  overflow-y: scroll
+
+// This is technically goofed up:  We need to have this style come in after bootstrap's css, but before the bootstrap_responsive's css kicks in...  Anyway, works for now :) (--Greg)
+body
+  background:
+    image: url("/images/background.gif")
+    repeat: no-repeat
+    position: 75px 0px
+    attachment: fixed
+
+.page-header
+  margin: 0 0 13px 0
+  padding: 18px 0
+  border-bottom: 1px solid rgba(gray, 0.2)
+  h1
+    margin: 8px 0
+  
+div.about-page
+  width: auto
+  h2
+    text-align: left
+    margin: 5px 0 15px 0
+    letter-spacing: 5px
+  .about-section
+    margin: 0 0 25px 0
+
+.navbar-inner .container
+  margin-left: -20px
+// blockquote.main-quote
+//   display: inline
+//   border: none
+//   margin: 1.5em 10px
+//   padding: .5em 10px
+//   quotes: "\201C""\201D""\2018""\2019"
+//   &:before
+//     color: #ccc
+//     content: open-quote
+//     font-size: 4em
+//     line-height: .1em
+//     margin-right: .25em
+//     vertical-align: -.4em
+//   &:after
+//     color: #ccc
+//     content: close-quote
+//     font-size: 4em
+//     line-height: .1em
+//     margin-left: .25em
+//     vertical-align: -.6em
+  
+.main-quote
+  display: inline
+  font-size: 20px
+  line-height: 125px
+  margin: 0 auto
+  padding: 0
+#aboutbox .span5
+  text-align: center
+  .main-quote
+    font-size: 24px
+    letter-spacing: 2px
+    margin: 0
+    padding: 30px
+    line-height: 30px
+
+.carousel-control
+  border: 0px solid white
+  // background: #4CD748
+  opacity: 0.4
+
+#aboutbox
+  background-color: transparent
+  border: none
+  box-shadow: none
+  padding: 18px 0 16px 0
+  height: 120px
+  border-bottom: 1px solid rgba(gray, 0.2)
+  
+#sidewell.well
+  background-color: rgba(gray, 0.2)
+
+// .well
+  // background-color: rgba(gray, 0.7)
+
+section
+  overflow: auto
+
+textarea
+  resize: vertical
+
+.center
+  text-align: center
+
+.center h1
+  margin-bottom: 10px
+
+// // Do we need this, since we already have padding-top set for <body>??  (--Greg)
+// // #main
+// //   margin-top: 40px
+//   
+.navbar-inner
+  background-color: rgba(76, 250, 72, 0.9)
+  @include background-image(linear-gradient(rgba(76, 140, 72, 0.7), rgba(76, 171, 72, 0.7)))
+  color: white
+  ul.dropdown-menu
+    @extend .navbar-inner
+
+// style of "active" upper-nav menu item
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover
+  // background-color: #2F561F
+  // background-color: #4CF048
+  background-color: #4CD748
+  color: #2F561F
+  text-shadow: 0 1px 1px rgba(white, 0.5)
+
+// style of the text of upper-nav menu items
+.navbar .nav > li > a
+  color: white
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+  
+// style of upper-nav drop-down menu header text
+.nav .nav-header,
+.navbar .nav ul.dropdown-menu
+  color: white
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+
+// text color of text/icons in drop-down menus
+.navbar .nav .dropdown-menu a
+  color: white
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+
+// style of upper-nav drop-down menu hover effect 
+.navbar .nav ul.dropdown-menu a:hover
+  background-color: #2F561F
+
+// style of upper-nav vertical divider
+.navbar .divider-vertical
+  background-color: rgba(0, 0, 0, 0.3)
+  border-right: 0px solid #FFF
+  
+// thumbnail text input size (kinda hacky fix  -GREG)
+input.thumbnail-text-input
+  width: 80%
+  
+/* typography */
+
+h1, h2, h3, h4, h5, h6
+  line-height: 1
+
+h1
+  font-size: 3em
+  //letter-spacing: -2px
+  margin-bottom: 30px
+  text-align: center
+
+h2
+  font-size: 1.7em
+  letter-spacing: -1px
+  margin-bottom: 30px
+  text-align: center
+  font-weight: normal
+  color: #999
+
+p
+  font-size: 1.1em
+  line-height: 1.7em
+
+  
+  /* footer */
+
+footer
+  margin-top: 45px
+  padding-top: 5px
+  border-top: 1px solid #eaeaea
+  color: #999
+
+footer a
+  color: #555
+
+footer a:hover 
+  color: #222
+
+footer small
+  float: left
+
+footer ul
+  float: right
+  list-style: none
+
+footer ul li
+  float: left
+  margin-left: 10px
+
+// Please don't delete this!  :)
+.clearfix
+  clear:  both
+  
+// Caption on top of images on home index view
+.image-thumbnail
+  overflow: hidden
+  width: 100%
+  position: relative
+
+// Caption on top of images on home index view
+.image-thumbnail-caption
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 4px
+  padding: 6px 0px 11px 0px
+  background: #333
+  background: rgba(0, 0, 0, 0.4)
+  color: white
+  text-align: center
+  a
+    color: white
+  .link
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 1
+    
+// Caption on top of slideshow image
+.image
+  overflow: hidden
+  width: 100%
+  position: relative
+
+// Caption on top of images on home index view
+.image-caption
+  position: absolute
+  left: 0
+  right: 0
+  bottom: 4px
+  padding: 6px 0px 11px 0px
+  background: #333
+  background: rgba(0, 0, 0, 0.4)
+  color: white
+  text-align: center
+  a
+    color: white
+  .link
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    z-index: 1

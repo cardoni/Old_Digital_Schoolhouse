@@ -11,6 +11,36 @@ end
 
 module DigitalSchoolhouse
   class Application < Rails::Application
+    
+    config.middleware.insert 0, 'Rack::Cache', {
+      :verbose     => true,
+      :metastore   => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/meta"),
+      :entitystore => URI.encode("file:#{Rails.root}/tmp/dragonfly/cache/body")
+    } # unless Rails.env.production?  ## uncomment this 'unless' in Rails 3.1,
+                                      ## because it already inserts Rack::Cache in production
+    
+    config.middleware.insert_after 'Rack::Cache', 'Dragonfly::Middleware', :images
+    
+    config.action_controller.default_url_options = { :trailing_slash => false }
+    
+    config.middleware.insert_before(Rack::Lock, Rack::Rewrite) do
+      # Tells rails that we'd like to have some stuff running in middleware to modify some URLs as they come in
+      if Rails.env.production?
+        # Insures that app is always running on canonical domain when in production
+        r301 %r{.*}, 'http://www.schoolhouse.io$&',
+          :if => Proc.new { |rack_env| rack_env['SERVER_NAME'] != 'www.schoolhouse.io' }
+      end
+      
+      r301 %r{^/(.*)/$}, '/$1'
+      # Throws a 301 redirect for urls with trailing slashes ("/")
+      
+      # if Post.find_by_id(Rack::Request.new(env).params[:id])
+      #   r301 post_url(@post)
+      # end        
+    end
+    
+    
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -35,7 +65,7 @@ module DigitalSchoolhouse
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
-
+    config.action_mailer.delivery_method = :test
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
 
@@ -50,12 +80,13 @@ module DigitalSchoolhouse
     # parameters by using an attr_accessible or attr_protected declaration.
     # config.active_record.whitelist_attributes = true
 
+    # Precompile *all* assets, except those that start with underscore
+    config.assets.precompile << /(^[^_\/]|\/[^_])[^\/]*$/
+
     # Enable the asset pipeline
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    
-    #config.compass.sass_dir = "app/assets/stylesheets"
   end
 end

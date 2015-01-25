@@ -1,24 +1,27 @@
 class SessionsController < ApplicationController
+  skip_before_filter :login_user!, only: [:new, :create]
+  
   def new
-    @title = "Sign in"
+    
   end
   
   def create
-    user = User.authenticate(params[:session][:email],
-                             params[:session][:password])
-    if user.nil?
-      flash.now[:error] = "Invalid email/password combination."
-      @title = "Sign in"
-      render 'new'
-    else
-      sign_in user
-      redirect_back_or user
-    end
+    user = User.find_by_email(params[:email])
+         if user.present?
+           if user.authenticate(params[:password])
+             session[:user] = user.id
+             redirect_to root_url
+           else
+          redirect_to new_session_url, notice: "Incorrect login. Please try again."
+             end
+           else
+             redirect_to new_session_url, notice: "Incorrect login. Please try again"
+           end
   end
   
-  def destroy
-    sign_out
-    redirect_to root_path
+  def logout
+   reset_session
+   redirect_to :root
   end
-end
 
+end

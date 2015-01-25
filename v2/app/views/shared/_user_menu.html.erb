@@ -1,0 +1,18 @@
+<li class="dropdown">
+  <a href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown">
+        <%= icon("list-alt", "Profile & Posts") %>
+        <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu">
+    <%= content_tag :li, current_user.name, class: "nav-header" %>
+    <%= content_tag :li, link_to(icon("user", "Your Profile"), edit_user_url(current_user)),
+                    class: is_active?(edit_user_url(current_user)) %>
+    <%= content_tag :li, link_to(icon("th-list", "Your Posts"), posts_url), class: is_active?(posts_url) %>
+    <%= content_tag :li, "", class: "divider" %>
+    <%= content_tag :li, "Everyone", class: "nav-header" %>
+    <%= content_tag :li, link_to(icon("eye-open", "See All Users"), users_url), class: is_active?(users_url) %>
+  </ul>
+</li>
+<script>$('.dropdown-toggle').dropdown()</script>

@@ -1,0 +1,8 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h1>Editing '<%= @post.title.blank? ? "[Set Title Below!]" : @post.title %>' <small>(Last edited: <%= time_ago_in_words(@post.updated_at) %> ago)</small></h1>
+    </div>
+    <%= render 'form' if signed_in? %>
+  </div>
+</div>
